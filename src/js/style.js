@@ -1,5 +1,6 @@
 //DOM ELEMENTS
 const navbar = document.querySelector(".nav");
+const motto = document.querySelector(".motto");
 const banner = document.querySelector(".banner");
 const slideLeftButton = document.querySelector(".slide-left-button");
 const slideRightButton = document.querySelector(".slide-right-button");
@@ -11,6 +12,7 @@ const navlinksBackground = document.querySelector(".navlinks-background");
 const navlinksContainer = document.querySelector(".navlinks-container");
 const burgerButton = document.querySelector(".nav-burger");
 const burgerExitButton = document.querySelector(".burger-exit");
+const bannerButtonDown = document.querySelector(".banner-button");
 
 const burgerMenu = () => {
   const burgerMenuOpen = () => {
@@ -94,7 +96,6 @@ bannerTitleTransition();
 const observeNavbar = () => {
   const navbarObserver = (entries, observer) => {
     const [entry] = entries;
-    console.log(entry);
 
     if (!entry.isIntersecting) {
       navbar.classList.add("sticky");
@@ -108,3 +109,10 @@ const observeNavbar = () => {
   observer.observe(banner);
 };
 observeNavbar();
+
+const scrollDown = () => {
+  bannerButtonDown.addEventListener("click", () => {
+    motto.scrollIntoView({ behavior: "smooth" });
+  });
+};
+scrollDown();

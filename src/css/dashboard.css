@@ -33,15 +33,14 @@ main {
 }
 .small-text-banner {
   color: var(--white);
-
 }
 .banner-button {
   display: block;
-  text-decoration: none;
   margin: auto;
   width: 2rem;
   height: 2rem;
   margin-block: 2rem;
+  cursor: pointer;
   transition-duration: 0.1s;
 }
 .banner-button:hover {
