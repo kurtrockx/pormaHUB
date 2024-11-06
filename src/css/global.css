@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: "century gothic";
+  font-size: 16px;
+  background: var(--white);
+  scroll-behavior: smooth;
+}
+:root {
+  --primary-color: #22333b;
+  --secondary-color: #eae0d6;
+  --tertiary-color: #c5ac8e;
+  --quaternary-color: #5f4e3e;
+  --white: white;
+  --light-black: rgb(50, 50, 50);
+  --black: black;
+}
+button {
+  all: unset;
+}
