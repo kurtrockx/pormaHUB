@@ -17,6 +17,11 @@ html {
   --white: white;
   --light-black: rgb(50, 50, 50);
   --black: black;
+
+  --banner-font-size: clamp(2rem, 16vw, 14rem);
+  --small-font-size: clamp(0.35rem, 1.25vw, 1rem);
+  --medium-font-size: clamp(1rem, 1.5vw, 2.5rem);
+  --big-font-size: clamp(2rem, 2.5vw, 3.5rem);
 }
 button {
   all: unset;

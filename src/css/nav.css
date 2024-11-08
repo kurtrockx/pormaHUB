@@ -70,9 +70,9 @@
   top: 0;
   right: 0;
   z-index: 1000;
-  width: 30rem;
+  width: min(100%, 30rem);
   height: 100%;
-  font-size: 2.5rem;
+  font-size: var(--big-font-size);
   margin-left: auto;
   padding-inline: 3.25rem;
   display: flex;
@@ -100,7 +100,7 @@
 }
 .navlink {
   position: relative;
-  font-size: 1.5rem;
+  font-size: var(--medium-font-size);
   text-decoration: none;
 }
 .navlink::before {

@@ -13,6 +13,7 @@ const navlinksContainer = document.querySelector(".navlinks-container");
 const burgerButton = document.querySelector(".nav-burger");
 const burgerExitButton = document.querySelector(".burger-exit");
 const bannerButtonDown = document.querySelector(".banner-button");
+const bannerImage = document.querySelector(".banner-image");
 
 const burgerMenu = () => {
   const burgerMenuOpen = () => {
@@ -33,7 +34,6 @@ const burgerMenu = () => {
     }
   });
 };
-burgerMenu();
 
 const slideFunction = () => {
   const slideScroll = (currentSlide) => {
@@ -76,22 +76,33 @@ const slideFunction = () => {
   slideLeftButton.addEventListener("click", slideLeft);
   slideRightButton.addEventListener("click", slideRight);
 };
-slideFunction();
 
-for (let x = 0; x < 20; x++) {
-  const html = `<p class="trending-scroll-text">TRENDING NOW!</p>`;
-  trendingScrollContainer.insertAdjacentHTML("beforeend", html);
-}
+const trendingScroll = () => {
+  for (let x = 0; x < 20; x++) {
+    const html = `<p class="trending-scroll-text">TRENDING!</p>`;
+    trendingScrollContainer.insertAdjacentHTML("beforeend", html);
+  }
+};
 
 const bannerTitleTransition = () => {
-  setTimeout(() => {
-    bigTextBanner.classList.remove("big-text-banner-transition");
-  }, 200);
-  setTimeout(() => {
-    smallTextBanner.classList.remove("small-text-banner-transition");
-  }, 500);
+  const bigTextPromise = () =>
+    new Promise((resolve) => {
+      setTimeout(() => {
+        bigTextBanner.classList.remove("big-text-banner-transition");
+        resolve();
+      }, 500);
+    });
+
+  const smallTextPromise = () =>
+    new Promise((resolve) => {
+      setTimeout(() => {
+        smallTextBanner.classList.remove("small-text-banner-transition");
+        resolve();
+      }, 200);
+    });
+
+  bigTextPromise().then(() => smallTextPromise());
 };
-bannerTitleTransition();
 
 const observeNavbar = () => {
   const navbarObserver = (entries, observer) => {
@@ -108,7 +119,6 @@ const observeNavbar = () => {
   });
   observer.observe(banner);
 };
-observeNavbar();
 
 const scrollDown = () => {
   bannerButtonDown.addEventListener("click", () => {
@@ -116,3 +126,13 @@ const scrollDown = () => {
   });
 };
 scrollDown();
+
+const init = () => {
+  burgerMenu();
+  slideFunction();
+  trendingScroll();
+  bannerTitleTransition();
+  observeNavbar();
+};
+
+init();

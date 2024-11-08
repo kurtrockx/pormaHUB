@@ -1,5 +1,5 @@
 main {
-  min-height: 200vh;
+  min-height: 300vh;
 }
 /* BANNER */
 .banner {
@@ -28,10 +28,11 @@ main {
   transition: all 0.5s ease;
 }
 .big-text-banner {
-  font-size: 14rem;
+  font-size: var(--banner-font-size);
   text-shadow: 8px 8px 0 var(--tertiary-color);
 }
 .small-text-banner {
+  font-size: var(--small-font-size);
   color: var(--white);
 }
 .banner-button {
@@ -106,6 +107,7 @@ main {
 .trending-scroll-text {
   flex-shrink: 0;
   width: 10%;
+  font-size: var(--small-font-size);
   text-align: center;
   border-right: 1px solid var(--black);
   color: var(--black);
@@ -122,7 +124,7 @@ main {
 .trending-container {
   margin: auto;
   position: relative;
-  max-width: 80rem;
+  width: clamp(50%, 80vw, 80rem);
 }
 .slide-button {
   position: absolute;
