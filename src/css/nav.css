@@ -26,8 +26,12 @@
   gap: 0.5rem;
 }
 .pormahub-logo-text {
-  font-size: 0.75rem;
+  font-size: var(--logo-text-font-size);
   text-wrap: nowrap;
+}
+#hub-logo-text {
+  color: var(--primary-color);
+  font-weight: 600;
 }
 .navlogo img {
   display: block;
@@ -70,7 +74,7 @@
   top: 0;
   right: 0;
   z-index: 1000;
-  width: min(100%, 30rem);
+  width: min(100%, 32rem);
   height: 100%;
   font-size: var(--big-font-size);
   margin-left: auto;
@@ -91,16 +95,15 @@
   font-weight: 600;
   margin-block: 4.75rem 2rem;
 }
-
 #hub-text {
   border-radius: 0.25rem;
   padding: 0.1rem;
-  background: #ff9000;
+  background: var(--primary-color);
   color: var(--black);
 }
 .navlink {
   position: relative;
-  font-size: var(--medium-font-size);
+  font-size: var(--navlink-font-size);
   text-decoration: none;
 }
 .navlink::before {

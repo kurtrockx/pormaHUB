@@ -90,7 +90,7 @@ const bannerTitleTransition = () => {
       setTimeout(() => {
         bigTextBanner.classList.remove("big-text-banner-transition");
         resolve();
-      }, 500);
+      }, 300);
     });
 
   const smallTextPromise = () =>
@@ -98,7 +98,7 @@ const bannerTitleTransition = () => {
       setTimeout(() => {
         smallTextBanner.classList.remove("small-text-banner-transition");
         resolve();
-      }, 200);
+      }, 300);
     });
 
   bigTextPromise().then(() => smallTextPromise());
@@ -110,7 +110,11 @@ const observeNavbar = () => {
 
     if (!entry.isIntersecting) {
       navbar.classList.add("sticky");
-    } else navbar.classList.remove("sticky");
+      document.querySelector(".motto-line").classList.add("hide");
+    } else {
+      navbar.classList.remove("sticky");
+      document.querySelector(".motto-line").classList.remove("hide");
+    }
   };
 
   const observer = new IntersectionObserver(navbarObserver, {
@@ -125,7 +129,6 @@ const scrollDown = () => {
     motto.scrollIntoView({ behavior: "smooth" });
   });
 };
-scrollDown();
 
 const init = () => {
   burgerMenu();
@@ -133,6 +136,7 @@ const init = () => {
   trendingScroll();
   bannerTitleTransition();
   observeNavbar();
+  scrollDown();
 };
 
 init();

@@ -13,7 +13,7 @@ main {
   height: 100%;
   display: block;
   object-fit: cover;
-  filter: saturate(90%) brightness(80%);
+  filter: saturate(90%) brightness(70%);
 }
 .banner-text {
   position: absolute;
@@ -22,18 +22,19 @@ main {
   width: 100%;
   text-align: center;
   line-height: 1;
-  color: var(--white);
+  color: white;
 }
 .banner-text > * {
   transition: all 0.5s ease;
 }
 .big-text-banner {
+  font-family: Poppins-Bold;
   font-size: var(--banner-font-size);
-  text-shadow: 8px 8px 0 var(--tertiary-color);
+  text-shadow: var(--text-shadow-banner) var(--text-shadow-banner) 0
+    var(--tertiary-color);
 }
 .small-text-banner {
-  font-size: var(--small-font-size);
-  color: var(--white);
+  font-size: var(--smaller-font-size);
 }
 .banner-button {
   display: block;
@@ -45,7 +46,7 @@ main {
   transition-duration: 0.1s;
 }
 .banner-button:hover {
-  scale: 1.1;
+  scale: 1.05;
 }
 .banner-button img {
   width: 100%;
@@ -65,17 +66,29 @@ main {
 /* MOTTO TEXT */
 .motto {
   margin: auto;
-  padding: 10rem 0 4rem;
+  position: relative;
+  padding: 7.75rem 0 2rem;
   text-align: center;
-  font-size: 2.5rem;
+  font-family: Poppins-Medium;
+  font-size: var(--big-font-size);
   color: var(--black);
+}
+.motto-line {
+  content: "";
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  translate: -50%;
+  width: 2px;
+  height: 3.75rem;
+  background-color: var(--black);
 }
 
 /* INFINITE SCROLL */
 .trending-scroll-container {
   position: relative;
   margin: auto;
-  width: 80vw;
+  width: min(100%, var(--content-width));
   overflow: hidden;
 }
 .trending-scroll {
@@ -107,7 +120,7 @@ main {
 .trending-scroll-text {
   flex-shrink: 0;
   width: 10%;
-  font-size: var(--small-font-size);
+  font-size: var(--trending-font-size);
   text-align: center;
   border-right: 1px solid var(--black);
   color: var(--black);
@@ -128,18 +141,35 @@ main {
 }
 .slide-button {
   position: absolute;
+  z-index: 200;
   top: 50%;
   translate: 0 -50%;
-  font-size: 2rem;
+  height: 100%;
+  padding-inline: 0.25rem;
   cursor: pointer;
-  color: var(--black);
+  filter: invert() drop-shadow(0 2px 0 var(--black));
+  transition: all 0.1s ease;
+}
+.slide-button img {
+  width: 2rem;
+  height: 2rem;
 }
 .slide-left-button {
-  left: -2rem;
+  left: 0;
 }
 .slide-right-button {
-  right: -2rem;
+  right: 0;
 }
+.slide-left-button img {
+  transform: rotate(90deg);
+}
+.slide-right-button img {
+  transform: rotate(270deg);
+}
+.slide-button:hover {
+  scale: 1.2;
+}
+
 .slides-container {
   height: 32rem;
   margin: auto;
@@ -156,10 +186,106 @@ main {
   align-content: center;
   border-radius: 1rem;
   background-color: var(--secondary-color);
+  overflow: hidden;
   transition: all 0.5s ease;
 }
+.slide img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(5px 5px 2px black);
+}
+
 .slideOff {
   transform-origin: left;
   transform: scale(0.9);
   margin-left: 1rem;
+}
+
+@media screen and (max-width: 534px) {
+  .slides-container {
+    height: 360px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .slides-container {
+    height: 250px;
+  }
+}
+
+.section-strip {
+  margin-top: 2.5rem;
+  padding-block: 1rem;
+  font-family: Poppins-Bold;
+  font-size: var(--section-strip-font-size);
+  text-align: center;
+  background: var(--black);
+  color: var(--white);
+}
+
+/* REVIEW CARDS */
+.reviews-section {
+  color: var(--black);
+  margin-bottom: 4rem;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.1);
+  padding: clamp(4rem, 6vw, 6rem) 2rem;
+}
+.reviews-header {
+  font-family: Oswald-Light;
+  font-style: italic;
+  font-size: var(--big-font-size);
+  text-align: center;
+  margin-bottom: clamp(2rem, 2vw, 4rem);
+}
+.reviews-container {
+  margin: auto;
+  max-width: var(--content-width);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  justify-content: center;
+  margin-block: 2rem 4rem;
+  cursor: default;
+}
+.review-card {
+  position: relative;
+  background: var(--white);
+  padding: var(--big-font-size) var(--medium-font-size);
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s ease;
+}
+.review-card img {
+  position: absolute;
+  z-index: 10;
+  top: -4rem;
+  right: -1.5rem;
+  opacity: 0.2;
+  width: clamp(8rem, 10vw, 12rem);
+  height: clamp(8rem, 10vw, 12rem);
+}
+.review-card-name {
+  font-weight: 600;
+  font-size: var(--medium-font-size);
+}
+
+.review-card-description {
+  margin-block: var(--smaller-font-size);
+  text-align: justify;
+  font-size: var(--review-card-description-font-size);
+}
+.review-card-stars {
+  display: flex;
+  justify-content: center;
+  height: 1.5rem;
+  width: 100%;
+}
+.review-card-stars img {
+  object-fit: contain;
+  height: 100%;
+}
+.review-card:hover {
+  translate: 0 -0.5rem;
 }
