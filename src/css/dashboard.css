@@ -1,6 +1,19 @@
 main {
-  min-height: 300vh;
+  min-height: 400vh;
 }
+:root {
+  --logo-text-font-size: clamp(0.45rem, 2vw, 0.8rem);
+  --review-card-description-font-size: clamp(0.5rem, 0.75vw, 1rem);
+  --banner-font-size: clamp(2rem, 14vw, 14rem);
+  --trending-font-size: clamp(0.3rem, 1vw, 1rem);
+  --navlink-font-size: clamp(0.8rem, 2.5vw, 1.2rem);
+  --section-strip-font-size: clamp(0.9rem, 2.5vw, 3.5rem);
+  --question-font-size: clamp(0.9rem, 1.25vw, 1rem);
+  --answer-font-size: clamp(0.75rem, 1.25vw, 1rem);
+  --motto-padding: clamp(4rem, 15vh, 7.75rem);
+  --motto-line: clamp(10%, 5vh, 20%);
+}
+
 /* BANNER */
 .banner {
   position: relative;
@@ -67,7 +80,7 @@ main {
 .motto {
   margin: auto;
   position: relative;
-  padding: 7.75rem 0 2rem;
+  padding: var(--motto-padding) 0 2rem;
   text-align: center;
   font-family: Poppins-Medium;
   font-size: var(--big-font-size);
@@ -76,11 +89,11 @@ main {
 .motto-line {
   content: "";
   position: absolute;
-  top: 15%;
+  top: var(--motto-line);
   left: 50%;
   translate: -50%;
   width: 2px;
-  height: 3.75rem;
+  height: var(--big-font-size);
   background-color: var(--black);
 }
 
@@ -108,7 +121,7 @@ main {
   translate: 0 -50%;
   width: 100%;
   height: 120%;
-  z-index: 1;
+  z-index: 100;
   background: linear-gradient(
     to right,
     var(--white) -0%,
@@ -185,7 +198,7 @@ main {
   text-align: center;
   align-content: center;
   border-radius: 1rem;
-  background-color: var(--secondary-color);
+  background-color: var(--light-grey);
   overflow: hidden;
   transition: all 0.5s ease;
 }
@@ -229,13 +242,14 @@ main {
   color: var(--black);
   margin-bottom: 4rem;
   width: 100%;
-  background-color: rgb(0, 0, 0, 0.1);
+  background-color: var(--lighter-grey);
   padding: clamp(4rem, 6vw, 6rem) 2rem;
 }
 .reviews-header {
   font-family: Oswald-Light;
   font-style: italic;
   font-size: var(--big-font-size);
+  color: var(--black);
   text-align: center;
   margin-bottom: clamp(2rem, 2vw, 4rem);
 }
@@ -259,7 +273,7 @@ main {
 }
 .review-card img {
   position: absolute;
-  z-index: 10;
+  z-index: 100;
   top: -4rem;
   right: -1.5rem;
   opacity: 0.2;
@@ -288,4 +302,64 @@ main {
 }
 .review-card:hover {
   translate: 0 -0.5rem;
+}
+
+.frequently-asked-questions-container {
+  width: 100%;
+  padding: 2rem;
+}
+.question-header {
+  max-width: var(--content-width);
+  font-weight: 1000;
+  margin: 0 auto 2rem;
+  font-size: var(--medium-font-size);
+}
+.questioner-container {
+  max-width: var(--content-width);
+  margin: auto;
+  overflow: hidden;
+  display: grid;
+  gap: 0.5rem;
+}
+.question-container {
+  border-radius: 0.25rem;
+  border: 1px solid var(--light-grey);
+}
+.question {
+  position: relative;
+  font-size: var(--question-font-size);
+  font-weight: 600;
+  padding: 1rem;
+  cursor: pointer;
+  background: var(--lightest-grey);
+  box-shadow: 0 2px 0 var(--lighter-grey);
+}
+.question-down {
+  object-fit: contain;
+  width: 20px;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  translate: 0 -50%;
+  transition: all 0.1s ease;
+}
+.answer-container {
+  font-size: var(--answer-font-size);
+  text-align: justify;
+  padding-inline: 1rem;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: all 0.25s ease;
+}
+.answer {
+  cursor: default;
+  overflow: hidden;
+}
+.answer-show {
+  grid-template-rows: 1fr;
+  padding-block: 1rem;
+}
+
+.rotate {
+  transform: rotate(180deg);
 }

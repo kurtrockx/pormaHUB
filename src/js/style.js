@@ -14,6 +14,7 @@ const burgerButton = document.querySelector(".nav-burger");
 const burgerExitButton = document.querySelector(".burger-exit");
 const bannerButtonDown = document.querySelector(".banner-button");
 const bannerImage = document.querySelector(".banner-image");
+const questionerContainer = document.querySelector(".questioner-container");
 
 const burgerMenu = () => {
   const burgerMenuOpen = () => {
@@ -130,6 +131,63 @@ const scrollDown = () => {
   });
 };
 
+const frequentlyAskedQuestionToggler = () => {
+  const frequentlyAskedQuestions = [
+    {
+      question: "Kumain kana ba?",
+      answer: "Dipa po",
+    },
+    {
+      question: "Ano gusto mo kainin?",
+      answer: "Ikaw",
+    },
+    {
+      question: "What if di ka mahal ng mahal mo?",
+      answer: "Iyaq",
+    },
+    {
+      question: "What if sinabi kong crush kita?",
+      answer: "Edi ang galing",
+    },
+  ];
+
+  document.addEventListener("click", (e) => {
+    const clicked = e.target.closest(".question");
+    if (!clicked) return;
+    const answerContainer = clicked
+      .closest(".question-container")
+      .querySelector(".answer-container");
+    const questionDown = clicked
+      .closest(".question-container")
+      .querySelector(".question-down");
+
+    document.querySelectorAll(".answer-container").forEach((el) => {
+      if (el !== answerContainer) el.classList.remove("answer-show");
+    });
+    document.querySelectorAll(".question-down").forEach((el) => {
+      if (el !== questionDown) el.classList.remove("rotate");
+    });
+    answerContainer.classList.toggle("answer-show");
+    questionDown.classList.toggle("rotate");
+  });
+
+  frequentlyAskedQuestions.forEach((q) => {
+    const html = `
+      <div class="question-container">
+        <div class="question">
+          ${q.question}
+          <img src="../assets/svg/down.svg" class="question-down" />
+        </div>
+        <div class="answer-container">
+          <div class="answer"> ${q.answer}</div>
+        </div>
+      </div>
+    `;
+
+    questionerContainer.insertAdjacentHTML("beforeend", html);
+  });
+};
+
 const init = () => {
   burgerMenu();
   slideFunction();
@@ -137,6 +195,7 @@ const init = () => {
   bannerTitleTransition();
   observeNavbar();
   scrollDown();
+  frequentlyAskedQuestionToggler();
 };
 
 init();
