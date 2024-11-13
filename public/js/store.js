@@ -1,22 +1,13 @@
 const productContainer = document.querySelectorAll(".product-container");
 
-const hoverProductHightlight = () => {
+const hoverProduct = () => {
   document.addEventListener("mouseover", (e) => {
-    const targetProduct = e.target
-      .closest(".product-container")
-      .querySelector(".product");
-
-    if (!targetProduct) return;
+    const targetProduct = e.target.closest(".product-container");
 
     productContainer.forEach((el) => {
-      const product = el.querySelector(".product");
-      if (product !== targetProduct) {
-        product.classList.remove("productZ");
-      }
+      el.classList.remove("product-containerZ");
     });
-
-    targetProduct.classList.add("productZ");
+    targetProduct.classList.add("product-containerZ");
   });
 };
-
-hoverProductHightlight();
+hoverProduct();
