@@ -1,0 +1,85 @@
+main {
+  min-height: 200vh;
+}
+/* 
+<div class="product">
+    <img
+    src="https://cdn.pixabay.com/photo/2024/04/29/04/21/tshirt-8726716_640.jpg"
+    class="product-thumbnail-image"
+    />
+    <p class="product-name"></p>
+    <p class="product-price"></p>
+</div>
+*/
+.product-grid-container {
+  margin-left: auto;
+  width: 60vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+}
+.product-container {
+  position: relative;
+}
+.product-container::before {
+  content: "";
+  position: absolute;
+  z-index: 100;
+  top: 54%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 102%;
+  height: 110%;
+  visibility: hidden;
+  opacity: 0;
+  background-color: var(--primary-color);
+  transition: all 0.05s linear 0.05s;
+}
+.product-container:hover::before {
+  visibility: visible;
+  opacity: 1;
+}
+.product-container:not(:hover)::before {
+  transition-delay: 0s;
+  background-color: transparent;
+}
+
+.product {
+  position: relative;
+  z-index: 0;
+  aspect-ratio: 1/1.5;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+  background: var(--white);
+  border: 1px solid var(--light-grey);
+}
+.productZ {
+  z-index: 200;
+}
+
+.product img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 70%;
+  border-bottom: 1px solid var(--light-grey);
+}
+.product-initial-description {
+  padding: 0.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.product-initial-name {
+  font-family: Quicksand-Medium;
+  font-size: var(--medium-small-font-size);
+}
+.product-initial-price {
+  font-size: var(--small-font-size);
+  color: var(--primary-color);
+  text-shadow: 1px 1px 0 var(--light-black);
+}

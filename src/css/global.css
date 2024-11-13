@@ -28,6 +28,7 @@ html {
 
   --smaller-font-size: clamp(0.35rem, 1vw, 1rem);
   --small-font-size: clamp(0.5rem, 1.25vw, 0.75rem);
+  --medium-small-font-size: clamp(.65rem, 1.35vw, .8rem);
   --medium-font-size: clamp(1.25rem, 1.5vw, 2rem);
   --big-font-size: clamp(2rem, 2.5vw, 3.5rem);
 }
@@ -62,4 +63,8 @@ button {
 @font-face {
   font-family: "Quicksand-Medium";
   src: url("../../assets/fonts/Quicksand-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Kugile_Demo";
+  src: url("../../assets/fonts/Kugile_Demo.ttf") format("truetype");
 }

@@ -1,40 +1,24 @@
-//DOM ELEMENTS
+import downSvg from "../../assets/svg/down.svg";
+
+//Navigation
 const navbar = document.querySelector(".nav");
-const motto = document.querySelector(".motto");
+const navlinksBackground = document.querySelector(".navlinks-background");
+const navlinksContainer = document.querySelector(".navlinks-container");
+//Banner
 const banner = document.querySelector(".banner");
+const bannerButtonDown = document.querySelector(".banner-button");
+const bannerImage = document.querySelector(".banner-image");
+const bigTextBanner = document.querySelector(".big-text-banner");
+const smallTextBanner = document.querySelector(".small-text-banner");
+//Motto and infinite scroll
+const motto = document.querySelector(".motto");
+const trendingScrollContainer = document.querySelector(".trending-scroll");
+//Slider
 const slideLeftButton = document.querySelector(".slide-left-button");
 const slideRightButton = document.querySelector(".slide-right-button");
 const slides = document.querySelectorAll(".slide");
-const trendingScrollContainer = document.querySelector(".trending-scroll");
-const bigTextBanner = document.querySelector(".big-text-banner");
-const smallTextBanner = document.querySelector(".small-text-banner");
-const navlinksBackground = document.querySelector(".navlinks-background");
-const navlinksContainer = document.querySelector(".navlinks-container");
-const burgerButton = document.querySelector(".nav-burger");
-const burgerExitButton = document.querySelector(".burger-exit");
-const bannerButtonDown = document.querySelector(".banner-button");
-const bannerImage = document.querySelector(".banner-image");
+//FAQs
 const questionerContainer = document.querySelector(".questioner-container");
-
-const burgerMenu = () => {
-  const burgerMenuOpen = () => {
-    navlinksBackground.classList.remove("hidden");
-    navlinksContainer.classList.remove("burger-translate");
-  };
-  const burgerMenuClose = () => {
-    navlinksContainer.classList.add("burger-translate");
-    navlinksBackground.classList.add("hidden");
-  };
-  burgerButton.addEventListener("click", burgerMenuOpen);
-  [navlinksBackground, burgerExitButton].forEach((el) =>
-    el.addEventListener("click", burgerMenuClose)
-  );
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      burgerMenuClose();
-    }
-  });
-};
 
 const slideFunction = () => {
   const slideScroll = (currentSlide) => {
@@ -80,7 +64,7 @@ const slideFunction = () => {
 
 const trendingScroll = () => {
   for (let x = 0; x < 20; x++) {
-    const html = `<p class="trending-scroll-text">TRENDING!</p>`;
+    const html = `<p class="trending-scroll-text">STYLE</p>`;
     trendingScrollContainer.insertAdjacentHTML("beforeend", html);
   }
 };
@@ -134,6 +118,10 @@ const scrollDown = () => {
 const frequentlyAskedQuestionToggler = () => {
   const frequentlyAskedQuestions = [
     {
+      question: "Bakit may question mark yung header na faqs?",
+      answer: "Aba ewan ko ante",
+    },
+    {
       question: "Kumain kana ba?",
       answer: "Dipa po",
     },
@@ -148,6 +136,10 @@ const frequentlyAskedQuestionToggler = () => {
     {
       question: "What if sinabi kong crush kita?",
       answer: "Edi ang galing",
+    },
+    {
+      question: "What is your name?",
+      answer: "Kurt De Belen",
     },
   ];
 
@@ -176,7 +168,7 @@ const frequentlyAskedQuestionToggler = () => {
       <div class="question-container">
         <div class="question">
           ${q.question}
-          <img src="../assets/svg/down.svg" class="question-down" />
+          <img src="${downSvg}" class="question-down" />
         </div>
         <div class="answer-container">
           <div class="answer"> ${q.answer}</div>
@@ -189,7 +181,6 @@ const frequentlyAskedQuestionToggler = () => {
 };
 
 const init = () => {
-  burgerMenu();
   slideFunction();
   trendingScroll();
   bannerTitleTransition();
