@@ -1,0 +1,31 @@
+import { hoverProduct } from "../../../public/js/store";
+
+class ProductView {
+  productGridContainer = document.querySelector(".product-grid-container");
+
+  renderProducts(productsArr) {
+    productsArr.forEach((prod) => {
+      const html = this.productHTML(prod.thumbnail, prod.name, prod.price);
+      this.productGridContainer.insertAdjacentHTML("beforeend", html);
+    });
+  }
+  productHTML(productThumbnail, productName, productPrice) {
+    return `
+        <div class="product-container">
+            <div class="product-background">Add to cart</div>
+            <div class="product">
+                <img
+                    src="${productThumbnail}"
+                    class="product-thumbnail-image"
+                />
+                <div class="product-initial-description">
+                    <p class="product-initial-name">${productName}</p>
+                    <p class="product-initial-price">P${productPrice}</p>
+                </div>
+            </div>
+        </div>
+        `;
+  }
+}
+
+export default new ProductView();

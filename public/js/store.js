@@ -1,8 +1,11 @@
+const productGridContainer = document.querySelector(".product-grid-container");
 const productContainer = document.querySelectorAll(".product-container");
 
-const hoverProduct = () => {
+export const hoverProduct = () => {
   document.addEventListener("mouseover", (e) => {
     const targetProduct = e.target.closest(".product-container");
+
+    if (productContainer.length < 2) return;
 
     productContainer.forEach((el) => {
       el.classList.remove("product-containerZ");
@@ -10,4 +13,3 @@ const hoverProduct = () => {
     targetProduct.classList.add("product-containerZ");
   });
 };
-hoverProduct();

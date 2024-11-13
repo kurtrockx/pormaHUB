@@ -1,16 +1,6 @@
 main {
   min-height: 200vh;
 }
-/* 
-<div class="product">
-    <img
-    src="https://cdn.pixabay.com/photo/2024/04/29/04/21/tshirt-8726716_640.jpg"
-    class="product-thumbnail-image"
-    />
-    <p class="product-name"></p>
-    <p class="product-price"></p>
-</div>
-*/
 .product-grid-container {
   margin-left: auto;
   width: 60vw;
