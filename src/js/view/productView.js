@@ -1,5 +1,4 @@
 import { hoverProduct } from "../../../public/js/store";
-
 class ProductView {
   productGridContainer = document.querySelector(".product-grid-container");
 
@@ -8,10 +7,11 @@ class ProductView {
       const html = this.productHTML(prod.thumbnail, prod.name, prod.price);
       this.productGridContainer.insertAdjacentHTML("beforeend", html);
     });
+    hoverProduct();
   }
   productHTML(productThumbnail, productName, productPrice) {
     return `
-        <div class="product-container">
+        <div class="product-container" data-product-name="${productName}">
             <div class="product-background">Add to cart</div>
             <div class="product">
                 <img

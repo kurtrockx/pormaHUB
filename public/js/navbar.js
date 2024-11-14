@@ -2,6 +2,8 @@
 import burgerIcon from "../../assets/svg/burger.svg";
 import xIcon from "../../assets/svg/x.svg";
 import pormaLogo from "../../assets/images/phLogo.png";
+import userIcon from "../../assets/images/user.png";
+import cartIcon from "../../assets/images/cart.png";
 
 const burgerMenu = (
   navlinksBackground,
@@ -33,7 +35,7 @@ const insertNavbar = () => {
     <nav class="nav">
       <div class="navbar">
         <a href="index.html" class="navlogo">
-          <img src="${pormaLogo}" alt="" />
+          <img src="${pormaLogo}" />
           <p class="pormahub-logo-text">
             PORMA <span id="hub-logo-text">HUB</span>
           </p>
@@ -45,10 +47,25 @@ const insertNavbar = () => {
         <div class="navlinks-container burger-translate">
           <img src="${xIcon}" class="burger-exit" />
           <div class="navlinks-title">Porma<span id="hub-text">hub</span></div>
+          
+          <div class="navlink-icon-container">
+            <a href="" class="navlink-icon">
+              SHOPPING CART
+              <img src="${cartIcon}" />
+            </a>
+            <a href="" class="navlink-icon">
+            USERNAME
+              <img src="${userIcon}" />
+            </a>
+          </div>
+
           <a href="index.html" class="navlink">HOME</a>
           <a href="store.html" class="navlink">STORE</a>
           <a href="" class="navlink">ABOUT US</a>
           <a href="" class="navlink">CONTACT US</a>
+
+          <img src="${pormaLogo}" class="navlink-logo" />
+
         </div>
       </div>
     </nav>
