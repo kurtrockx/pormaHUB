@@ -42,29 +42,29 @@ button {
 
 @font-face {
   font-family: "Poppins-Bold";
-  src: url("../../assets/fonts/Poppins-Bold.ttf") format("truetype");
+  src: url("../../src/assets/fonts/Poppins-Bold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Poppins-Medium";
-  src: url("../../assets/fonts/Poppins-Medium.ttf") format("truetype");
+  src: url("../../src/assets/fonts/Poppins-Medium.ttf") format("truetype");
 }
 @font-face {
   font-family: "Poppins-Light";
-  src: url("../../assets/fonts/Poppins-Light.ttf") format("truetype");
+  src: url("../../src/assets/fonts/Poppins-Light.ttf") format("truetype");
 }
 @font-face {
   font-family: "Oswald-Light";
-  src: url("../../assets/fonts/Oswald-Light.ttf") format("truetype");
+  src: url("../../src/assets/fonts/Oswald-Light.ttf") format("truetype");
 }
 @font-face {
   font-family: "Quicksand-Light";
-  src: url("../../assets/fonts/Quicksand-Light.ttf") format("truetype");
+  src: url("../../src/assets/fonts/Quicksand-Light.ttf") format("truetype");
 }
 @font-face {
   font-family: "Quicksand-Medium";
-  src: url("../../assets/fonts/Quicksand-Medium.ttf") format("truetype");
+  src: url("../../src/assets/fonts/Quicksand-Medium.ttf") format("truetype");
 }
 @font-face {
   font-family: "Kugile_Demo";
-  src: url("../../assets/fonts/Kugile_Demo.ttf") format("truetype");
+  src: url("../../src/assets/fonts/Kugile_Demo.ttf") format("truetype");
 }

@@ -1,4 +1,4 @@
-import downSvg from "../../assets/svg/down.svg";
+import downSvg from "../../src/assets/svg/down.svg";
 
 //Navigation
 const navbar = document.querySelector(".nav");

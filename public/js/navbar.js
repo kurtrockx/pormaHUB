@@ -1,10 +1,10 @@
 //Navigation
-import burgerIcon from "../../assets/svg/burger.svg";
-import xIcon from "../../assets/svg/x.svg";
-import pormaLogo from "../../assets/images/phLogo.png";
-import pormaLogo2 from "../../assets/images/phLogo2.png";
-import userIcon from "../../assets/images/user.png";
-import cartIcon from "../../assets/images/cart.png";
+import burgerIcon from "../../src/assets/svg/burger.svg";
+import xIcon from "../../src/assets/svg/x.svg";
+import pormaLogo from "../../src/assets/images/phLogo.png";
+import pormaLogo2 from "../../src/assets/images/phLogo2.png";
+import userIcon from "../../src/assets/images/user.png";
+import cartIcon from "../../src/assets/images/cart.png";
 
 const burgerMenu = (
   navlinksBackground,
