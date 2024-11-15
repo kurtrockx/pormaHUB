@@ -2,6 +2,7 @@
 import burgerIcon from "../../assets/svg/burger.svg";
 import xIcon from "../../assets/svg/x.svg";
 import pormaLogo from "../../assets/images/phLogo.png";
+import pormaLogo2 from "../../assets/images/phLogo2.png";
 import userIcon from "../../assets/images/user.png";
 import cartIcon from "../../assets/images/cart.png";
 
@@ -64,7 +65,7 @@ const insertNavbar = () => {
           <a href="" class="navlink">ABOUT US</a>
           <a href="" class="navlink">CONTACT US</a>
 
-          <img src="${pormaLogo}" class="navlink-logo" />
+          <img src="${pormaLogo2}" class="navlink-logo" />
 
         </div>
       </div>

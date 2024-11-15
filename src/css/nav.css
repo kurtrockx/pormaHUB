@@ -226,7 +226,6 @@
   left: 50%;
   translate: -50% -100%;
   transition: all 0.1s linear;
-  filter: drop-shadow(2px 2px 0 var(--light-grey));
 }
 .hidden {
   visibility: hidden;
