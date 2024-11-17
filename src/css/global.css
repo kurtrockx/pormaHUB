@@ -28,7 +28,7 @@ html {
 
   --smaller-font-size: clamp(0.35rem, 1vw, 0.75rem);
   --small-font-size: clamp(0.5rem, 1.25vw, 0.75rem);
-  --medium-small-font-size: clamp(.65rem, 1.35vw, .8rem);
+  --medium-small-font-size: clamp(0.65rem, 1.35vw, 0.8rem);
   --medium-font-size: clamp(1.25rem, 1.5vw, 2rem);
   --big-font-size: clamp(2rem, 2.5vw, 3.5rem);
 }
@@ -38,6 +38,10 @@ button {
 
 .hide {
   display: none;
+}
+.gone {
+  visibility: hidden;
+  opacity: 0;
 }
 
 @font-face {

@@ -1,10 +1,9 @@
-//Navigation
+import ProductModel from "../../src/js/model/productModel";
+import phLogo from "../../src/assets/images/phLogo.png";
 import burgerIcon from "../../src/assets/svg/burger.svg";
 import xIcon from "../../src/assets/svg/x.svg";
-import pormaLogo from "../../src/assets/images/phLogo.png";
-import pormaLogo2 from "../../src/assets/images/phLogo2.png";
-import userIcon from "../../src/assets/images/user.png";
 import cartIcon from "../../src/assets/images/cart.png";
+import userIcon from "../../src/assets/images/user.png";
 
 const burgerMenu = (
   navlinksBackground,
@@ -36,7 +35,7 @@ const insertNavbar = () => {
     <nav class="nav">
       <div class="navbar">
         <a href="index.html" class="navlogo">
-          <img src="${pormaLogo}" />
+          <img src="${phLogo}" />
           <p class="pormahub-logo-text">
             PORMA <span id="hub-logo-text">HUB</span>
           </p>
@@ -50,11 +49,11 @@ const insertNavbar = () => {
           <div class="navlinks-title">Porma<span id="hub-text">hub</span></div>
           
           <div class="navlink-icon-container">
-            <a href="" class="navlink-icon">
+            <a href="register.html" class="navlink-icon">
               SHOPPING CART
               <img src="${cartIcon}" />
             </a>
-            <a href="" class="navlink-icon">
+            <a href="register.html" class="navlink-icon">
             USERNAME
               <img src="${userIcon}" />
             </a>
@@ -65,7 +64,7 @@ const insertNavbar = () => {
           <a href="" class="navlink">ABOUT US</a>
           <a href="" class="navlink">CONTACT US</a>
 
-          <img src="${pormaLogo2}" class="navlink-logo" />
+          <img src="../../src/assets/images/phLogo2.png" class="navlink-logo" />
 
         </div>
       </div>

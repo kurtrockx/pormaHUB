@@ -1,6 +1,8 @@
 import { hoverProduct } from "../../../public/js/store";
+
 class ProductView {
   productGridContainer = document.querySelector(".product-grid-container");
+  searchField = document.querySelector(".search-field");
 
   renderProducts(productsArr) {
     productsArr.forEach((prod) => {
@@ -9,6 +11,7 @@ class ProductView {
     });
     hoverProduct();
   }
+
   productHTML(productThumbnail, productName, productPrice) {
     return `
         <div class="product-container" data-product-name="${productName}">
@@ -25,6 +28,10 @@ class ProductView {
             </div>
         </div>
         `;
+  }
+
+  searchInput(searchFunction) {
+    this.searchField.addEventListener("input", searchFunction);
   }
 }
 

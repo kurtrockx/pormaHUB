@@ -1,22 +1,8 @@
-/* 
-<div class="form-container">
-    <img src="../assets/images/phLogo2.png" class="phLogo" />
-    <input type="text" class="input-field input-email" aria-placeholder="Email Address" />
-    <div class="first-last-name">
-    <input type="text" class="input-field input-first-name" aria-placeholder="First Name" />
-    <input type="text" class="input-field input-last-name" aria-placeholder="Last Name"/>
-    </div>
-    <input type="text" class="input-field input-username" aria-placeholder="Username"/>
-    <input type="text" class="input-field input-password" aria-placeholder="Password"/>
-    <input type="text" class="input-field input-reenter-password" aria-placeholder="Reenter Password"/>
-
-    <button class="signup-btn">SIGNUP</button>
-</div>
-*/
 :root {
   --phLogo-size: clamp(3rem, 5vw, 4rem);
   --input-padding: 0.75rem;
   --border-radius: 0.5rem;
+  --error-font-size: clamp(0.75rem, 2.5vw, 1rem);
 }
 main {
   width: 100vw;
@@ -98,3 +84,41 @@ button:active {
   color: var(--white);
   background: var(--primary-color);
 }
+
+.error-background {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(5px);
+  transition: all 0.25s ease;
+}
+.error-list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: min(80%, 20rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.error {
+  font-size: var(--error-font-size);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: #c71b17;
+  /* box-shadow: inset -5px -5px 5px rgb(0, 0, 0, 0.4), inset 5px 5px 5px rgba(255, 255, 255, 0.4); */
+  color: var(--white);
+}
+/* 
+  <div class="error-background"></div>
+  <div class="error-list">
+    <div class="error">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
+    </div>
+  </div>
+
+*/

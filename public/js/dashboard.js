@@ -1,4 +1,4 @@
-import downSvg from "../../src/assets/svg/down.svg";
+import downSVG from '../../src/assets/svg/down.svg';
 
 //Navigation
 const navbar = document.querySelector(".nav");
@@ -168,7 +168,7 @@ const frequentlyAskedQuestionToggler = () => {
       <div class="question-container">
         <div class="question">
           ${q.question}
-          <img src="${downSvg}" class="question-down" />
+          <img src="${downSVG}" class="question-down"/>
         </div>
         <div class="answer-container">
           <div class="answer"> ${q.answer}</div>
