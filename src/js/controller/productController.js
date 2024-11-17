@@ -1,9 +1,10 @@
-import productModel from "../model/productModel";
+import ProductModel from "../model/ProductModel";
 import ProductView from "../view/productView";
 
-const modalData = (products) => {
+const modalData = async () => {
+  const products = await ProductModel.productFetch();
   document.addEventListener("click", (e) => {
-    const data = e.target.closest(".product-container")?.dataset.productName;
+    data = e.target.closest(".product-container")?.dataset.productName;
     if (!data) return;
 
     const productMatch = products.find((el) => el.name === data);
@@ -14,34 +15,54 @@ const modalData = (products) => {
 
 const searchProduct = async () => {
   try {
-    ProductView.productGridContainer.innerHTML = "";
-    const data = await productModel.productFetch();
+    const data = await ProductModel.productFetch();
     if (!data) throw new Error("No data found!");
     const searchTerm = data.filter((p) =>
       p.name.toLowerCase().includes(ProductView.searchField.value)
     );
 
-    const dataWithoutSearchedTerm = data.filter((d) =>
-      !d.name.toLowerCase().includes(ProductView.searchField.value)
+    const dataWithoutSearchedTerm = data.filter(
+      (d) => !d.name.toLowerCase().includes(ProductView.searchField.value)
     );
     const searchResult = [...searchTerm, ...dataWithoutSearchedTerm];
-    console.log(searchResult);
-
     ProductView.renderProducts(searchResult);
   } catch (err) {
     console.error(err);
   }
 };
 
-const init = async () => {
+const initialRenderProducts = async () => {
   try {
-    const products = await productModel.productFetch(); // Fetch the products
-    ProductView.renderProducts(products); // Render the products
-    modalData(products); // Pass the products to modalData for click handling
+    const products = await ProductModel.productFetch();
+    ProductView.renderProducts(products);
   } catch (err) {
-    console.error("Error initializing the application:", err);
+    console.error("Could not render products");
   }
+};
 
+const searchByCategory = async (e) => {
+  try {
+    const data = await ProductModel.productFetch();
+    if (!data) throw new Error("No data fetched");
+
+    const category = e.target.dataset.category;
+
+    const filteredProducts = data.filter((prod) => {
+      return prod.category === category;
+    });
+
+    console.log(filteredProducts);
+
+    ProductView.renderProducts(filteredProducts);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const init = async () => {
+  initialRenderProducts();
+  modalData();
   ProductView.searchInput(searchProduct);
+  ProductView.categorizeProducts(searchByCategory);
 };
 init();

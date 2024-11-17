@@ -14,3 +14,6 @@ export const hoverProduct = () => {
     targetProduct.classList.add("product-containerZ");
   });
 };
+
+const nav = document.querySelector(".nav");
+nav.classList.add("sticky");

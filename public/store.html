@@ -14,11 +14,16 @@
       type="module"
       src="../src/js/controller/productController.js"
     ></script>
-    
   </head>
   <body>
     <main>
-      <input type="text" class="search-field">
+      <div class="search-window">
+        <input type="text" class="search-field" placeholder="search by name..." />
+        <h1 class="categories-header">Categories</h1>
+        <button class="search-category-button" data-category="Clothing">Clothing</button>
+        <button class="search-category-button" data-category="Footwear">Footwear</button>
+        <button class="search-category-button" data-category="Accessories">Accessories</button>
+      </div>
       <div class="product-grid-container"></div>
     </main>
   </body>

@@ -3,10 +3,16 @@ import { hoverProduct } from "../../../public/js/store";
 class ProductView {
   productGridContainer = document.querySelector(".product-grid-container");
   searchField = document.querySelector(".search-field");
+  searchCategoryButton = document.querySelectorAll(".search-category-button");
 
   renderProducts(productsArr) {
+    this.productGridContainer.innerHTML = "";
     productsArr.forEach((prod) => {
-      const html = this.productHTML(prod.thumbnail, prod.name, prod.price);
+      const html = this.productHTML(
+        "https://images.teemill.com/aahy9phi8sbmlzdsrqvplufssnny1ehtwjtyit7eksugcatz.png.png?w=1080&h=auto",
+        prod.name,
+        prod.price
+      );
       this.productGridContainer.insertAdjacentHTML("beforeend", html);
     });
     hoverProduct();
@@ -32,6 +38,12 @@ class ProductView {
 
   searchInput(searchFunction) {
     this.searchField.addEventListener("input", searchFunction);
+  }
+
+  categorizeProducts(categoryFunction) {
+    this.searchCategoryButton.forEach((btn) =>
+      btn.addEventListener("click", categoryFunction)
+    );
   }
 }
 

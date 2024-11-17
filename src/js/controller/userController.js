@@ -23,7 +23,7 @@ const validateRegistration = () => {
   UserModel.validateEmail(allInputValue[0], errors);
   UserModel.validateName(allInputValue[1], allInputValue[2], errors);
   UserModel.validateLength(allInputValue[3], allInputValue[4], errors);
-  UserModel.validatePassword(allInputValue[5], allInputValue[6], errors);
+  UserModel.validatePassword(allInputValue[4], allInputValue[5], errors);
   if (errors.length > 0) UserView.errorDisplay(errors);
 };
 

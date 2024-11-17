@@ -92,7 +92,7 @@ button:active {
   left: 0;
   width: 100vw;
   height: 100vh;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px) brightness(80%);
   transition: all 0.25s ease;
 }
 .error-list {
@@ -107,18 +107,11 @@ button:active {
 }
 .error {
   font-size: var(--error-font-size);
+  font-weight: 600;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  background: #c71b17;
-  /* box-shadow: inset -5px -5px 5px rgb(0, 0, 0, 0.4), inset 5px 5px 5px rgba(255, 255, 255, 0.4); */
-  color: var(--white);
+  background: white;
+  color: #c71b17;
+  border: 1px solid #c71b17;
+  /* color: var(--white); */
 }
-/* 
-  <div class="error-background"></div>
-  <div class="error-list">
-    <div class="error">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
-    </div>
-  </div>
-
-*/

@@ -1,5 +1,6 @@
 import ProductModel from "../../src/js/model/productModel";
 import phLogo from "../../src/assets/images/phLogo.png";
+import phLogo2 from "../../src/assets/images/phLogo2.png";
 import burgerIcon from "../../src/assets/svg/burger.svg";
 import xIcon from "../../src/assets/svg/x.svg";
 import cartIcon from "../../src/assets/images/cart.png";
@@ -64,7 +65,7 @@ const insertNavbar = () => {
           <a href="" class="navlink">ABOUT US</a>
           <a href="" class="navlink">CONTACT US</a>
 
-          <img src="../../src/assets/images/phLogo2.png" class="navlink-logo" />
+          <img src="${phLogo2}" class="navlink-logo" />
 
         </div>
       </div>

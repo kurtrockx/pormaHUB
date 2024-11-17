@@ -28,7 +28,7 @@ class UserView {
   }
 
   async errorDisplay(errors) {
-    const delay = () => new Promise((resolve) => setTimeout(resolve, 1000));
+    const delay = () => new Promise((resolve) => setTimeout(resolve, 2000));
     const delayFaster = () =>
       new Promise((resolve) => setTimeout(resolve, 150));
 
