@@ -12,6 +12,8 @@ class UserView {
   inputReenterPassword;
   signupButton;
   otpButton;
+  addressButton;
+  inputAddress;
 
   constructor() {
     this.mainContentContainer = document.querySelector("main");
@@ -75,17 +77,28 @@ class UserView {
         </div>
            `;
   }
-
   otpCheck(otpFunction) {
     this.otpButton?.addEventListener("click", otpFunction);
   }
 
+  mapHTML() {
+    return `
+        <div id="map"></div>
+        <div class="address-input">
+          <input type="text" class="input-address" placeholder="Enter your current address...">
+          <button class="user-btn address-btn">▶</button>
+        </div>
+    `;
+  }
   changeToMapPage() {
     this.formContainer.remove();
     this.mainContentContainer.insertAdjacentHTML("beforeend", this.mapHTML());
+    this.inputAddress = document.querySelector(".input-address");
+    this.addressButton = document.querySelector(".address-btn");
   }
-  mapHTML() {
-    
+
+  submitAddress(addressFunction) {
+    this.addressButton.addEventListener("click", addressFunction);
   }
 }
 export default new UserView();

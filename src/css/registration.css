@@ -3,9 +3,9 @@
   --input-padding: 0.75rem;
   --border-radius: 0.5rem;
   --error-font-size: clamp(0.75rem, 2.5vw, 1rem);
+  --address-font-size: clamp(.75rem, 3vw, 1.25rem)
 }
 main {
-  width: 100vw;
   height: 100vh;
 }
 button {
@@ -133,7 +133,34 @@ button:active {
   text-align: center;
 }
 #map {
-  width: 500px;
-  height: 500px;
+  margin: 2rem auto;
+  width: 90%;
+  height: min(80vh, 50rem);
   background: grey;
 }
+.address-input {
+  margin: auto;
+  width: max-content;
+  display: flex;
+  justify-content: center;
+}
+.input-address {
+  all: unset;
+  font-size: var(--address-font-size);
+  width: min(50vw, 20rem);
+  border-bottom: 1px solid #000;
+}
+.address-btn {
+  height: 100%;
+  margin: 0;
+}
+.address-btn:hover {
+  translate: 0;
+}
+/* 
+<div id="map"></div>
+<div class="address-input">
+  <input type="text">
+  <button class="user-btn otp-btn">▶</button>
+</div>
+*/

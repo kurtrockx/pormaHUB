@@ -2,7 +2,7 @@ class ProductModel {
   productFetch = async () => {
     try {
       const res = await fetch(
-        "http://localhost/pormaHUB/src/php/model/productsModel.php",
+        "http://localhost/pormaHUB/src/php/productsPull.php",
         {
           headers: {
             "Content-Type": "application/json",

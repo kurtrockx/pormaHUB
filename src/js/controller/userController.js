@@ -1,7 +1,8 @@
 import emailjs from "emailjs-com";
 import UserModel from "../model/userModel";
 import UserView from "../view/userView";
-import { clickMap } from "../../../public/js/map";
+import { setUserLocation, spawnMap } from "../map";
+import userModel from "../model/userModel";
 
 const returnInputView = () => {
   return [
@@ -22,7 +23,7 @@ const validateRegistration = (inputArr) => {
     UserView.errorDisplay(errors);
     return;
   }
-
+  UserModel.existingUser(inputArr, errors);
   UserModel.validateEmail(inputArr[0], errors);
   UserModel.validateName(inputArr[1], inputArr[2], errors);
   UserModel.validateLength(inputArr[3], inputArr[4], errors);
@@ -54,33 +55,46 @@ const sendEmail = (pendingUserOTP) => {
     });
 };
 
-const checkOTP = () => {
+const getLocation = async () => {
+  try {
+    const coords = await setUserLocation();
+    if (!coords) throw new Error("Could not access map");
+
+    UserView.submitAddress(() => {
+      const address = UserView.inputAddress.value;
+      if (address === "") {
+        UserView.errorDisplay(["Please enter your current address"]);
+        return;
+      }
+      const userPending = UserModel.userPending;
+      userPending.location.address = address;
+      userPending.location.coords = coords;
+      UserModel.pushUserToDB(userPending);
+    });
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const checkOTP = async () => {
   const inputOtp = document.querySelector(".input-otp").value;
   if (UserModel.userPending.otp === +inputOtp) {
+    UserView.changeToMapPage();
+    getLocation();
     return;
   }
   UserView.errorDisplay(["OTP incorrect. Please try again."]);
-  UserView.changeToMapPage();
+  return;
 };
 
 const registerUser = () => {
-  // const validatedInput = validateRegistration(returnInputView());
+  const validatedInput = validateRegistration(returnInputView());
 
-  const testAccount = [
-    "kurtdebelen431@gmail.com",
-    "kurtkurt",
-    "kurtkurt",
-    "kurtkurt",
-    "kurtkurt",
-    "kurtkurt",
-  ];
-
-  const validatedInput = validateRegistration(testAccount);
   if (!validatedInput) return;
 
   UserModel.pendingUserOTP(validatedInput);
 
-  // sendEmail(UserModel.userPending);
+  sendEmail(UserModel.userPending);
 
   UserView.changeToOtpPage();
   UserView.otpCheck(checkOTP);
