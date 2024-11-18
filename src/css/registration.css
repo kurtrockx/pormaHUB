@@ -132,3 +132,8 @@ button:active {
   width: 6rem;
   text-align: center;
 }
+#map {
+  width: 500px;
+  height: 500px;
+  background: grey;
+}

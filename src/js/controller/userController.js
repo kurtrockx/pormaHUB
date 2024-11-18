@@ -1,6 +1,7 @@
 import emailjs from "emailjs-com";
 import UserModel from "../model/userModel";
 import UserView from "../view/userView";
+import { clickMap } from "../../../public/js/map";
 
 const returnInputView = () => {
   return [
@@ -59,6 +60,7 @@ const checkOTP = () => {
     return;
   }
   UserView.errorDisplay(["OTP incorrect. Please try again."]);
+  UserView.changeToMapPage();
 };
 
 const registerUser = () => {

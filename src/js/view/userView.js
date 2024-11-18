@@ -1,4 +1,5 @@
 class UserView {
+  mainContentContainer;
   errorList;
   errorBackground;
   formContainer;
@@ -13,11 +14,12 @@ class UserView {
   otpButton;
 
   constructor() {
+    this.mainContentContainer = document.querySelector("main");
     this.errorList = document.querySelector(".error-list");
     this.errorBackground = document.querySelector(".error-background");
     this.formContainer = document.querySelector(".form-container");
     this.registrationForm =
-      this.formContainer.querySelector(".registration-form");
+      this.formContainer?.querySelector(".registration-form");
     this.inputEmail = document.querySelector(".input-email");
     this.inputFirstName = document.querySelector(".input-first-name");
     this.inputLastName = document.querySelector(".input-last-name");
@@ -30,7 +32,7 @@ class UserView {
   }
 
   signup(signupFunction) {
-    this.signupButton.addEventListener("click", signupFunction);
+    this.signupButton?.addEventListener("click", signupFunction);
   }
 
   async errorDisplay(errors) {
@@ -55,7 +57,7 @@ class UserView {
   changeToOtpPage() {
     this.registrationForm.remove();
     this.formContainer.insertAdjacentHTML("beforeend", this.otpHTML());
-    this.otpButton = document.querySelector('.otp-btn')
+    this.otpButton = document.querySelector(".otp-btn");
   }
 
   otpHTML() {
@@ -75,7 +77,15 @@ class UserView {
   }
 
   otpCheck(otpFunction) {
-    this.otpButton.addEventListener('click', otpFunction)
+    this.otpButton?.addEventListener("click", otpFunction);
+  }
+
+  changeToMapPage() {
+    this.formContainer.remove();
+    this.mainContentContainer.insertAdjacentHTML("beforeend", this.mapHTML());
+  }
+  mapHTML() {
+    
   }
 }
 export default new UserView();
