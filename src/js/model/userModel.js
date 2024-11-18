@@ -1,7 +1,8 @@
 class UserModel {
   currentUser;
+  usersPending = [];
   users = [];
-  Users = class {
+  UserCreate = class {
     constructor(email, firstName, lastName, username, password) {
       this.email = email;
       this.firstName = firstName;
@@ -38,6 +39,11 @@ class UserModel {
     if (pass1 !== pass2) {
       errors.push("Passwords have to match");
     }
+  }
+
+  pendingUserOTP(arr) {
+    this.usersPending.push(new this.UserCreate(...arr.slice(0, 5)));
+    console.log(this.usersPending);
   }
 }
 

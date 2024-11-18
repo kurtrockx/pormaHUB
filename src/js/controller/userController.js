@@ -1,10 +1,8 @@
 import UserModel from "../model/userModel";
 import UserView from "../view/userView";
 
-const validateRegistration = () => {
-  const errors = [];
-
-  const allInputValue = [
+const returnInputView = () => {
+  return [
     UserView.inputEmail.value,
     UserView.inputFirstName.value,
     UserView.inputLastName.value,
@@ -12,22 +10,46 @@ const validateRegistration = () => {
     UserView.inputPassword.value,
     UserView.inputReenterPassword.value,
   ];
+};
 
-  const empty = UserModel.emptyFields(allInputValue, errors);
+const validateRegistration = (inputArr) => {
+  const errors = [];
+
+  const empty = UserModel.emptyFields(inputArr, errors);
   if (empty) {
     UserView.errorDisplay(errors);
-    console.log(empty);
     return;
   }
 
-  UserModel.validateEmail(allInputValue[0], errors);
-  UserModel.validateName(allInputValue[1], allInputValue[2], errors);
-  UserModel.validateLength(allInputValue[3], allInputValue[4], errors);
-  UserModel.validatePassword(allInputValue[4], allInputValue[5], errors);
-  if (errors.length > 0) UserView.errorDisplay(errors);
+  UserModel.validateEmail(inputArr[0], errors);
+  UserModel.validateName(inputArr[1], inputArr[2], errors);
+  UserModel.validateLength(inputArr[3], inputArr[4], errors);
+  UserModel.validatePassword(inputArr[4], inputArr[5], errors);
+  if (errors.length > 0) {
+    UserView.errorDisplay(errors);
+    return;
+  }
+
+  return inputArr;
+};
+
+const testAccount = [
+  "kurtkurt@gmail.com",
+  "kurtkurt",
+  "kurtkurt",
+  "kurtkurt",
+  "kurtkurt",
+  "kurtkurt",
+];
+
+const registerUser = () => {
+  // const validatedInput = validateRegistration(returnInputView());
+  const validatedInput = validateRegistration(testAccount);
+  if (!validatedInput) return;
+  UserModel.pendingUserOTP(validatedInput);
 };
 
 const init = () => {
-  UserView.signup(validateRegistration);
+  UserView.signup(registerUser);
 };
 init();

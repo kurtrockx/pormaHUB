@@ -8,11 +8,7 @@ class ProductView {
   renderProducts(productsArr) {
     this.productGridContainer.innerHTML = "";
     productsArr.forEach((prod) => {
-      const html = this.productHTML(
-        "https://images.teemill.com/aahy9phi8sbmlzdsrqvplufssnny1ehtwjtyit7eksugcatz.png.png?w=1080&h=auto",
-        prod.name,
-        prod.price
-      );
+      const html = this.productHTML(prod.thumbnail, prod.name, prod.price);
       this.productGridContainer.insertAdjacentHTML("beforeend", html);
     });
     hoverProduct();

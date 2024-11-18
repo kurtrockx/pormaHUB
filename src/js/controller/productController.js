@@ -51,8 +51,6 @@ const searchByCategory = async (e) => {
       return prod.category === category;
     });
 
-    console.log(filteredProducts);
-
     ProductView.renderProducts(filteredProducts);
   } catch (err) {
     console.error(err);
