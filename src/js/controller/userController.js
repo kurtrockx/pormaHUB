@@ -1,3 +1,4 @@
+import emailjs from "emailjs-com";
 import UserModel from "../model/userModel";
 import UserView from "../view/userView";
 
@@ -33,20 +34,54 @@ const validateRegistration = (inputArr) => {
   return inputArr;
 };
 
-const testAccount = [
-  "kurtkurt@gmail.com",
-  "kurtkurt",
-  "kurtkurt",
-  "kurtkurt",
-  "kurtkurt",
-  "kurtkurt",
-];
+const sendEmail = (pendingUserOTP) => {
+  console.log(pendingUserOTP.email);
+  emailjs.init("2xtwOkfoDakl7aPIR");
+
+  const templateParams = {
+    to_email: pendingUserOTP.email,
+    message: pendingUserOTP.otp,
+  };
+
+  emailjs
+    .send("verificationCode", "template_kzy9hmq", templateParams)
+    .then((res) => {
+      console.log("Sent MFer!!!", res.status, res.text);
+    })
+    .catch((err) => {
+      console.log(err.message, "So sad");
+    });
+};
+
+const checkOTP = () => {
+  const inputOtp = document.querySelector(".input-otp").value;
+  if (UserModel.userPending.otp === +inputOtp) {
+    return;
+  }
+  UserView.errorDisplay(["OTP incorrect. Please try again."]);
+};
 
 const registerUser = () => {
   // const validatedInput = validateRegistration(returnInputView());
+
+  const testAccount = [
+    "kurtdebelen431@gmail.com",
+    "kurtkurt",
+    "kurtkurt",
+    "kurtkurt",
+    "kurtkurt",
+    "kurtkurt",
+  ];
+
   const validatedInput = validateRegistration(testAccount);
   if (!validatedInput) return;
+
   UserModel.pendingUserOTP(validatedInput);
+
+  // sendEmail(UserModel.userPending);
+
+  UserView.changeToOtpPage();
+  UserView.otpCheck(checkOTP);
 };
 
 const init = () => {

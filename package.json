@@ -6,5 +6,8 @@
   "scripts": {
     "start": "parcel ./public/index.html ./public/store.html ./public/register.html",
     "build": "parcel build ./public/index.html ./public/store.html ./public/register.html.html"
+  },
+  "dependencies": {
+    "emailjs-com": "^3.2.0"
   }
 }

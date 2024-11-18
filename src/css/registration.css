@@ -33,7 +33,7 @@ button:active {
   gap: var(--medium-font-size);
   background: var(--black);
 }
-.registration-form {
+.input-form {
   width: 100%;
   height: 100%;
   display: flex;
@@ -74,7 +74,7 @@ button:active {
 .first-last-name > * {
   padding: var(--input-padding);
 }
-.signup-btn {
+.user-btn {
   display: block;
   margin: 0.5rem auto;
   padding: 0.75rem 1.5rem;
@@ -113,5 +113,22 @@ button:active {
   background: white;
   color: #c71b17;
   border: 1px solid #c71b17;
-  /* color: var(--white); */
+}
+.otp-form {
+  align-items: flex-start;
+}
+.otp-header {
+  font-size: var(--medium-small-font-size);
+  color: var(--white);
+}
+.otp-form .input-field-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70%;
+}
+.input-otp {
+  width: 6rem;
+  text-align: center;
 }
