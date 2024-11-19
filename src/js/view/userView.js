@@ -1,7 +1,7 @@
 class UserView {
   mainContentContainer;
-  errorList;
-  errorBackground;
+  notifList;
+  blurBackground;
   formContainer;
   registrationForm;
   inputEmail;
@@ -20,8 +20,8 @@ class UserView {
 
   constructor() {
     this.mainContentContainer = document.querySelector("main");
-    this.errorList = document.querySelector(".error-list");
-    this.errorBackground = document.querySelector(".error-background");
+    this.notifList = document.querySelector(".notification-list");
+    this.blurBackground = document.querySelector(".blur-background");
     this.formContainer = document.querySelector(".form-container");
     this.registrationForm =
       this.formContainer?.querySelector(".registration-form");
@@ -43,23 +43,27 @@ class UserView {
     this.signupButton?.addEventListener("click", signupFunction);
   }
 
-  async errorDisplay(errors) {
-    const delay = () => new Promise((resolve) => setTimeout(resolve, 2000));
+  async notifDisplay(notif, type="red") {
+    const delay = () => new Promise((resolve) => setTimeout(resolve, 1500));
     const delayFaster = () =>
       new Promise((resolve) => setTimeout(resolve, 150));
 
-    errors.forEach((err) => {
-      this.errorBackground.classList.remove("gone");
-      const html = `<div class="error">${err}</div>`;
-      this.errorList.insertAdjacentHTML("beforeend", html);
+    notif.forEach((notif) => {
+      this.blurBackground.classList.remove("gone");
+      const html = `${
+        type === "red"
+          ? `<div class='error'>${notif}</div>`
+          : `<div class='notif'>${notif}</div>`
+      }`;
+      this.notifList.insertAdjacentHTML("beforeend", html);
     });
 
     await delay();
 
-    this.errorBackground.classList.add("gone");
+    this.blurBackground.classList.add("gone");
 
     await delayFaster();
-    this.errorList.innerHTML = "";
+    this.notifList.innerHTML = "";
   }
 
   changeToOtpPage() {

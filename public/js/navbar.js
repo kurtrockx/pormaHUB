@@ -31,6 +31,10 @@ const burgerMenu = (
   });
 };
 
+const logout = (logoutButton) => {
+  logoutButton.addEventListener("click", UserModel.logoutUser);
+};
+
 const insertNavbar = () => {
   const html = `
     <nav class="nav">
@@ -68,6 +72,7 @@ const insertNavbar = () => {
           <a href="store.html" class="navlink">STORE</a>
           <a href="" class="navlink">ABOUT US</a>
           <a href="" class="navlink">CONTACT US</a>
+          <a href="" class="navlink navlink-logout">LOG OUT</a>
 
           <img src="${phLogo2}" class="navlink-logo" />
 
@@ -83,6 +88,8 @@ const insertNavbar = () => {
   //Burger
   const burgerButton = document.querySelector(".nav-burger");
   const burgerExitButton = document.querySelector(".burger-exit");
+  //Logout
+  const logoutButton = document.querySelector(".navlink-logout");
 
   burgerMenu(
     navlinksBackground,
@@ -90,6 +97,7 @@ const insertNavbar = () => {
     burgerButton,
     burgerExitButton
   );
+  logout(logoutButton);
 };
 
 const init = () => {

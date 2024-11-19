@@ -20,7 +20,7 @@ const validateRegistration = (inputArr) => {
 
   const empty = UserModel.emptyFields(inputArr, errors);
   if (empty) {
-    UserView.errorDisplay(errors);
+    UserView.notifDisplay(errors);
     return;
   }
   UserModel.existingUser(inputArr, errors);
@@ -29,7 +29,7 @@ const validateRegistration = (inputArr) => {
   UserModel.validateLength(inputArr[3], inputArr[4], errors);
   UserModel.validatePassword(inputArr[4], inputArr[5], errors);
   if (errors.length > 0) {
-    UserView.errorDisplay(errors);
+    UserView.notifDisplay(errors);
     return;
   }
 
@@ -63,13 +63,14 @@ const getLocation = async () => {
     UserView.submitAddress(() => {
       const address = UserView.inputAddress.value;
       if (address === "") {
-        UserView.errorDisplay(["Please enter your current address"]);
+        UserView.notifDisplay(["Please enter your current address"]);
         return;
       }
       const userPending = UserModel.userPending;
       userPending.location.address = address;
       userPending.location.coords = coords;
       UserModel.pushUserToDB(userPending);
+      window.location.href = "login.html";
     });
   } catch (err) {
     console.error(err);
@@ -77,14 +78,24 @@ const getLocation = async () => {
 };
 
 const checkOTP = async () => {
+  const errors = [];
   const inputOtp = document.querySelector(".input-otp").value;
-  if (UserModel.userPending.otp === +inputOtp) {
-    UserView.changeToMapPage();
-    getLocation();
+
+  const empty = UserModel.emptyFields([inputOtp], errors);
+  if (empty) {
+    UserView.notifDisplay(errors);
     return;
   }
-  UserView.errorDisplay(["OTP incorrect. Please try again."]);
-  return;
+
+  UserModel.validateOTP(inputOtp, errors);
+  if (errors.length > 0) {
+    UserView.notifDisplay(errors);
+    return;
+  }
+
+  UserView.changeToMapPage();
+  UserView.notifDisplay(["OTP verified"], "green");
+  getLocation();
 };
 
 const registerUser = () => {
@@ -97,6 +108,7 @@ const registerUser = () => {
   sendEmail(UserModel.userPending);
 
   UserView.changeToOtpPage();
+  UserView.notifDisplay(["Check your email"], "green");
   UserView.otpCheck(checkOTP);
 };
 
@@ -109,13 +121,13 @@ const loginUserController = () => {
 
   const empty = UserModel.emptyFields(userCred, errors);
   if (empty) {
-    UserView.errorDisplay(errors);
+    UserView.notifDisplay(errors);
     return;
   }
 
   const noUserMatch = UserModel.checkLoginCredentials(userCred, errors);
   if (noUserMatch) {
-    UserView.errorDisplay(errors);
+    UserView.notifDisplay(errors);
     return;
   }
 

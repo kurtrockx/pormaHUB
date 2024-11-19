@@ -82,6 +82,10 @@ class UserModel {
       errors.push("Passwords have to match");
     }
   }
+  validateOTP(inputOtp, errors) {
+    if (this.userPending.otp !== +inputOtp)
+      errors.push("OTP incorrect. Please try again.");
+  }
 
   //Assigning pendingUserOTP to the user before inputting OTP
   pendingUserOTP(arr) {
@@ -139,6 +143,11 @@ class UserModel {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     if (!currentUser) return;
     this.currentUser = currentUser;
+  }
+
+  logoutUser() {
+    localStorage.removeItem("workouts");
+    location.reload();
   }
 }
 
