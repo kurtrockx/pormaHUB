@@ -63,7 +63,7 @@ const insertNavbar = () => {
             <a href="${
               UserModel.currentUser ? "store.html" : "login.html"
             }" class="navlink-icon">
-            USERNAME
+            ${UserModel.currentUser?.username ?? "USERNAME"}
               <img src="${userIcon}" />
             </a>
           </div>
@@ -81,7 +81,6 @@ const insertNavbar = () => {
     </nav>
 `;
   document.body.insertAdjacentHTML("afterbegin", html);
-
   //Navigation
   const navlinksBackground = document.querySelector(".navlinks-background");
   const navlinksContainer = document.querySelector(".navlinks-container");

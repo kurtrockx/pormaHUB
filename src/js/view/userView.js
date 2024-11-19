@@ -17,6 +17,7 @@ class UserView {
   loginButton;
   loginInputEmail;
   loginInputPassword;
+  goBackButton;
 
   constructor() {
     this.mainContentContainer = document.querySelector("main");
@@ -37,13 +38,16 @@ class UserView {
     this.loginButton = document.querySelector(".login-btn");
     this.loginInputEmail = document.querySelector(".login-input-email");
     this.loginInputPassword = document.querySelector(".login-input-password");
+    this.goBackButton = document.querySelector(".exit-form-button");
+
+    this.goBack();
   }
 
   signup(signupFunction) {
     this.signupButton?.addEventListener("click", signupFunction);
   }
 
-  async notifDisplay(notif, type="red") {
+  async notifDisplay(notif, type = "red") {
     const delay = () => new Promise((resolve) => setTimeout(resolve, 1500));
     const delayFaster = () =>
       new Promise((resolve) => setTimeout(resolve, 150));
@@ -113,6 +117,12 @@ class UserView {
 
   loginUser(loginFunction) {
     this.loginButton?.addEventListener("click", loginFunction);
+  }
+
+  goBack() {
+    this.goBackButton.addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
   }
 }
 export default new UserView();

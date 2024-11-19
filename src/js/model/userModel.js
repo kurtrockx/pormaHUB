@@ -14,6 +14,8 @@ class UserModel {
         address: undefined,
         coords: undefined,
       };
+      this.cart = [];
+      this.purchaseHistory = [];
     }
   };
 
@@ -146,7 +148,7 @@ class UserModel {
   }
 
   logoutUser() {
-    localStorage.removeItem("workouts");
+    localStorage.removeItem("currentUser");
     location.reload();
   }
 }
