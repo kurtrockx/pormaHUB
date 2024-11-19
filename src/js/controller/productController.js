@@ -1,4 +1,4 @@
-import ProductModel from "../model/ProductModel";
+import ProductModel from "../model/productModel";
 import ProductView from "../view/productView";
 
 const modalData = async () => {

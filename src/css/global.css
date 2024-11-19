@@ -5,7 +5,7 @@
 }
 html {
   font-family: "century gothic";
-  font-size: 14px;
+  font-size: 16px;
   background: var(--white);
   scroll-behavior: smooth;
 }
@@ -71,4 +71,12 @@ button {
 @font-face {
   font-family: "Kugile_Demo";
   src: url("../../src/assets/fonts/Kugile_Demo.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Evogria";
+  src: url("../../src/assets/fonts/Evogria.otf") format("truetype");
+}
+@font-face {
+  font-family: "Gotham Bold";
+  src: url("../../src/assets/fonts/Gotham Bold.otf") format("truetype");
 }

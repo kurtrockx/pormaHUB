@@ -4,8 +4,8 @@
     "svgo": "^3.3.2"
   },
   "scripts": {
-    "start": "parcel ./public/index.html ./public/store.html ./public/register.html ./public/test.html",
-    "build": "parcel build ./public/index.html ./public/store.html ./public/register.html.html"
+    "start": "parcel ./public/index.html ./public/store.html ./public/register.html ./public/login.html ./public/test.html",
+    "build": "parcel ./public/index.html ./public/store.html ./public/register.html ./public/login.html"
   },
   "dependencies": {
     "emailjs-com": "^3.2.0",

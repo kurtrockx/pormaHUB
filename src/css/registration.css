@@ -1,9 +1,10 @@
 :root {
   --phLogo-size: clamp(3rem, 5vw, 4rem);
+  --phLogo2-size: clamp(10rem, 10vw, 14rem);
   --input-padding: 0.75rem;
   --border-radius: 0.5rem;
   --error-font-size: clamp(0.75rem, 2.5vw, 1rem);
-  --address-font-size: clamp(.75rem, 3vw, 1.25rem)
+  --address-font-size: clamp(0.75rem, 3vw, 1.25rem);
 }
 main {
   height: 100vh;
@@ -157,10 +158,13 @@ button:active {
 .address-btn:hover {
   translate: 0;
 }
-/* 
-<div id="map"></div>
-<div class="address-input">
-  <input type="text">
-  <button class="user-btn otp-btn">▶</button>
-</div>
-*/
+.login-field-container {
+  width: 100%;
+  height: 50%;
+  justify-content: center;
+  text-align: center;
+}
+.phLogo-login {
+  width: var(--phLogo2-size);
+  height: 24%;
+}

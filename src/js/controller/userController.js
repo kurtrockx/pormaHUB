@@ -2,7 +2,7 @@ import emailjs from "emailjs-com";
 import UserModel from "../model/userModel";
 import UserView from "../view/userView";
 import { setUserLocation, spawnMap } from "../map";
-import userModel from "../model/userModel";
+import userView from "../view/userView";
 
 const returnInputView = () => {
   return [
@@ -100,7 +100,32 @@ const registerUser = () => {
   UserView.otpCheck(checkOTP);
 };
 
+const loginUserController = () => {
+  const errors = [];
+  const loginInputEmail = UserView.loginInputEmail.value;
+  const loginInputPassword = UserView.loginInputPassword.value;
+
+  const userCred = [loginInputEmail, loginInputPassword];
+
+  const empty = UserModel.emptyFields(userCred, errors);
+  if (empty) {
+    UserView.errorDisplay(errors);
+    return;
+  }
+
+  const noUserMatch = UserModel.checkLoginCredentials(userCred, errors);
+  if (noUserMatch) {
+    UserView.errorDisplay(errors);
+    return;
+  }
+
+  UserModel.loginUser(loginInputEmail);
+  window.location.href = "index.html";
+};
+
 const init = () => {
+  UserModel.pullUsersFromDB();
   UserView.signup(registerUser);
+  UserView.loginUser(loginUserController);
 };
 init();

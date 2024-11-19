@@ -1,4 +1,4 @@
-import ProductModel from "../../src/js/model/productModel";
+import UserModel from "../../src/js/model/userModel";
 import phLogo from "../../src/assets/images/phLogo.png";
 import phLogo2 from "../../src/assets/images/phLogo2.png";
 import burgerIcon from "../../src/assets/svg/burger.svg";
@@ -50,11 +50,15 @@ const insertNavbar = () => {
           <div class="navlinks-title">Porma<span id="hub-text">hub</span></div>
           
           <div class="navlink-icon-container">
-            <a href="register.html" class="navlink-icon">
+            <a href="${
+              UserModel.currentUser ? "store.html" : "login.html"
+            }" class="navlink-icon">
               SHOPPING CART
               <img src="${cartIcon}" />
             </a>
-            <a href="register.html" class="navlink-icon">
+            <a href="${
+              UserModel.currentUser ? "store.html" : "login.html"
+            }" class="navlink-icon">
             USERNAME
               <img src="${userIcon}" />
             </a>

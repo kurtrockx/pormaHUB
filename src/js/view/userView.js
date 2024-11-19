@@ -14,6 +14,9 @@ class UserView {
   otpButton;
   addressButton;
   inputAddress;
+  loginButton;
+  loginInputEmail;
+  loginInputPassword;
 
   constructor() {
     this.mainContentContainer = document.querySelector("main");
@@ -31,6 +34,9 @@ class UserView {
       ".input-reenter-password"
     );
     this.signupButton = document.querySelector(".signup-btn");
+    this.loginButton = document.querySelector(".login-btn");
+    this.loginInputEmail = document.querySelector(".login-input-email");
+    this.loginInputPassword = document.querySelector(".login-input-password");
   }
 
   signup(signupFunction) {
@@ -98,7 +104,11 @@ class UserView {
   }
 
   submitAddress(addressFunction) {
-    this.addressButton.addEventListener("click", addressFunction);
+    this.addressButton?.addEventListener("click", addressFunction);
+  }
+
+  loginUser(loginFunction) {
+    this.loginButton?.addEventListener("click", loginFunction);
   }
 }
 export default new UserView();

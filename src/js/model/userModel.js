@@ -18,9 +18,10 @@ class UserModel {
   };
 
   constructor() {
-    this.pullUsersFromDB();
+    this.getCurrentUserLocal();
   }
 
+  //Pulling users collection from db
   async pullUsersFromDB() {
     try {
       const res = await fetch(
@@ -49,6 +50,7 @@ class UserModel {
     if (usernameMatch) errors.push("Username already taken");
   }
 
+  //Validations
   emptyFields(dataArray, errors) {
     const error = dataArray.some((data) => data === "");
     if (error) {
@@ -80,10 +82,13 @@ class UserModel {
       errors.push("Passwords have to match");
     }
   }
+
+  //Assigning pendingUserOTP to the user before inputting OTP
   pendingUserOTP(arr) {
     this.userPending = new this.UserCreate(...arr.slice(0, 5));
     console.log(this.userPending);
   }
+  //Pushing user to db
   async pushUserToDB(user) {
     try {
       const res = await fetch(
@@ -107,6 +112,33 @@ class UserModel {
     } catch (err) {
       console.error("Error:", err.message);
     }
+  }
+
+  checkLoginCredentials(userCred, errors) {
+    const user = this.users.find(
+      (user) => user.email === userCred[0] && user.password === userCred[1]
+    );
+
+    if (!user) {
+      errors.push("Wrong credentials. Try again.");
+      return true;
+    }
+  }
+  loginUser(validatedLogin) {
+    const userFound = this.users.find((user) => user.email === validatedLogin);
+    this.currentUser = userFound;
+    this.setCurrentUserLocal();
+    return;
+  }
+
+  setCurrentUserLocal() {
+    localStorage.setItem("currentUser", JSON.stringify(this.currentUser));
+  }
+
+  getCurrentUserLocal() {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (!currentUser) return;
+    this.currentUser = currentUser;
   }
 }
 

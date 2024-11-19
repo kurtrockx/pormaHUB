@@ -1,6 +1,6 @@
 <?php
 
-require_once "includes/cors.php";
+require_once "./includes/cors.php";
 require '../../vendor/autoload.php';
 
 $client = new MongoDB\Client;
