@@ -63,7 +63,7 @@ const insertNavbar = () => {
             <a href="${
               UserModel.currentUser ? "store.html" : "login.html"
             }" class="navlink-icon">
-            ${UserModel.currentUser?.username ?? "USERNAME"}
+            ${UserModel.currentUser?.username ?? "SIGN IN"}
               <img src="${userIcon}" />
             </a>
           </div>

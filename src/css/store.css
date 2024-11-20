@@ -4,11 +4,11 @@
 }
 body {
   background: var(--lighter-grey);
+  min-height: 100vh;
 }
 main {
   margin: auto;
   max-width: var(--content-width);
-  min-height: 200vh;
   padding: 2rem 0;
   display: flex;
   align-items: flex-start;
