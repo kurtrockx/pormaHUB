@@ -16,18 +16,43 @@
     ></script>
   </head>
   <body>
+    <div class="store-video-container" style="display: none">
+      <video
+        src="../src/assets/video/2whiteLady.mp4"
+        autoplay
+        loop
+        class="store-video"
+      ></video>
+    </div>
     <main>
       <div class="search-window">
-        <input type="text" class="search-field" placeholder="search by name..." />
+        <input
+          type="text"
+          class="search-field"
+          placeholder="search by name..."
+        />
         <h1 class="categories-header">Categories</h1>
-        <button class="search-category-button" data-category="Men’s Top">Men’s Top</button>
-        <button class="search-category-button" data-category="Women’s Top">Women’s Top</button>
-        <button class="search-category-button" data-category="Men’s Bottom">Men’s Bottom</button>
-        <button class="search-category-button" data-category="Women’s Bottom">Women’s Bottom</button>
-        <button class="search-category-button" data-category="Women’s Dress">Women’s Dress</button>
+        <button class="search-category-button" data-category="Men’s Top">
+          Men’s Top
+        </button>
+        <button class="search-category-button" data-category="Women’s Top">
+          Women’s Top
+        </button>
+        <button class="search-category-button" data-category="Men’s Bottom">
+          Men’s Bottom
+        </button>
+        <button class="search-category-button" data-category="Women’s Bottom">
+          Women’s Bottom
+        </button>
+        <button class="search-category-button" data-category="Women’s Dress">
+          Women’s Dress
+        </button>
         <button class="search-category-button" data-category="Bag">Bag</button>
-        <button class="search-category-button" data-category="Shoes">Shoes</button>
+        <button class="search-category-button" data-category="Shoes">
+          Shoes
+        </button>
       </div>
+      <div class="product-modal-background gone"></div>
       <div class="product-grid-container"></div>
     </main>
   </body>

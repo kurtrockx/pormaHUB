@@ -1,6 +1,8 @@
 :root {
   --search-font-size: clamp(0.75rem, 1.5vw, 1.15rem);
   --category-font-size: clamp(1rem, 1.5vw, 2.5rem);
+  --size-font-size: clamp(1rem, 1.5vw, 1.5rem);
+  --add-font-size: clamp(0.45rem, 1vw, 0.55rem);
 }
 body {
   background: var(--lighter-grey);
@@ -15,6 +17,18 @@ main {
   justify-content: center;
   gap: var(--small-font-size);
 }
+.store-video-container {
+  margin: 1rem auto 0;
+  max-width: var(--content-width);
+  height: min(30vw, 18rem);
+}
+.store-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .product-grid-container {
   margin-left: auto;
   width: 60vw;
@@ -145,3 +159,145 @@ main {
     width: 160px;
   }
 }
+
+.product-modal-background {
+  position: fixed;
+  z-index: 900;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(5px);
+}
+.product-modal-container {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 600px;
+  aspect-ratio: 3/2;
+  display: flex;
+  background: var(--white);
+  box-shadow: 2px 2px 4px var(--light-black);
+  overflow: hidden;
+}
+.product-modal-container > * {
+  height: 100%;
+}
+.product-modal-image {
+  width: 60%;
+  box-shadow: 2px 0 4px var(--light-grey);
+}
+.product-full-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.product-modal-details {
+  width: 40%;
+  padding: var(--big-font-size);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.product-modal-header {
+  width: 90%;
+  text-align: center;
+  text-wrap: wrap;
+  font-family: Quicksand-SemiBold;
+}
+.product-size-radio-container {
+  width: 100%;
+  height: 25%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--add-font-size);
+}
+.product-size-radio {
+  text-align: center;
+  align-content: center;
+  font-size: var(--small-font-size);
+  font-weight: 600;
+  border-radius: 0.2rem;
+  color: var(--light-black);
+  background-color: var(--white);
+  cursor: pointer;
+  border: 2px solid var(--light-grey);
+  transition: all 0.1s linear;
+}
+label:hover {
+  scale: 102%;
+}
+label:active {
+  scale: 98%;
+}
+input[type="radio"]:checked + .product-size-radio {
+  color: var(--white);
+  background: var(--black);
+}
+.product-modal-container button:hover {
+  scale: 102%;
+}
+.product-modal-container button:active {
+  scale: 98%;
+}
+.product-modal-bottom-section {
+  display: flex;
+  gap: 0.2rem;
+  height: 2rem;
+}
+.product-modal-bottom-section > * {
+  width: 50%;
+}
+.input-quantity {
+  text-align: center;
+  padding-left: 1rem;
+  font-size: var(--size-font-size);
+}
+.add-to-cart-button {
+  text-align: center;
+  font-size: var(--add-font-size);
+  font-weight: 600;
+  border-radius: 0.2rem;
+  background: var(--primary-color);
+  color: var(--white);
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+.size-chart {
+  border: 1px solid #000;
+  width: 100%;
+  flex: 1;
+}
+.exit-modal-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+/* 
+<div class="product-modal-background">
+  <div class="product-modal-container">
+    <div class="product-modal-image"></div>
+    <div class="product-modal-details">
+      <div class="product-modal-header">PRODUCT NAME</div>
+      <div class="product-size-button-container">
+        <button class="product-size"></button>
+        <button class="product-size"></button>
+        <button class="product-size"></button>
+        <button class="product-size"></button>
+        <button class="product-size"></button>
+        <button class="product-size"></button>
+      </div>
+      <div class="product-modal-bottom-section">
+        <input type="number" class="input-size" />
+        <button class="add-to-cart-button">ADD TO CART</button>
+      </div>
+      <div class="size-chart"></div>
+    </div>
+  </div>
+</div>
+*/

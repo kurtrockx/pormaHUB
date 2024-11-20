@@ -44,6 +44,10 @@ class UserView {
   }
 
   signup(signupFunction) {
+    document.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter") return;
+      signupFunction
+    });
     this.signupButton?.addEventListener("click", signupFunction);
   }
 

@@ -43,6 +43,10 @@ button:active {
   left: 1rem;
   aspect-ratio: 1/1;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+.exit-form-button:hover {
+  scale: 110%;
 }
 .input-form {
   width: 100%;

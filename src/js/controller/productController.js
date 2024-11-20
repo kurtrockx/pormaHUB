@@ -1,16 +1,13 @@
 import ProductModel from "../model/productModel";
 import ProductView from "../view/productView";
 
-const modalData = async () => {
-  const products = await ProductModel.productFetch();
-  document.addEventListener("click", (e) => {
-    data = e.target.closest(".product-container")?.dataset.productName;
-    if (!data) return;
-
-    const productMatch = products.find((el) => el.name === data);
-    console.log(productMatch);
-    return productMatch;
-  });
+const initialRenderProducts = async () => {
+  try {
+    const products = await ProductModel.productFetch();
+    ProductView.renderProducts(products);
+  } catch (err) {
+    console.error("Could not render products");
+  }
 };
 
 const searchProduct = async () => {
@@ -31,15 +28,6 @@ const searchProduct = async () => {
   }
 };
 
-const initialRenderProducts = async () => {
-  try {
-    const products = await ProductModel.productFetch();
-    ProductView.renderProducts(products);
-  } catch (err) {
-    console.error("Could not render products");
-  }
-};
-
 const searchByCategory = async (e) => {
   try {
     const data = await ProductModel.productFetch();
@@ -57,9 +45,71 @@ const searchByCategory = async (e) => {
   }
 };
 
+const modalData = async () => {
+  try {
+    const products = await ProductModel.productFetch();
+    if (!products)
+      throw new Error("No product fetched from productFetch function");
+
+    ProductView.setupProductModal(products);
+    closeModal();
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const closeModal = () => {
+  ProductView.closeModalButton((e) => {
+    const exitModalButton = e.target.closest(".exit-modal-button");
+    if (!exitModalButton) return;
+    ProductView.productModalBackground.classList.add("gone");
+  });
+  window.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    ProductView.productModalBackground.classList.add("gone");
+  });
+};
+
+const addToCart = async () => {
+  try {
+    const products = await ProductModel.productFetch();
+
+    if (!products) throw new Error("No products fetched");
+    ProductView.addToCart((e) => {
+      const addToCartButton = e.target.closest(".add-to-cart-button");
+      if (!addToCartButton) return;
+
+      const productModalContainer = addToCartButton.closest(
+        ".product-modal-container"
+      );
+
+      const productClicked = productModalContainer?.dataset.productId;
+
+      const productMatch = products.find(
+        (prod) => prod._id.$oid === productClicked
+      );
+
+      const inputQuantity =
+        productModalContainer.querySelector(".input-quantity").value;
+
+      const quantityRadio =
+        productModalContainer.querySelectorAll('input[name="size"]');
+      console.log(quantityRadio);
+      let selectedSize = "M";
+      quantityRadio.forEach((r) => {
+        if (r.checked) selectedSize = r.value;
+      });
+
+    });
+  } catch (err) {
+    console.err(err);
+  }
+};
+
 const init = async () => {
   initialRenderProducts();
   modalData();
+  addToCart();
   ProductView.searchInput(searchProduct);
   ProductView.categorizeProducts(searchByCategory);
 };

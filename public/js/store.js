@@ -15,5 +15,11 @@ export const hoverProduct = () => {
   });
 };
 
+window.onload = function () {
+  const video = document.querySelector('.store-video')
+  video.muted = true;
+  video.play();
+};
+
 const nav = document.querySelector(".nav");
 nav.classList.add("sticky");

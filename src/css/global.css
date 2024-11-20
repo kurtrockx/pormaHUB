@@ -43,6 +43,9 @@ button {
   visibility: hidden;
   opacity: 0;
 }
+.invert {
+  filter: invert();
+}
 
 @font-face {
   font-family: "Poppins-Bold";
@@ -67,6 +70,10 @@ button {
 @font-face {
   font-family: "Quicksand-Medium";
   src: url("../../src/assets/fonts/Quicksand-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Quicksand-SemiBold";
+  src: url("../../src/assets/fonts/Quicksand-SemiBold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Kugile_Demo";
