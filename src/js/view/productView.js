@@ -67,11 +67,11 @@ class ProductView {
   productModalHTML(product) {
     return `
         <div class="product-modal-container" data-product-id="${product._id.$oid}">
-          <img src="${xIcon}" class="exit-modal-button" />
           <div class="product-modal-image">
             <img src="${product.fullQualityPic}" class="product-full-image" />
           </div>
           <div class="product-modal-details">
+            <img src="${xIcon}" class="exit-modal-button" />
             <div class="product-modal-header">${product.name}</div>
             <div class="product-size-radio-container">
               <input type="radio" style="display: none" id="XS" name="size" value="XS" />

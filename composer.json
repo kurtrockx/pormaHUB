@@ -1,5 +1,8 @@
 {
     "require": {
         "mongodb/mongodb": "^1.19"
+    },
+    "require-dev": {
+        "jetbrains/phpstorm-stubs": "^2024.2"
     }
 }

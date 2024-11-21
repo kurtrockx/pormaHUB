@@ -200,6 +200,7 @@ main {
   object-fit: cover;
 }
 .product-modal-details {
+  position: relative;
   width: 40%;
   padding: var(--big-font-size);
   display: flex;
@@ -309,32 +310,6 @@ input[type="radio"]:checked + .product-size-radio {
     width: 100%;
   }
   .exit-modal-button {
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
+    right: 1rem;
   }
 }
-
-/* 
-<div class="product-modal-background">
-  <div class="product-modal-container">
-    <div class="product-modal-image"></div>
-    <div class="product-modal-details">
-      <div class="product-modal-header">PRODUCT NAME</div>
-      <div class="product-size-button-container">
-        <button class="product-size"></button>
-        <button class="product-size"></button>
-        <button class="product-size"></button>
-        <button class="product-size"></button>
-        <button class="product-size"></button>
-        <button class="product-size"></button>
-      </div>
-      <div class="product-modal-bottom-section">
-        <input type="number" class="input-size" />
-        <button class="add-to-cart-button">ADD TO CART</button>
-      </div>
-      <div class="size-chart"></div>
-    </div>
-  </div>
-</div>
-*/

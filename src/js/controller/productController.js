@@ -1,3 +1,4 @@
+import UserModel from "../model/userModel";
 import ProductModel from "../model/productModel";
 import ProductView from "../view/productView";
 
@@ -79,6 +80,8 @@ const addToCart = async () => {
       const addToCartButton = e.target.closest(".add-to-cart-button");
       if (!addToCartButton) return;
 
+      if (!UserModel.currentUser) window.location.href = "login.html";
+
       const productModalContainer = addToCartButton.closest(
         ".product-modal-container"
       );
@@ -90,16 +93,23 @@ const addToCart = async () => {
       );
 
       const inputQuantity =
-        productModalContainer.querySelector(".input-quantity").value;
+        +productModalContainer.querySelector(".input-quantity").value;
 
-      const quantityRadio =
+      const sizeRadio =
         productModalContainer.querySelectorAll('input[name="size"]');
-      console.log(quantityRadio);
+
       let selectedSize = "M";
-      quantityRadio.forEach((r) => {
+      sizeRadio.forEach((r) => {
         if (r.checked) selectedSize = r.value;
       });
 
+      const productToAdd = new ProductModel.Product(
+        productMatch,
+        inputQuantity,
+        selectedSize,
+        productMatch.price * inputQuantity
+      );
+      ProductModel.addToCart(UserModel.currentUser, productToAdd);
     });
   } catch (err) {
     console.err(err);

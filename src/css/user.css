@@ -35,6 +35,16 @@ button:active {
   gap: var(--medium-font-size);
   background: var(--black);
 }
+
+.form-header {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  max-width: max-content;
+  font-family: Quicksand-SemiBold;
+  color: var(--white);
+}
+
 .exit-form-button {
   filter: invert();
   position: absolute;

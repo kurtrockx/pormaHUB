@@ -3,7 +3,7 @@
     "name": "Long Sleeve Casual Button-Down Shirt",
     "category": "Men’s Top",
     "price": 799.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/m4C3DPF/image.png",
     "fullQualityPic": "https://i.ibb.co/njsFgK8/image.png"
   },
@@ -11,7 +11,7 @@
     "name": "Bowling Shirts for Men Short Sleeve",
     "category": "Men’s Top",
     "price": 699.99,
-    "quantity": 30,
+    "stock": 30,
     "thumbnail": "https://i.ibb.co/m8nbKZw/image.png",
     "fullQualityPic": "https://i.ibb.co/X8njP0g/image.png"
   },
@@ -19,7 +19,7 @@
     "name": "Cool Men’s Quick-drying POLO T-shirt",
     "category": "Men’s Top",
     "price": 599.99,
-    "quantity": 40,
+    "stock": 40,
     "thumbnail": "https://i.ibb.co/0sfjP4b/image.png",
     "fullQualityPic": "https://i.ibb.co/SfKXqYC/image.png"
   },
@@ -27,7 +27,7 @@
     "name": "Men’s Shirt Linen Shirt Floral",
     "category": "Men’s Top",
     "price": 799.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/cFv1Pzw/image.png",
     "fullQualityPic": "https://i.ibb.co/Wy36QS0/image.png"
   },
@@ -35,7 +35,7 @@
     "name": "Chic Clothes Polo",
     "category": "Men’s Top",
     "price": 489.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/zFmRTpP/image.png",
     "fullQualityPic": "https://i.ibb.co/nBwcN9Q/image.png"
   },
@@ -43,7 +43,7 @@
     "name": "Coofandy Men’s Linen Beach Vneck Long Sleeve",
     "category": "Men’s Top",
     "price": 489.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/JkQ5JP7/image.png",
     "fullQualityPic": "https://i.ibb.co/C02hGF7/image.png"
   },
@@ -51,7 +51,7 @@
     "name": "T=Shirt Chic Clothes Fashion",
     "category": "Men’s Top",
     "price": 489.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/N2rfMNh/image.png",
     "fullQualityPic": "https://i.ibb.co/jkzqSwK/image.png"
   },
@@ -59,7 +59,7 @@
     "name": "Philippines Half Sleeve Tank top Pinoy",
     "category": "Men’s Top",
     "price": 389.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/gjPGKPP/image.png",
     "fullQualityPic": "https://i.ibb.co/VjQd4QQ/image.png"
   },
@@ -67,7 +67,7 @@
     "name": "Filipino Phillippine Flag Design Men’s",
     "category": "Men’s Top",
     "price": 389.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/LJkqYTb/image.png",
     "fullQualityPic": "https://i.ibb.co/P9mbF23/image.png"
   },
@@ -75,7 +75,7 @@
     "name": "Bohol Men’s Barong Tagalog",
     "category": "Men’s Top",
     "price": 389.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/W5GWbv6/image.png",
     "fullQualityPic": "https://i.ibb.co/GpnvKQ0/image.png"
   },
@@ -83,7 +83,7 @@
     "name": "Casual Solid V-neck T-Shirt",
     "category": "Women’s Top",
     "price": 389.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/kx9QPLB/image.png",
     "fullQualityPic": "https://i.ibb.co/R9BzJXb/image.png"
   },
@@ -91,7 +91,7 @@
     "name": "Women’s ¾ Cuffed Sleeve Chiffon Blouse",
     "category": "Women’s Top",
     "price": 589.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/nCMyHMy/image.png",
     "fullQualityPic": "https://i.ibb.co/BN2JX2J/image.png"
   },
@@ -99,7 +99,7 @@
     "name": "Women’s Long Sleeve Shirt Top",
     "category": "Women’s Top",
     "price": 609.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/k8Vjsxx/image.png",
     "fullQualityPic": "https://i.ibb.co/zRWpTrr/image.png"
   },
@@ -107,7 +107,7 @@
     "name": "Blouse Pour Femme-Vert",
     "category": "Women’s Top",
     "price": 789.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/RSySVRH/image.png",
     "fullQualityPic": "https://i.ibb.co/JdQdMDk/image.png"
   },
@@ -115,7 +115,7 @@
     "name": "Short Sleeve V-neck Button White polo",
     "category": "Women’s Top",
     "price": 789.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/yq6Dc19/image.png",
     "fullQualityPic": "https://i.ibb.co/QMPZ3Rg/image.png"
   },
@@ -123,7 +123,7 @@
     "name": "Filipina Tops Kultuira",
     "category": "Women’s Top",
     "price": 289.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/CwTsjgz/image.png",
     "fullQualityPic": "https://i.ibb.co/BfSKhbt/image.png"
   },
@@ -131,7 +131,7 @@
     "name": "Maria Clara Top Modern Filipino",
     "category": "Women’s Top",
     "price": 339.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/Fnn2QDG/image.png",
     "fullQualityPic": "https://i.ibb.co/BfSKhbt/image.png"
   },
@@ -139,7 +139,7 @@
     "name": "Cream Butterfly Sleeve Bolero",
     "category": "Women’s Top",
     "price": 669.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/N3CDxCv/image.png",
     "fullQualityPic": "https://i.ibb.co/8BsvMsC/image.png"
   },
@@ -147,7 +147,7 @@
     "name": "Modern Filipiniana Two-Way Look Terno",
     "category": "Women’s Top",
     "price": 369.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/F45pMGn/image.png",
     "fullQualityPic": "https://i.ibb.co/d4PZqn7/image.png"
   },
@@ -155,7 +155,7 @@
     "name": "Modern Filipiniana Top",
     "category": "Women’s Top",
     "price": 289.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/x3PCw68/image.png",
     "fullQualityPic": "https://i.ibb.co/DLsVmQg/image.png"
   },
@@ -163,7 +163,7 @@
     "name": "Knit Pants",
     "category": "Men’s Bottom",
     "price": 149.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/YNJ21B9/361-1607-8968392-2.webp",
     "fullQualityPic": "https://i.ibb.co/grQyfZ1/361-1607-8968392-2.webp"
   },
@@ -171,7 +171,7 @@
     "name": "Vands",
     "category": "Men’s Bottom",
     "price": 449.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/ZdbKfBx/twenty-eight-shoes-9861-7475303-2.webp",
     "fullQualityPic": "https://i.ibb.co/dBH6fPD/twenty-eight-shoes-9861-7475303-2.webp"
   },
@@ -179,7 +179,7 @@
     "name": "Loose Linen",
     "category": "Men’s Bottom",
     "price": 241.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/wpL2T03/e2afd6d19898cac3babbe59794818bed.jpg",
     "fullQualityPic": "https://i.ibb.co/frSTb1B/e2afd6d19898cac3babbe59794818bed.jpg"
   },
@@ -187,7 +187,7 @@
     "name": "Hermoso",
     "category": "Men’s Bottom",
     "price": 399.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/Wt49d2Q/a40bc9cbd8ce89be36346a56635f9418.jpg",
     "fullQualityPic": "https://i.ibb.co/Qr2TZdv/a40bc9cbd8ce89be36346a56635f9418.jpg"
   },
@@ -195,7 +195,7 @@
     "name": "Sweat Pants",
     "category": "Men’s Bottom",
     "price": 150.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/4tMXPqn/a27f5ffe7861420d0505ffd9ad80dc8a.jpg",
     "fullQualityPic": "https://i.ibb.co/W5FMgh4/a27f5ffe7861420d0505ffd9ad80dc8a.jpg"
   },
@@ -203,7 +203,7 @@
     "name": "Summer Pants",
     "category": "Men’s Bottom",
     "price": 249.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/CHvyqNc/60d0246ddc4b0451d1d9acc81e007e86.jpg",
     "fullQualityPic": "https://i.ibb.co/rvHCXth/60d0246ddc4b0451d1d9acc81e007e86.jpg"
   },
@@ -211,7 +211,7 @@
     "name": "Dark",
     "category": "Men’s Bottom",
     "price": 199.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/Ykv2zGN/7afedfc13b65d808b505bce36385d4c7.jpg",
     "fullQualityPic": "https://i.ibb.co/yyL0wJN/7afedfc13b65d808b505bce36385d4c7.jpg"
   },
@@ -219,7 +219,7 @@
     "name": "Note Trouser",
     "category": "Men’s Bottom",
     "price": 199.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/8MdJhJb/c718c03d9bdaed651a2b72c0ab9f0ded.jpg",
     "fullQualityPic": "https://i.ibb.co/ZdY3Z3S/c718c03d9bdaed651a2b72c0ab9f0ded.jpg"
   },
@@ -227,7 +227,7 @@
     "name": "Skull Trouser",
     "category": "Men’s Bottom",
     "price": 199.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/56sCNxC/af25b8bb9751a13adc1dd3bc02195a02.jpg",
     "fullQualityPic": "https://i.ibb.co/7XrBwNB/af25b8bb9751a13adc1dd3bc02195a02.jpg"
   },
@@ -235,7 +235,7 @@
     "name": "Wam Bear Jogers",
     "category": "Men’s Bottom",
     "price": 299.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/6B3BYFJ/7c1ab10a791f7883ed301d31675661fd.jpg",
     "fullQualityPic": "https://i.ibb.co/jRcRhDZ/7c1ab10a791f7883ed301d31675661fd.jpg"
   },
@@ -243,7 +243,7 @@
     "name": "Ethnic Pattern Corduroy",
     "category": "Men’s Bottom",
     "price": 229.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/ByZt51y/ff4dc541f1f5f0ee3e823096c0cf4199.jpg",
     "fullQualityPic": "https://i.ibb.co/Jv7Kwhv/ff4dc541f1f5f0ee3e823096c0cf4199.jpg"
   },
@@ -251,7 +251,7 @@
     "name": "Floral Corduroy",
     "category": "Men’s Bottom",
     "price": 229.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/8bRqtCD/edb03f88bb0735502f29166abc20b6fb.jpg",
     "fullQualityPic": "https://i.ibb.co/xYcWdkS/edb03f88bb0735502f29166abc20b6fb.jpg"
   },
@@ -259,7 +259,7 @@
     "name": "Beam Shorts",
     "category": "Women’s Bottom",
     "price": 249.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/NmvNhnN/3bf9c075a91e484dd9247ccc41d7b025.jpg",
     "fullQualityPic": "https://i.ibb.co/61MthJt/3bf9c075a91e484dd9247ccc41d7b025.jpg"
   },
@@ -267,7 +267,7 @@
     "name": "Los Pantalones",
     "category": "Women’s Bottom",
     "price": 249.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/6wWDHyF/6112316f161c9a92f13dccd3eccd9711.jpg",
     "fullQualityPic": "https://i.ibb.co/xL7z126/6112316f161c9a92f13dccd3eccd9711.jpg"
   },
@@ -275,7 +275,7 @@
     "name": "Dirty Trouser",
     "category": "Women’s Bottom",
     "price": 449.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/R0nGMty/84c0704fbecd0cf3e9e20818ca1f6856.jpg",
     "fullQualityPic": "https://i.ibb.co/nc2qV4C/84c0704fbecd0cf3e9e20818ca1f6856.jpg"
   },
@@ -283,7 +283,7 @@
     "name": "Senior Jeans",
     "category": "Women’s Bottom",
     "price": 249.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/VjzzW8V/40cb47eb594655d83b31190573562da5.jpg",
     "fullQualityPic": "https://i.ibb.co/WxMMW1n/40cb47eb594655d83b31190573562da5.jpg"
   },
@@ -291,7 +291,7 @@
     "name": "Rockmore Skirt",
     "category": "Women’s Bottom",
     "price": 289.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/Lgh0ZZM/620e6ea08773295953fdc56e32c1e5d0.jpg",
     "fullQualityPic": "https://i.ibb.co/NNnFyyX/620e6ea08773295953fdc56e32c1e5d0.jpg"
   },
@@ -299,7 +299,7 @@
     "name": "Casual High waist",
     "category": "Women’s Bottom",
     "price": 349.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/VxKpCvH/54f89f35dff20e45ecf080ca502734a5.jpg",
     "fullQualityPic": "https://i.ibb.co/Qk5jH68/54f89f35dff20e45ecf080ca502734a5.jpg"
   },
@@ -307,7 +307,7 @@
     "name": "Spring Vintage",
     "category": "Women’s Bottom",
     "price": 169.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/tzt02NP/cca108e3e57b32485ab30ec99cd8107b.jpg",
     "fullQualityPic": "https://i.ibb.co/NrP0Nkn/cca108e3e57b32485ab30ec99cd8107b.jpg"
   },
@@ -315,7 +315,7 @@
     "name": "Graffiti Ballon Pants",
     "category": "Women’s Bottom",
     "price": 279.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/1R5gtMw/f0221f9e399b952fb04276926124ebbe.jpg",
     "fullQualityPic": "https://i.ibb.co/p487BQ9/f0221f9e399b952fb04276926124ebbe.jpg"
   },
@@ -323,7 +323,7 @@
     "name": "Hermosa",
     "category": "Women’s Bottom",
     "price": 229.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/JQZds5T/de9ae09d902b4e7563430361c0e491c9.jpg",
     "fullQualityPic": "https://i.ibb.co/8ckB76w/de9ae09d902b4e7563430361c0e491c9.jpg"
   },
@@ -331,7 +331,7 @@
     "name": "Hermoza Guzta",
     "category": "Women’s Bottom",
     "price": 229.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/M87cn0G/2eab3593a1b0e772266143b83c4372a6.jpg",
     "fullQualityPic": "https://i.ibb.co/f8HkMwn/2eab3593a1b0e772266143b83c4372a6.jpg"
   },
@@ -339,7 +339,7 @@
     "name": "Flaire Jeans",
     "category": "Women’s Bottom",
     "price": 369.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/FV3LpS8/7cf53f65746bf887502244810cbc5498.jpg",
     "fullQualityPic": "https://i.ibb.co/NSCdR8W/7cf53f65746bf887502244810cbc5498.jpg"
   },
@@ -347,7 +347,7 @@
     "name": "Denim Cargo",
     "category": "Women’s Bottom",
     "price": 159.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/Hggc069/46417a680d25576ca8105c9e94d71165.jpg",
     "fullQualityPic": "https://i.ibb.co/nkkXT9K/46417a680d25576ca8105c9e94d71165.jpg"
   },
@@ -355,7 +355,7 @@
     "name": "Evermore",
     "category": "Women’s Dress",
     "price": 3500.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/bBxWPMW/The-Evermore.png",
     "fullQualityPic": "https://i.ibb.co/PhRmNvm/The-Evermore.png"
   },
@@ -363,7 +363,7 @@
     "name": "Golden Siren",
     "category": "Women’s Dress",
     "price": 2800.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/5WrhzKD/The-Golden-Siren.png",
     "fullQualityPic": "https://i.ibb.co/Z6Bzw2s/The-Golden-Siren.png"
   },
@@ -371,7 +371,7 @@
     "name": "Moonlight Sonata",
     "category": "Women’s Dress",
     "price": 4200.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/PgCfM3R/The-Moonlight-Sonata.png",
     "fullQualityPic": "https://i.ibb.co/HqgkC10/The-Moonlight-Sonata.png"
   },
@@ -379,7 +379,7 @@
     "name": "Seraphina",
     "category": "Women’s Dress",
     "price": 3200.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/znmzszg/The-Seraphina.png",
     "fullQualityPic": "https://i.ibb.co/XsSzQfY/The-Seraphina.png"
   },
@@ -387,7 +387,7 @@
     "name": "Whisper",
     "category": "Women’s Dress",
     "price": 3800.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/vxNXmTP/The-Whisper.png",
     "fullQualityPic": "https://i.ibb.co/Y75081k/The-Whisper.png"
   },
@@ -395,7 +395,7 @@
     "name": "The Desert Wanderer",
     "category": "Shoes",
     "price": 240.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/9rCKHS5/The-Desert-Wanderer.jpg",
     "fullQualityPic": "https://i.ibb.co/kSWb2vC/The-Desert-Wanderer.jpg"
   },
@@ -403,7 +403,7 @@
     "name": "Archipelago",
     "category": "Shoes",
     "price": 85.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/sHsYTJg/The-Archipelago.jpg",
     "fullQualityPic": "https://i.ibb.co/QdYwWjJ/The-Archipelago.jpg"
   },
@@ -411,7 +411,7 @@
     "name": "Midnight Bloom",
     "category": "Shoes",
     "price": 140.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/QcVzdNc/The-Midnight-Bloom.jpg",
     "fullQualityPic": "https://i.ibb.co/n0yZCc0/The-Midnight-Bloom.jpg"
   },
@@ -419,7 +419,7 @@
     "name": "Rustic Trail",
     "category": "Shoes",
     "price": 130.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/hg9cjby/The-Rustic-Trail.png",
     "fullQualityPic": "https://i.ibb.co/kGBJfjx/The-Rustic-Trail.png"
   },
@@ -427,7 +427,7 @@
     "name": "Garden Bloom",
     "category": "Shoes",
     "price": 75.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/dgfQPHB/The-Garden-Bloom.png",
     "fullQualityPic": "https://i.ibb.co/q5DRN2B/The-Garden-Bloom.png"
   },
@@ -435,7 +435,7 @@
     "name": "Golden Lily",
     "category": "Shoes",
     "price": 250.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/C8SJ8BP/The-Golden-Lily.png",
     "fullQualityPic": "https://i.ibb.co/XLGyLXY/The-Golden-Lily.png"
   },
@@ -443,7 +443,7 @@
     "name": "Coastal Breeze",
     "category": "Shoes",
     "price": 180.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/VTb8V4N/The-Coastal-Breeze.png",
     "fullQualityPic": "https://i.ibb.co/1TBxZWn/The-Coastal-Breeze.png"
   },
@@ -451,7 +451,7 @@
     "name": "Golden Bloom",
     "category": "Shoes",
     "price": 220.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/wsCSpTG/The-Golden-Bloom.png",
     "fullQualityPic": "https://i.ibb.co/5Fvrsdp/The-Golden-Bloom.png"
   },
@@ -459,7 +459,7 @@
     "name": "Whimsical Waltz",
     "category": "Shoes",
     "price": 195.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/ccrSFCW/The-Whimsical-Waltz.png",
     "fullQualityPic": "https://i.ibb.co/RpDk0BX/The-Whimsical-Waltz.png"
   },
@@ -467,7 +467,7 @@
     "name": "Gilded Garden",
     "category": "Shoes",
     "price": 240.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/M1gKR4s/The-Gilded-Garden.png",
     "fullQualityPic": "https://i.ibb.co/C9w4nZz/The-Gilded-Garden.png"
   },
@@ -475,7 +475,7 @@
     "name": "Wonderlust",
     "category": "Shoes",
     "price": 150.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/khMW74t/The-Wanderlust.jpg",
     "fullQualityPic": "https://i.ibb.co/jLH1NyS/The-Wanderlust.jpg"
   },
@@ -483,7 +483,7 @@
     "name": "Tapestry Trail",
     "category": "Shoes",
     "price": 165.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/SwJtj5P/The-Tapestry-Trail.jpg",
     "fullQualityPic": "https://i.ibb.co/B2wypct/The-Tapestry-Trail.jpg"
   },
@@ -491,7 +491,7 @@
     "name": "Skyward",
     "category": "Shoes",
     "price": 175.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/254kdTm/The-Skyward.jpg",
     "fullQualityPic": "https://i.ibb.co/cxnrQjM/The-Skyward.jpg"
   },
@@ -499,7 +499,7 @@
     "name": "Sun Kissed",
     "category": "Shoes",
     "price": 125.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/stpMxcS/The-Sun-Kissed.jpg",
     "fullQualityPic": "https://i.ibb.co/kMVWbzn/The-Sun-Kissed.jpg"
   },
@@ -507,7 +507,7 @@
     "name": "Blossom Trail",
     "category": "Shoes",
     "price": 115.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/jzwSpv2/The-Blossom-Trail.png",
     "fullQualityPic": "https://i.ibb.co/3vFnJyq/The-Blossom-Trail.png"
   },
@@ -515,7 +515,7 @@
     "name": "Mosaic",
     "category": "Bag",
     "price": 425.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/tC70ftM/1731914460707.png",
     "fullQualityPic": "https://i.ibb.co/6s3KhxR/1731914460707.png"
   },
@@ -523,7 +523,7 @@
     "name": "Tapestry",
     "category": "Bag",
     "price": 550.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/Kx3LG8j/The-Tapestry.png",
     "fullQualityPic": "https://i.ibb.co/B2SrPYV/The-Tapestry.png"
   },
@@ -531,7 +531,7 @@
     "name": "Bloom",
     "category": "Bag",
     "price": 275.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/wQkLWkY/The-Bloom.png",
     "fullQualityPic": "https://i.ibb.co/z2M5RMN/The-Bloom.png"
   },
@@ -539,7 +539,7 @@
     "name": "Serene",
     "category": "Bag",
     "price": 380.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/YRHBbhQ/The-Serene.png",
     "fullQualityPic": "https://i.ibb.co/YRHBbhQ/The-Serene.png"
   },
@@ -547,7 +547,7 @@
     "name": "Azure",
     "category": "Bag",
     "price": 350.99,
-    "quantity": 50,
+    "stock": 50,
     "thumbnail": "https://i.ibb.co/qBQrBRC/The-Azure.png",
     "fullQualityPic": "https://i.ibb.co/bKrzrY1/The-Azure.png"
   }
