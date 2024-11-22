@@ -1,47 +1,34 @@
-/* 
-      <div class="cart-section">
-        <div class="cart-header">
-          <div class="product-name">PRODUCT NAME</div>
-          <div class="product-price">PRICE</div>
-          <div class="product-quantity">QUANTITY</div>
-          <div class="totalPrice">TOTAL PRICE</div>
-        </div>
-
-        <div class="cart-item">
-          <div class="cart-item-image-name"></div>
-          <div class="cart-item-price"></div>
-          <div class="cart-item-quantity"></div>
-          <div class="cart-item-total-price"></div>
-        </div>
-      </div>
-      <div class="checkout-section"></div>
-*/
 :root {
   --quantity-font-size: clamp(0.75rem, 2vw, 1.2rem);
   --padding-cart: clamp(0.25rem, 2vw, 0.5rem);
+  --product-header: clamp(0.9rem, 1.25vw, 1.25rem);
+  --product-text: clamp(0.75rem, 1vw, 1rem);
+}
+body {
+  min-height: 100vh;
 }
 main {
   margin: auto;
   max-width: var(--content-width);
-  min-height: 100vh;
   display: flex;
-  padding: 1rem;
+  padding: 1rem 0.5rem;
   gap: var(--small-font-size);
 }
 main > * {
   height: 100vh;
-  border: 1px solid var(--black);
   padding: 0.5rem;
 }
 .cart-section {
-  width: 60%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   gap: var(--medium-font-size);
 }
 .cart-header {
   position: relative;
+  font-size: var(--product-header);
   font-weight: 600;
+  border-bottom: 1px solid #000;
 }
 .cart-item-container {
   width: 100%;
@@ -51,19 +38,13 @@ main > * {
 .cart-item {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: var(--medium-font-size);
+  gap: var(--smaller-font-size);
+  align-items: center;
 }
 .cart-item {
   position: relative;
   box-shadow: 0 4px 2px var(--light-grey);
-}
-.cart-item-delete {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 2rem;
-  aspect-ratio: 1/1;
-  cursor: pointer;
+  font-size: var(--product-text);
 }
 .cart-item > * {
   padding: 0.25rem;
@@ -126,6 +107,69 @@ main > * {
 .quantity-button:active {
   scale: 0.9;
 }
+.cart-item-delete {
+  position: absolute;
+  width: 1.75rem;
+  aspect-ratio: 1/1;
+  padding: 0.5rem;
+  border-radius: 50%;
+  top: 0.5rem;
+  right: 0.5rem;
+  transition: all 0.1s linear;
+  cursor: pointer;
+}
+.cart-item-delete-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.cart-item-delete:hover {
+  background-color: rgb(0, 0, 0, 0.1);
+}
+.cart-item-delete:active {
+  background-color: rgb(0, 0, 0, 0.2);
+}
 .checkout-section {
   flex: 1;
+  border: 1px solid var(--black);
+}
+@media screen and (max-width: 900px) {
+  main {
+    flex-direction: column;
+  }
+  .cart-section {
+    width: 100%;
+    flex: 1;
+  }
+}
+@media screen and (max-width: 700px) {
+  .cart-item-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .cart-item {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 0;
+  }
+  .cart-header {
+    display: none;
+  }
+  .cart-item-quantity-container {
+    max-width: 6rem;
+    position: relative;
+    translate: 0 -280%;
+    padding: 0;
+  }
+  .cart-item-price {
+    position: relative;
+    translate: 0 100%;
+  }
+  .cart-item-total-price {
+    display: none;
+  }
 }
