@@ -37,7 +37,6 @@ class UserModel {
       if (!res.ok) throw new Error("No response");
       const data = await res.json();
       this.users.push(...data);
-      console.log(this.users);
     } catch (err) {
       console.log(err.message);
     }

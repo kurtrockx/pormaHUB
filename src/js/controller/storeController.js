@@ -1,11 +1,11 @@
 import UserModel from "../model/userModel";
-import ProductModel from "../model/productModel";
-import ProductView from "../view/productView";
+import StoreModel from "../model/storeModel";
+import StoreView from "../view/storeView";
 
 const initialRenderProducts = async () => {
   try {
-    const products = await ProductModel.productFetch();
-    ProductView.renderProducts(products);
+    const products = await StoreModel.productFetch();
+    StoreView.renderProducts(products);
   } catch (err) {
     console.error("Could not render products");
   }
@@ -13,17 +13,17 @@ const initialRenderProducts = async () => {
 
 const searchProduct = async () => {
   try {
-    const data = await ProductModel.productFetch();
+    const data = await StoreModel.productFetch();
     if (!data) throw new Error("No data found!");
     const searchTerm = data.filter((p) =>
-      p.name.toLowerCase().includes(ProductView.searchField.value)
+      p.name.toLowerCase().includes(StoreView.searchField.value)
     );
 
     const dataWithoutSearchedTerm = data.filter(
-      (d) => !d.name.toLowerCase().includes(ProductView.searchField.value)
+      (d) => !d.name.toLowerCase().includes(StoreView.searchField.value)
     );
     const searchResult = [...searchTerm, ...dataWithoutSearchedTerm];
-    ProductView.renderProducts(searchResult);
+    StoreView.renderProducts(searchResult);
   } catch (err) {
     console.error(err);
   }
@@ -31,7 +31,7 @@ const searchProduct = async () => {
 
 const searchByCategory = async (e) => {
   try {
-    const data = await ProductModel.productFetch();
+    const data = await StoreModel.productFetch();
     if (!data) throw new Error("No data fetched");
 
     const category = e.target.dataset.category;
@@ -40,7 +40,7 @@ const searchByCategory = async (e) => {
       return prod.category === category;
     });
 
-    ProductView.renderProducts(filteredProducts);
+    StoreView.renderProducts(filteredProducts);
   } catch (err) {
     console.error(err);
   }
@@ -48,11 +48,11 @@ const searchByCategory = async (e) => {
 
 const modalData = async () => {
   try {
-    const products = await ProductModel.productFetch();
+    const products = await StoreModel.productFetch();
     if (!products)
       throw new Error("No product fetched from productFetch function");
 
-    ProductView.setupProductModal(products);
+    StoreView.setupProductModal(products);
     closeModal();
   } catch (err) {
     console.error(err);
@@ -60,23 +60,23 @@ const modalData = async () => {
 };
 
 const closeModal = () => {
-  ProductView.closeModalButton((e) => {
+  StoreView.closeModalButton((e) => {
     const exitModalButton = e.target.closest(".exit-modal-button");
     if (!exitModalButton) return;
-    ProductView.productModalBackground.classList.add("gone");
+    StoreView.productModalBackground.classList.add("gone");
   });
   window.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return;
-    ProductView.productModalBackground.classList.add("gone");
+    StoreView.productModalBackground.classList.add("gone");
   });
 };
 
 const addToCart = async () => {
   try {
-    const products = await ProductModel.productFetch();
+    const products = await StoreModel.productFetch();
 
     if (!products) throw new Error("No products fetched");
-    ProductView.addToCart((e) => {
+    StoreView.addToCart((e) => {
       const addToCartButton = e.target.closest(".add-to-cart-button");
       if (!addToCartButton) return;
 
@@ -103,13 +103,13 @@ const addToCart = async () => {
         if (r.checked) selectedSize = r.value;
       });
 
-      const productToAdd = new ProductModel.Product(
+      const productToAdd = new StoreModel.Product(
         productMatch,
         inputQuantity,
         selectedSize,
         productMatch.price * inputQuantity
       );
-      ProductModel.addToCart(UserModel.currentUser, productToAdd);
+      StoreModel.addToCart(UserModel.currentUser, productToAdd);
     });
   } catch (err) {
     console.err(err);
@@ -120,7 +120,9 @@ const init = async () => {
   initialRenderProducts();
   modalData();
   addToCart();
-  ProductView.searchInput(searchProduct);
-  ProductView.categorizeProducts(searchByCategory);
+  StoreView.searchInput(searchProduct);
+  StoreView.categorizeProducts(searchByCategory);
+  StoreModel.assignCart();
+  console.log(StoreModel.cart);
 };
 init();

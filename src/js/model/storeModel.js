@@ -1,3 +1,5 @@
+import UserModel from "./userModel";
+
 class ProductModel {
   Product = class {
     constructor(product, quantity, size, calculatedPrice) {
@@ -57,6 +59,10 @@ class ProductModel {
     } catch (error) {
       console.error("Fetch Error:", error);
     }
+  }
+
+  assignCart() {
+    this.cart = UserModel.currentUser.cart;
   }
 }
 

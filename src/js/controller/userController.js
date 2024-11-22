@@ -2,7 +2,6 @@ import emailjs from "emailjs-com";
 import UserModel from "../model/userModel";
 import UserView from "../view/userView";
 import { setUserLocation, spawnMap } from "../map";
-import userView from "../view/userView";
 
 const returnInputView = () => {
   return [
