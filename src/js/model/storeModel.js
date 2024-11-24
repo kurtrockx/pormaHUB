@@ -2,7 +2,7 @@ import UserModel from "./userModel";
 
 class ProductModel {
   Product = class {
-    constructor(product, quantity, size, calculatedPrice) {
+    constructor(product, quantity, size) {
       this._id = product._id;
       this.name = product.name;
       this.category = product.category;
@@ -12,7 +12,6 @@ class ProductModel {
       this.fullQualityPic = product.fullQualityPic;
       this.quantity = quantity;
       this.size = size;
-      this.calculatedPrice = calculatedPrice;
     }
   };
   productFetch = async () => {

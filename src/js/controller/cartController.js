@@ -1,4 +1,3 @@
-import UserModel from "../model/userModel";
 import CartModel from "../model/cartModel";
 import CartView from "../view/cartView";
 
@@ -18,6 +17,18 @@ const changeQuantity = async (e) => {
   quantityButton.classList.contains("quantity-plus")
     ? inputQuantity.value++
     : inputQuantity.value--;
+
+  const initialPriceElement = e.target
+    .closest(".cart-item")
+    .querySelector(".cart-item-price");
+
+  const totalPrice = e.target
+    .closest(".cart-item")
+    .querySelector(".cart-item-total-price");
+
+  const initialPrice = parseFloat(initialPriceElement.textContent.slice(1));
+
+  totalPrice.textContent = `${(+inputQuantity.value * initialPrice).toFixed(2)}`;
 
   const newQuantity = +inputQuantity.value;
   const cartItemId = e.target.closest(".cart-item").dataset.cartItem;
