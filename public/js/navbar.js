@@ -72,7 +72,7 @@ const insertNavbar = () => {
           <a href="store.html" class="navlink">STORE</a>
           <a href="" class="navlink">ABOUT US</a>
           <a href="" class="navlink">CONTACT US</a>
-          <a href="" class="navlink navlink-logout">LOG OUT</a>
+          <a href="index.html" class="navlink navlink-logout">LOG OUT</a>
 
           <img src="${phLogo2}" class="navlink-logo" />
 

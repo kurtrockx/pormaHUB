@@ -30,7 +30,7 @@ class CartView {
         <div class="quantity-button quantity-plus">+</div>
         </div>
     </div>
-    <div class="cart-item-total-price">P${(product.price * product.quantity)}</div>
+    <div class="cart-item-total-price">P${((product.price * product.quantity).toFixed(2))}</div>
     </div>
         `;
   }

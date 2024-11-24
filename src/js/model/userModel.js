@@ -146,7 +146,6 @@ class UserModel {
 
   logoutUser() {
     localStorage.removeItem("currentUser");
-    location.reload();
   }
 }
 

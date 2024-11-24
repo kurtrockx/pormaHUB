@@ -88,6 +88,7 @@ main > * {
 }
 .cart-item-quantity input {
   all: unset;
+  pointer-events: none;
   display: block;
   text-align: center;
   width: 100%;
