@@ -1,8 +1,6 @@
 import UserModel from "../model/userModel";
 
 class CartModel {
-  currentCart;
-
   async setCurrentCart() {
     const userId = UserModel.currentUser._id.$oid;
     try {
@@ -16,9 +14,7 @@ class CartModel {
           body: JSON.stringify({ userId }),
         }
       );
-
       if (!res.ok) throw new Error("Could not fetch user cart");
-
       const currentUser = await res.json();
       return currentUser.cart;
     } catch (err) {

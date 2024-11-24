@@ -107,7 +107,7 @@ const addToCart = async () => {
         productMatch,
         inputQuantity,
         selectedSize,
-        productMatch.price * inputQuantity
+       (productMatch.price * inputQuantity).toFixed(2)
       );
       StoreModel.addToCart(UserModel.currentUser, productToAdd);
     });

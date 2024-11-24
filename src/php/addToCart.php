@@ -17,20 +17,49 @@ if (!$data) {
 
 if (isset($data['action']) && $data['action'] == 'updateCart') {
     if (isset($data['userId']) && isset($data['cartItem'])) {
-
         $userId = $data['userId'];
         $cartItem = $data['cartItem'];
-        try {
-            $result = $collection->updateOne(
 
-                ['_id' => new MongoDB\BSON\ObjectId($userId)],
-                ['$push' => ['cart' => $cartItem]]
-            );
+        try {
+            // Find the user
+            $user = $collection->findOne(['_id' => new MongoDB\BSON\ObjectId($userId)]);
+
+            if (!$user) {
+                echo json_encode(['error' => 'User not found']);
+                exit;
+            }
+
+            // Check if the cart item already exists
+            $existingItemIndex = null;
+            foreach ($user['cart'] as $index => $item) {
+                if ($item['name'] === $cartItem['name'] && $item['size'] === $cartItem['size']) {
+                    $existingItemIndex = $index;
+                    break;
+                }
+            }
+
+            if ($existingItemIndex !== null) {
+                // Update the existing item
+                $user['cart'][$existingItemIndex]['quantity'] += $cartItem['quantity'];
+                $user['cart'][$existingItemIndex]['calculatedPrice'] += $cartItem['calculatedPrice'];
+
+                // Update the user document with the new cart data
+                $result = $collection->updateOne(
+                    ['_id' => new MongoDB\BSON\ObjectId($userId)],
+                    ['$set' => ['cart' => $user['cart']]]
+                );
+            } else {
+                // Add a new item to the cart
+                $result = $collection->updateOne(
+                    ['_id' => new MongoDB\BSON\ObjectId($userId)],
+                    ['$push' => ['cart' => $cartItem]]
+                );
+            }
 
             // Respond with the result
             echo json_encode([
                 'message' => $result->getModifiedCount() > 0
-                    ? 'Item added to cart successfully'
+                    ? 'Cart updated successfully'
                     : 'No changes made',
             ]);
         } catch (Exception $e) {

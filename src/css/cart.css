@@ -15,10 +15,10 @@ main {
   gap: var(--small-font-size);
 }
 main > * {
-  height: 100vh;
   padding: 0.5rem;
 }
 .cart-section {
+  min-height: 100vh;
   width: 70%;
   display: flex;
   flex-direction: column;
@@ -130,7 +130,10 @@ main > * {
   background-color: rgb(0, 0, 0, 0.2);
 }
 .checkout-section {
+  position: sticky;
+  top: calc(10vh + 1rem);
   flex: 1;
+  max-height: 50vh;
   border: 1px solid var(--black);
 }
 @media screen and (max-width: 900px) {
@@ -172,7 +175,4 @@ main > * {
   .cart-item-total-price {
     display: none;
   }
-}
-.nav {
-  position: sticky;
 }
