@@ -123,6 +123,5 @@ const init = async () => {
   StoreView.searchInput(searchProduct);
   StoreView.categorizeProducts(searchByCategory);
   StoreModel.assignCart();
-  console.log(StoreModel.cart);
 };
 init();

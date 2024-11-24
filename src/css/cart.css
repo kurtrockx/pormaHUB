@@ -173,3 +173,6 @@ main > * {
     display: none;
   }
 }
+.nav {
+  position: sticky;
+}

@@ -135,11 +135,9 @@ class UserModel {
     this.setCurrentUserLocal();
     return;
   }
-
   setCurrentUserLocal() {
     localStorage.setItem("currentUser", JSON.stringify(this.currentUser));
   }
-
   getCurrentUserLocal() {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     if (!currentUser) return;

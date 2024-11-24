@@ -62,7 +62,9 @@ class ProductModel {
   }
 
   assignCart() {
-    this.cart = UserModel.currentUser.cart;
+    const currentCart = UserModel.currentUser?.cart;
+    if (!currentCart) return;
+    this.cart = currentCart;
   }
 }
 
