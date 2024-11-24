@@ -1,9 +1,7 @@
-import downSVG from '../../src/assets/svg/down.svg';
+import downSVG from "../../src/assets/svg/down.svg";
 
 //Navigation
 const navbar = document.querySelector(".nav");
-const navlinksBackground = document.querySelector(".navlinks-background");
-const navlinksContainer = document.querySelector(".navlinks-container");
 //Banner
 const banner = document.querySelector(".banner");
 const bannerButtonDown = document.querySelector(".banner-button");
@@ -17,6 +15,7 @@ const trendingScrollContainer = document.querySelector(".trending-scroll");
 const slideLeftButton = document.querySelector(".slide-left-button");
 const slideRightButton = document.querySelector(".slide-right-button");
 const slides = document.querySelectorAll(".slide");
+const slidesContainer = document.querySelector(".slides-container");
 //FAQs
 const questionerContainer = document.querySelector(".questioner-container");
 
@@ -180,11 +179,20 @@ const frequentlyAskedQuestionToggler = () => {
   });
 };
 
+const setCategory = () => {
+  slidesContainer.addEventListener("click", (e) => {
+    const category = e.target.closest(".slide")?.dataset.category;
+    if (!category) return;
+    localStorage.setItem("dashboardCategory", JSON.stringify(category));
+  });
+};
+
 const init = () => {
   slideFunction();
   trendingScroll();
   bannerTitleTransition();
   observeNavbar();
+  setCategory();
   scrollDown();
   frequentlyAskedQuestionToggler();
 };

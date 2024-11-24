@@ -28,7 +28,9 @@ const changeQuantity = async (e) => {
 
   const initialPrice = parseFloat(initialPriceElement.textContent.slice(1));
 
-  totalPrice.textContent = `P${(+inputQuantity.value * initialPrice).toFixed(2)}`;
+  totalPrice.textContent = `P${(+inputQuantity.value * initialPrice).toFixed(
+    2
+  )}`;
 
   const newQuantity = +inputQuantity.value;
   const cartItemId = e.target.closest(".cart-item").dataset.cartItem;

@@ -46,6 +46,26 @@ const searchByCategory = async (e) => {
   }
 };
 
+const initCategory = async () => {
+  try {
+    const initCategory = JSON.parse(localStorage.getItem("dashboardCategory"));
+    if (!initCategory) return;
+
+    const data = await StoreModel.productFetch();
+    if (!data) throw new Error("No data fetched");
+
+    const filteredProducts = data.filter((prod) => {
+      return prod.category === initCategory;
+    });
+
+    StoreView.renderProducts(filteredProducts);
+
+    localStorage.removeItem("dashboardCategory");
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 const modalData = async () => {
   try {
     const products = await StoreModel.productFetch();
@@ -117,6 +137,7 @@ const addToCart = async () => {
 
 const init = async () => {
   initialRenderProducts();
+  initCategory();
   modalData();
   addToCart();
   StoreView.searchInput(searchProduct);
