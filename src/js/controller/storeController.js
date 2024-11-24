@@ -138,6 +138,7 @@ const addToCart = async () => {
 const init = async () => {
   initialRenderProducts();
   initCategory();
+  StoreView.clearCategory(initialRenderProducts);
   modalData();
   addToCart();
   StoreView.searchInput(searchProduct);

@@ -147,7 +147,32 @@ main {
   left: 0;
   width: 100%;
 }
-
+.clear-category-button {
+  position: relative;
+  translate: 0 100%;
+  text-align: center;
+  padding: 0.25rem;
+  font-size: var(--small-font-size);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--black);
+  cursor: pointer;
+}
+.clear-category-button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: all 0.2s ease;
+}
+.clear-category-button:hover::after {
+  left: 0;
+  width: 100%;
+}
 @media screen and (max-width: 420px) {
   main {
     padding: 2rem 0;

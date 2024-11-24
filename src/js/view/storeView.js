@@ -7,6 +7,7 @@ class ProductView {
   searchCategoryButton;
   productModalBackground;
   addToCartButton;
+  clearCategoryButton;
 
   constructor() {
     this.productGridContainer = document.querySelector(
@@ -19,6 +20,7 @@ class ProductView {
     this.productModalBackground = document.querySelector(
       ".product-modal-background"
     );
+    this.clearCategoryButton = document.querySelector('.clear-category-button')
   }
 
   renderProducts(productsArr) {
@@ -56,6 +58,10 @@ class ProductView {
 
   searchInput(searchFunction) {
     this.searchField.addEventListener("input", searchFunction);
+  }
+
+  clearCategory(clearCategoryFunction) {
+    this.clearCategoryButton.addEventListener('click', clearCategoryFunction)
   }
 
   categorizeProducts(categoryFunction) {
