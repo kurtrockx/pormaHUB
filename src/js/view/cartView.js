@@ -26,7 +26,7 @@ class CartView {
     <div class="cart-item-quantity-container">
         <div class="cart-item-quantity">
         <div class="quantity-button quantity-minus">–</div>
-        <input type="number" value="${product.quantity}" />
+        <input type="number" value="${product.quantity}" class="input-quantity"/>
         <div class="quantity-button quantity-plus">+</div>
         </div>
     </div>
@@ -40,6 +40,10 @@ class CartView {
       const html = this.cartItemHTML(prod);
       this.cartItemContainer.insertAdjacentHTML("beforeend", html);
     });
+  }
+
+  changeQuantity(changeQuantityFunction) {
+    this.cartItemContainer.addEventListener("click", changeQuantityFunction);
   }
 }
 
