@@ -1,5 +1,6 @@
 import CartModel from "../model/cartModel";
 import CartView from "../view/cartView";
+import UserModel from "../model/userModel";
 
 const renderCartItems = async () => {
   const currentCart = await CartModel.setCurrentCart();
@@ -20,7 +21,7 @@ const changeQuantity = async (e) => {
   const quantityButton = e.target.closest(".quantity-button");
   const inputQuantity = e.target
     .closest(".cart-item")
-    .querySelector(".input-quantity");
+    ?.querySelector(".input-quantity");
 
   if (!quantityButton) return;
 
@@ -49,9 +50,26 @@ const changeQuantity = async (e) => {
   spawnCheckoutItems();
 };
 
+const deleteItem = async (e) => {
+  const clickedX = e.target.closest(".cart-item-delete");
+  if (!clickedX) return;
+
+  const currentCart = await CartModel.setCurrentCart();
+  const cartId = clickedX.closest(".cart-item")?.dataset.cartItem;
+
+  const toDeleteItem = currentCart.find((item) => item._id.$oid === cartId);
+
+  const deleted = await CartModel.deleteItem(toDeleteItem);
+  if (deleted) {
+    clickedX.closest(".cart-item")?.remove();
+  }
+  spawnCheckoutItems();
+};
+
 const init = async () => {
   renderCartItems();
   CartView.changeQuantity(changeQuantity);
   spawnCheckoutItems();
+  CartView.deleteItem(deleteItem);
 };
 init();

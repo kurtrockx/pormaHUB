@@ -54,6 +54,10 @@ class CartView {
     });
   }
 
+  deleteItem(deleteItemFunction) {
+    this.cartItemContainer.addEventListener("click", deleteItemFunction);
+  }
+
   changeQuantity(changeQuantityFunction) {
     this.cartItemContainer.addEventListener("click", changeQuantityFunction);
   }
@@ -71,7 +75,7 @@ class CartView {
           <div class="checkout-item">
             <div class="checkout-item-quantity">${item.quantity}x</div>
             <div class="checkout-item-name">
-              ${item.name}
+              ${item.name} <span id="checkout-item-size">${item.size}</span>
             </div>
             <div class="checkout-item-price">P${(
               item.price * item.quantity

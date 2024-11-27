@@ -206,6 +206,7 @@ main > * {
 .checkout-send-button:active {
   background: var(--black);
 }
+
 /* 
 <div class="checkout-send">
   <div class="checkout-send-total-price">P10000.99</div>
