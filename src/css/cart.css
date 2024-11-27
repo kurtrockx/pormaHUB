@@ -158,12 +158,18 @@ main > * {
 }
 .checkout-item {
   font-size: 0.8rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: var(--small-font-size);
 }
+.checkout-item-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
 .checkout-item-name {
-  grid-column: 2/4;
+  flex: 6;
 }
 .checkout-item-price {
   text-align: right;
@@ -229,7 +235,7 @@ main > * {
   .checkout-send {
     border: none;
     height: 100%;
-    font-size: .7rem;
+    font-size: 0.7rem;
   }
   .checkout-send > * {
     padding: 0;

@@ -2,9 +2,17 @@ import xIcon from "../../assets/svg/x.svg";
 
 class CartView {
   cartItemContainer;
+  checkOutItemContainer;
+  checkoutTotalPrice;
 
   constructor() {
     this.cartItemContainer = document.querySelector(".cart-item-container");
+    this.checkOutItemContainer = document.querySelector(
+      ".checkout-item-container"
+    );
+    this.checkoutTotalPrice = document.querySelector(
+      ".checkout-send-total-price-value"
+    );
   }
 
   cartItemHTML(product) {
@@ -25,12 +33,16 @@ class CartView {
     <div class="cart-item-price">P${product.price}</div>
     <div class="cart-item-quantity-container">
         <div class="cart-item-quantity">
-        <div class="quantity-button quantity-minus">–</div>
-        <input type="number" value="${product.quantity}" class="input-quantity"/>
-        <div class="quantity-button quantity-plus">+</div>
+        <button class="quantity-button quantity-minus">–</button>
+        <input type="number" value="${
+          product.quantity
+        }" class="input-quantity"/>
+        <button class="quantity-button quantity-plus">+</button>
         </div>
     </div>
-    <div class="cart-item-total-price">P${((product.price * product.quantity).toFixed(2))}</div>
+    <div class="cart-item-total-price">P${(
+      product.price * product.quantity
+    ).toFixed(2)}</div>
     </div>
         `;
   }
@@ -44,6 +56,28 @@ class CartView {
 
   changeQuantity(changeQuantityFunction) {
     this.cartItemContainer.addEventListener("click", changeQuantityFunction);
+  }
+
+  spawnCheckoutItems(checkoutItems) {
+    this.checkOutItemContainer.innerHTML = "";
+    checkoutItems.forEach((item) => {
+      const html = this.checkoutItemHTML(item);
+      this.checkOutItemContainer.insertAdjacentHTML("beforeend", html);
+    });
+  }
+
+  checkoutItemHTML(item) {
+    return `
+          <div class="checkout-item">
+            <div class="checkout-item-quantity">${item.quantity}x</div>
+            <div class="checkout-item-name">
+              ${item.name}
+            </div>
+            <div class="checkout-item-price">P${(
+              item.price * item.quantity
+            ).toFixed(2)}</div>
+          </div>
+    `;
   }
 }
 
