@@ -11,6 +11,7 @@ main {
   --answer-font-size: clamp(0.7rem, 1.25vw, 1rem);
   --motto-padding: clamp(4rem, 15vh, 7.75rem);
   --motto-line: clamp(10%, 5vh, 20%);
+  --category-text: clamp(1.25rem, 6vw, 6.5rem);
 }
 
 /* BANNER */
@@ -208,7 +209,17 @@ main {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: drop-shadow(5px 5px 2px black);
+  filter: drop-shadow(5px 5px 2px black) brightness(70%);
+}
+.category-title {
+  font-family: Evogria;
+  position: absolute;
+  z-index: 200;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  font-size: var(--category-text);
+  color: var(--white);
 }
 .slide::before {
   content: "";
@@ -218,7 +229,7 @@ main {
   height: 50%;
   bottom: 0;
   left: 0;
-  background: linear-gradient(to top, var(--black) -20%, transparent 100%);
+  background: linear-gradient(to top, var(--black) 0%, transparent 100%);
 }
 
 .slideOff {

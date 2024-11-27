@@ -63,7 +63,7 @@ const slideFunction = () => {
 
 const trendingScroll = () => {
   for (let x = 0; x < 20; x++) {
-    const html = `<p class="trending-scroll-text">STYLE</p>`;
+    const html = `<p class="trending-scroll-text">BUY NOW</p>`;
     trendingScrollContainer.insertAdjacentHTML("beforeend", html);
   }
 };
