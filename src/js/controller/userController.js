@@ -109,6 +109,7 @@ const registerUser = () => {
   UserView.changeToOtpPage();
   UserView.notifDisplay(["Check your email"], "green");
   UserView.otpCheck(checkOTP);
+  UserModel.pullUsersFromDB();
 };
 
 const loginUserController = () => {
@@ -129,7 +130,6 @@ const loginUserController = () => {
     UserView.notifDisplay(errors);
     return;
   }
-
   UserModel.loginUser(loginInputEmail);
   window.location.href = "index.html";
 };

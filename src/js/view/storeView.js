@@ -8,6 +8,8 @@ class ProductView {
   productModalBackground;
   addToCartButton;
   clearCategoryButton;
+  notifList;
+  blurBackground;
 
   constructor() {
     this.productGridContainer = document.querySelector(
@@ -20,7 +22,9 @@ class ProductView {
     this.productModalBackground = document.querySelector(
       ".product-modal-background"
     );
-    this.clearCategoryButton = document.querySelector('.clear-category-button')
+    this.clearCategoryButton = document.querySelector(".clear-category-button");
+    this.notifList = document.querySelector(".notification-list");
+    this.blurBackground = document.querySelector(".blur-background");
   }
 
   renderProducts(productsArr) {
@@ -61,7 +65,7 @@ class ProductView {
   }
 
   clearCategory(clearCategoryFunction) {
-    this.clearCategoryButton.addEventListener('click', clearCategoryFunction)
+    this.clearCategoryButton.addEventListener("click", clearCategoryFunction);
   }
 
   categorizeProducts(categoryFunction) {
@@ -130,6 +134,29 @@ class ProductView {
 
   addToCart(addToCartFunction) {
     this.productModalBackground.addEventListener("click", addToCartFunction);
+  }
+
+  async notifDisplay(notif, type = "red") {
+    const delay = () => new Promise((resolve) => setTimeout(resolve, 1500));
+    const delayFaster = () =>
+      new Promise((resolve) => setTimeout(resolve, 150));
+
+    notif.forEach((notif) => {
+      this.blurBackground.classList.remove("gone");
+      const html = `${
+        type === "red"
+          ? `<div class='error'>${notif}</div>`
+          : `<div class='notif'>${notif}</div>`
+      }`;
+      this.notifList.insertAdjacentHTML("beforeend", html);
+    });
+
+    await delay();
+
+    this.blurBackground.classList.add("gone");
+
+    await delayFaster();
+    this.notifList.innerHTML = "";
   }
 }
 

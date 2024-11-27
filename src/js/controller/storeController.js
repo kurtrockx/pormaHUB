@@ -1,6 +1,7 @@
 import UserModel from "../model/userModel";
 import StoreModel from "../model/storeModel";
 import StoreView from "../view/storeView";
+import { svg } from "leaflet";
 
 const initialRenderProducts = async () => {
   try {
@@ -129,6 +130,7 @@ const addToCart = async () => {
         selectedSize
       );
       StoreModel.addToCart(UserModel.currentUser, productToAdd);
+      StoreView.notifDisplay(["Successfully added item(s) to cart"], "green");
     });
   } catch (err) {
     console.err(err);

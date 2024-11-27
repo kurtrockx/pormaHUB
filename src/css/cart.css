@@ -8,6 +8,7 @@ body {
   min-height: 100vh;
 }
 main {
+  position: relative;
   margin: auto;
   max-width: var(--content-width);
   display: flex;
@@ -135,9 +136,77 @@ main > * {
   position: sticky;
   top: calc(10vh + 1rem);
   flex: 1;
-  max-height: 50vh;
+  height: 30rem;
+  min-height: 2rem;
   border: 1px solid var(--black);
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
 }
+.checkout-header,
+.checkout-header-sub {
+  text-align: center;
+  font-size: var(--product-text);
+}
+.checkout-header {
+  font-size: var(--medium-font-size);
+  margin-top: var(--small-font-size);
+  font-weight: 600;
+}
+.checkout-header-sub {
+  margin-bottom: var(--medium-font-size);
+}
+.checkout-item {
+  font-size: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--small-font-size);
+}
+.checkout-item-name {
+  grid-column: 2/4;
+}
+.checkout-item-price {
+  text-align: right;
+}
+.checkout-send {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--black);
+  font-size: var(--small-font-size);
+}
+.checkout-send > * {
+  flex: 1;
+  padding-block: 0.5rem;
+  text-align: center;
+  align-content: center;
+}
+.checkout-send-total-price-value {
+  font-weight: 600;
+}
+.checkout-send-button {
+  font-weight: 600;
+  color: var(--white);
+  background: var(--black);
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+.checkout-send-button:hover {
+  background: var(--light-black);
+}
+.checkout-send-button:active {
+  background: var(--black);
+}
+/* 
+<div class="checkout-send">
+  <div class="checkout-send-total-price">P10000.99</div>
+  <div class="checkout-send-button">CHECKOUT</div>
+</div>
+*/
+
 @media screen and (max-width: 900px) {
   main {
     flex-direction: column;
@@ -145,6 +214,25 @@ main > * {
   .cart-section {
     width: 100%;
     flex: 1;
+  }
+  .checkout-section {
+    bottom: 0.5rem;
+    border: none;
+    border: 1px solid var(--black);
+    box-shadow: 0 0 4px rgb(0, 0, 0, 0.2);
+  }
+  .checkout-header,
+  .checkout-header-sub,
+  .checkout-item {
+    display: none;
+  }
+  .checkout-send {
+    border: none;
+    height: 100%;
+    font-size: .7rem;
+  }
+  .checkout-send > * {
+    padding: 0;
   }
 }
 @media screen and (max-width: 700px) {
