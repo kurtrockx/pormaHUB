@@ -22,7 +22,7 @@ class CartModel {
     }
   }
 
-  async changeQuantityDB(cartItemId, newQuantity) {
+  async changeQuantityDB(cartItemId, itemSize, newQuantity) {
     const userId = UserModel.currentUser._id.$oid;
     try {
       const response = await fetch(
@@ -35,6 +35,7 @@ class CartModel {
           body: JSON.stringify({
             userId: userId,
             cartItemId: cartItemId,
+            itemSize: itemSize,
             quantity: newQuantity,
           }),
         }

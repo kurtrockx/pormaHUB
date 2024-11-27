@@ -10,10 +10,11 @@ $input = json_decode(file_get_contents('php://input'), true);
 
 $userId = $input['userId'];
 $cartItemId = strval($input['cartItemId']);  // Ensure it's a string
+$itemSize = $input['itemSize'];  // Get item size
 $newQuantity = $input['quantity'];
 
-if (!$userId || !$cartItemId || !isset($newQuantity)) {
-    echo json_encode(['error' => 'Missing userId, cartItemId or quantity']);
+if (!$userId || !$cartItemId || !$itemSize || !isset($newQuantity)) {
+    echo json_encode(['error' => 'Missing userId, cartItemId, itemSize, or quantity']);
     exit;
 }
 
@@ -26,11 +27,11 @@ try {
         exit;
     }
 
-    // Loop through the cart and find the item by matching the string ID
+    // Loop through the cart and find the item by matching both cartItemId and itemSize
     $updated = false;
     foreach ($user['cart'] as &$item) {
-        // Use $item['_id']['$oid'] to access the string version of the ObjectId
-        if (trim($item['_id']['$oid']) === trim($cartItemId)) {
+        // Check if both cartItemId and itemSize match
+        if (trim($item['_id']['$oid']) === trim($cartItemId) && $item['size'] === $itemSize) {
             // Update the quantity of the matched cart item
             $item['quantity'] = (int)$newQuantity;
             $updated = true;
@@ -39,7 +40,7 @@ try {
     }
 
     if (!$updated) {
-        error_log("Cart item not found for ID: " . $cartItemId);
+        error_log("Cart item not found for ID: " . $cartItemId . " with size: " . $itemSize);
     }
 
     // Update the cart in the database

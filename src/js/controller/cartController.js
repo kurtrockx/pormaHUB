@@ -46,7 +46,11 @@ const changeQuantity = async (e) => {
   const newQuantity = +inputQuantity.value;
   const cartItemId = e.target.closest(".cart-item").dataset.cartItem;
 
-  await CartModel.changeQuantityDB(cartItemId, newQuantity);
+  const itemSize = e.target
+    .closest(".cart-item")
+    ?.querySelector("#cart-item-size-bold")?.textContent;
+
+  await CartModel.changeQuantityDB(cartItemId, itemSize, newQuantity);
   spawnCheckoutItems();
 };
 
