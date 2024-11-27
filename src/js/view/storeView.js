@@ -98,7 +98,7 @@ class ProductView {
               <label class="product-size-radio" for="XXL">XXL</label>
             </div>
             <div class="product-modal-bottom-section">
-              <input type="number" class="input-quantity" value="1"/>
+              <input type="number" class="input-quantity" value="1" min="1" max="${product.stock}"/>
               <button class="add-to-cart-button">ADD TO CART</button>
             </div>
             <div class="size-chart"></div>

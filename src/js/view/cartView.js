@@ -36,7 +36,7 @@ class CartView {
         <button class="quantity-button quantity-minus">–</button>
         <input type="number" value="${
           product.quantity
-        }" class="input-quantity" min="1  " max="${product.stock}"/>
+        }" class="input-quantity" max="${product.stock}"/>
         <button class="quantity-button quantity-plus">+</button>
         </div>
     </div>
