@@ -61,7 +61,7 @@ const insertNavbar = () => {
               <img src="${cartIcon}" />
             </a>
             <a href="${
-              UserModel.currentUser ? "store.html" : "login.html"
+              UserModel.currentUser ? "profile.html" : "login.html"
             }" class="navlink-icon">
             ${UserModel.currentUser?.username ?? "SIGN IN"}
               <img src="${userIcon}" />
