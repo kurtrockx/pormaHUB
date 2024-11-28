@@ -1,12 +1,16 @@
+:root {
+  --detail-font-size: clamp(1rem, 2vw, 1.25rem);
+}
 body {
   min-height: 100vh;
+  position: relative;
 }
 main {
   margin: auto;
+  padding: 1rem;
+  max-width: var(--content-width);
   height: 50vh;
   font-family: Poppins-Bold;
-  max-width: var(--content-width);
-  padding: 1rem 0.5rem;
   display: flex;
   flex-direction: column;
   gap: var(--small-font-size);
@@ -63,20 +67,31 @@ main {
 }
 .user-name-username {
   font-family: Poppins-Medium;
+  font-size: var(--big-font-size);
   width: min(40rem, 100%);
   background: var(--black);
   border-radius: 1rem;
-  padding: 0.25rem 1rem;
+  padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
   color: var(--white);
 }
-.user-name {
-  font-size: var(--big-font-size);
-  height: auto;
+.profile-content {
+  padding: 1.5rem;
 }
-.username {
+.details-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--detail-font-size);
+  font-size: var(--detail-font-size);
+}
+.detail {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0.5rem;
+}
+.detail-value {
+  grid-column: 2/-1;
   font-family: Poppins-Light;
-  position: relative;
-  top: -0.75rem;
+  max-width: 50%;
 }

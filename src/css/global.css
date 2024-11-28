@@ -129,3 +129,8 @@ button {
   border: 1px solid #2cf651;
   text-align: center;
 }
+.underline {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1.5px;
+  text-decoration-color: var(--primary-color);
+}

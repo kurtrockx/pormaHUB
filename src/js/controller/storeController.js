@@ -36,6 +36,12 @@ const searchByCategory = async (e) => {
     if (!data) throw new Error("No data fetched");
 
     const category = e.target.dataset.category;
+    const allCategories = e.target
+      .closest(".search-window")
+      ?.querySelectorAll(".search-category-button");
+
+    allCategories.forEach((cat) => cat.classList.remove("underline"));
+    e.target.classList.add("underline");
 
     const filteredProducts = data.filter((prod) => {
       return prod.category === category;

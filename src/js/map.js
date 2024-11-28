@@ -4,7 +4,7 @@ import "leaflet/dist/leaflet.css";
 let map;
 
 const spawnMap = (latlng, onMarkerPlaced) => {
-  map = L.map("map").setView(latlng, 16);
+  map = L.map("map").setView(latlng, 20);
 
   L.tileLayer(
     "https://maps.geoapify.com/v1/tile/carto/{z}/{x}/{y}.png?&apiKey=d0fc7b659e204326a94c3fd8ba63e93b",
