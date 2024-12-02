@@ -3,6 +3,10 @@ import UserModel from "../model/userModel";
 import UserView from "../view/userView";
 import { setUserLocation, spawnMap } from "../map";
 
+const checkCurrentUser = () => {
+  if (UserModel.currentUser) window.location.href = "index.html";
+};
+
 const returnInputView = () => {
   return [
     UserView.inputEmail.value,
@@ -135,6 +139,7 @@ const loginUserController = () => {
 };
 
 const init = () => {
+  checkCurrentUser();
   UserModel.pullUsersFromDB();
   UserView.signup(registerUser);
   UserView.loginUser(loginUserController);

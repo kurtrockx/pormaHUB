@@ -1,5 +1,5 @@
 :root {
-  --phLogo-size: clamp(3rem, 5vw, 4rem);
+  --phLogo-size: clamp(3.5rem, 10vw, 40%);
   --phLogo2-size: clamp(10rem, 10vw, 14rem);
   --input-padding: 0.75rem;
   --border-radius: 0.5rem;
@@ -25,8 +25,8 @@ button:active {
   top: 50%;
   left: 50%;
   translate: -50% -50%;
-  width: min(95%, 24rem);
-  height: min(100%, 35rem);
+  width: min(95%, 30rem);
+  height: min(100%, 44rem);
   padding: var(--medium-font-size);
   border-radius: var(--border-radius);
   display: flex;
@@ -76,7 +76,9 @@ button:active {
 .phLogo {
   object-fit: contain;
   width: var(--phLogo-size);
-  height: 16%;
+  height: 20%;
+  position: relative;
+  top: 5%;
 }
 .form-container div,
 .first-last-name > * {
