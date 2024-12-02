@@ -2,6 +2,10 @@ import CartModel from "../model/cartModel";
 import CartView from "../view/cartView";
 import UserModel from "../model/userModel";
 
+const checkCurrentUser = () => {
+  if (!UserModel.currentUser) window.location.href = "index.html";
+};
+
 const renderCartItems = async () => {
   const currentCart = await CartModel.setCurrentCart();
   CartView.renderCartItems(currentCart);
@@ -71,6 +75,7 @@ const deleteItem = async (e) => {
 };
 
 const init = async () => {
+  checkCurrentUser();
   renderCartItems();
   CartView.changeQuantity(changeQuantity);
   spawnCheckoutItems();

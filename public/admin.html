@@ -13,11 +13,41 @@
     ></script>
   </head>
   <body>
-    <nav class="sideNav">
-      <a href="#add" class="addProducts">Add Products</a>
-      <a href="#edit" class="editProducts">Edit Products</a>
-      <a href="#users" class="usersList">View Users</a>
+    <nav class="side-nav">
+      <a href="#add" class="nav-option add-products">
+        <img src="../src/assets/svg/house.svg" class="side-nav-images" />
+      </a>
+      <a href="#add" class="nav-option user-list">
+        <img src="../src/assets/svg/users.svg" class="side-nav-images" />
+      </a>
+      <a href="#edit" class="nav-option edit-products">
+        <img src="../src/assets/svg/plus.svg" class="side-nav-images" />
+      </a>
+      <a href="#users" class="nav-option users-list">
+        <img src="../src/assets/svg/edit.svg" class="side-nav-images" />
+      </a>
     </nav>
-    <main></main>
+    <main>
+      <!-- <div class="home-title">PORMA HUB</div>
+      <div class="home-subtitle">IT'S NOT WHAT YOU THINK IT IS</div> -->
+
+      <div class="product-list-container">
+        <div class="product-container">
+          <div class="product-image">
+            <img
+              src="../src/assets/images/shoes.png"
+              class="product-image-value"
+            />
+          </div>
+          <div class="product-name">Liza Soberano Dawan and Only Liza Soberano Dawan and Only</div>
+          <div class="product-category">Human</div>
+          <div class="product-price">1499.99</div>
+          <div class="product-stock">
+            <input type="number" class="product-stock-value" value="50" />
+          </div>
+          <button class="delete-product">DELETE</button>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
