@@ -15,6 +15,7 @@ const returnInputView = () => {
     UserView.inputUsername.value,
     UserView.inputPassword.value,
     UserView.inputReenterPassword.value,
+    UserView.inputContact.value,
   ];
 };
 
@@ -31,6 +32,7 @@ const validateRegistration = (inputArr) => {
   UserModel.validateName(inputArr[1], inputArr[2], errors);
   UserModel.validateLength(inputArr[3], inputArr[4], errors);
   UserModel.validatePassword(inputArr[4], inputArr[5], errors);
+  UserModel.validateContactNumber(inputArr[6], errors);
   if (errors.length > 0) {
     UserView.notifDisplay(errors);
     return;

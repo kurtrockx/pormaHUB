@@ -3,11 +3,12 @@ class UserModel {
   userPending;
   users = [];
   UserCreate = class {
-    constructor(email, firstName, lastName, username, password) {
+    constructor(email, firstName, lastName, username, password, contactNumber) {
       this.email = email;
       this.firstName = firstName;
       this.lastName = lastName;
       this.username = username;
+      this.contactNumber = contactNumber;
       this.password = password;
       this.otp = Math.trunc(Math.random() * 900000) + 100000;
       this.location = {
@@ -78,6 +79,18 @@ class UserModel {
     const data2 = pass.length >= 8 && pass.length <= 16;
     !data2 && errors.push("Password have to be between 8 and 16 characters");
   }
+  validateContactNumber(contactNumber, errors) {
+    const contactPattern = /^(09\d{9}|639\d{9})$/;
+
+    if (!/^\d+$/.test(contactNumber)) {
+      errors.push("The contact number should contain only numeric digits.");
+    } else if (!contactPattern.test(contactNumber)) {
+      errors.push(
+        "Enter a valid contact number."
+      );
+    }
+  }
+
   validatePassword(pass1, pass2, errors) {
     if (pass1 !== pass2) {
       errors.push("Passwords have to match");
@@ -90,7 +103,7 @@ class UserModel {
 
   //Assigning pendingUserOTP to the user before inputting OTP
   pendingUserOTP(arr) {
-    this.userPending = new this.UserCreate(...arr.slice(0, 5));
+    this.userPending = new this.UserCreate(...arr.slice(0, 5), arr[6]);
     console.log(this.userPending);
   }
   //Pushing user to db

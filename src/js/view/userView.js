@@ -8,6 +8,7 @@ class UserView {
   inputFirstName;
   inputLastName;
   inputUsername;
+  inputContact;
   inputPassword;
   inputReenterPassword;
   signupButton;
@@ -30,6 +31,7 @@ class UserView {
     this.inputFirstName = document.querySelector(".input-first-name");
     this.inputLastName = document.querySelector(".input-last-name");
     this.inputUsername = document.querySelector(".input-username");
+    this.inputContact = document.querySelector(".input-contact");
     this.inputPassword = document.querySelector(".input-password");
     this.inputReenterPassword = document.querySelector(
       ".input-reenter-password"
