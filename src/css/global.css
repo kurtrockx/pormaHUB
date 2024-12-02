@@ -6,18 +6,17 @@
 html {
   font-family: "century gothic";
   font-size: 16px;
-  font-size: 11.5px;
+  /* font-size: 11.5px; */
   background: var(--white);
   scroll-behavior: smooth;
 }
 :root {
   --content-width: 80rem;
 
-  --primary-color: #22333b;
-  --secondary-color: #eae0d6;
+  --primary-color: #ff9000;
+  --secondary-color: #e98400;
   --tertiary-color: #c5ac8e;
   --quaternary-color: #5f4e3e;
-  --primary-color: #ff9000;
   --white: white;
   --lightest-grey: #f9f9f9;
   --lighter-grey: #eeeeee;
