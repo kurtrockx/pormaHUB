@@ -8,6 +8,7 @@
 body {
   display: flex;
 }
+
 .side-nav {
   position: sticky;
   top: 0;
@@ -50,6 +51,16 @@ body {
   aspect-ratio: 1/1;
 }
 
+.search-product-container {
+  width: max-content;
+  margin: 2rem auto;
+  padding-inline: 2rem;
+  border-bottom: 1px solid black;
+}
+.search-product-input {
+  all: unset;
+  font-size: var(--medium-font-size);
+}
 .product-list-container {
   flex: 1;
   padding: 2rem 2rem;

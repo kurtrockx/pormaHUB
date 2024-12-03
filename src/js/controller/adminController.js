@@ -3,6 +3,7 @@ import AdminModel from "../model/adminModel";
 import StoreModel from "../model/storeModel";
 
 const renderProducts = (products) => {
+  AdminView.productListContainer.innerHTML = "";
   products.forEach((product) => {
     const html = AdminView.productsHTML(product);
     AdminView.productListContainer.insertAdjacentHTML("beforeend", html);
@@ -31,13 +32,35 @@ const updateQuantity = async (e) => {
   const deleteButton = e.target.closest(".delete-product");
   if (deleteButton) {
     await AdminModel.deleteProductDB(productClicked);
-    AdminView.productListContainer.innerHTML = "";
     spawnProducts();
+  }
+};
+const searchProduct = async () => {
+  try {
+    const data = await StoreModel.productFetch();
+    if (!data) throw new Error("No data found!");
+
+    const searchTerm = data.filter((product) =>
+      product.name.toLowerCase().includes(AdminView.searchProductInput.value)
+    );
+
+    const dataWithoutSearchedTerm = data.filter(
+      (notIncluded) =>
+        !notIncluded.name
+          .toLowerCase()
+          .includes(AdminView.searchProductInput.value)
+    );
+    const searchResult = [...searchTerm, ...dataWithoutSearchedTerm];
+
+    renderProducts(searchResult);
+  } catch (err) {
+    console.error(err);
   }
 };
 
 const init = () => {
   spawnProducts();
   AdminView.updateQuantity(updateQuantity);
+  AdminView.searchProduct(searchProduct);
 };
 init();

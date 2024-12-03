@@ -1,7 +1,6 @@
 import UserModel from "../model/userModel";
 import StoreModel from "../model/storeModel";
 import StoreView from "../view/storeView";
-import { svg } from "leaflet";
 
 const initialRenderProducts = async () => {
   try {

@@ -1,10 +1,12 @@
 class AdminView {
   productListContainer;
+  searchProductInput;
 
   constructor() {
     this.productListContainer = document.querySelector(
       ".product-list-container"
     );
+    this.searchProductInput = document.querySelector(".search-product-input");
   }
 
   productsHTML(products) {
@@ -26,6 +28,10 @@ class AdminView {
 
   updateQuantity(updateQuantityFunction) {
     this.productListContainer.addEventListener("click", updateQuantityFunction);
+  }
+
+  searchProduct(searchProductFunction) {
+    this.searchProductInput.addEventListener("input", searchProductFunction);
   }
 }
 
