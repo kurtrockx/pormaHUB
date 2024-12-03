@@ -54,7 +54,7 @@ body {
   flex: 1;
   padding: 2rem 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
   gap: 2rem;
 }
 .product-container {

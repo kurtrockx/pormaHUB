@@ -30,7 +30,7 @@ const updateQuantity = async (e) => {
   //DELETE PRODUCT
   const deleteButton = e.target.closest(".delete-product");
   if (deleteButton) {
-    AdminModel.deleteProductDB(productClicked);
+    await AdminModel.deleteProductDB(productClicked);
     AdminView.productListContainer.innerHTML = "";
     spawnProducts();
   }
