@@ -1,6 +1,7 @@
 import AdminView from "../view/adminView";
 import AdminModel from "../model/adminModel";
 import StoreModel from "../model/storeModel";
+import UserModel from "../model/userModel";
 
 const renderProducts = (products) => {
   AdminView.productListContainer.innerHTML = "";
@@ -35,6 +36,7 @@ const updateQuantity = async (e) => {
     spawnProducts();
   }
 };
+
 const searchProduct = async () => {
   try {
     const data = await StoreModel.productFetch();

@@ -1,5 +1,9 @@
 class UserModel {
   currentUser;
+  adminCredentials = {
+    username: "admin123",
+    password: "admin123password",
+  };
   userPending;
   users = [];
   UserCreate = class {
@@ -85,9 +89,7 @@ class UserModel {
     if (!/^\d+$/.test(contactNumber)) {
       errors.push("The contact number should contain only numeric digits.");
     } else if (!contactPattern.test(contactNumber)) {
-      errors.push(
-        "Enter a valid contact number."
-      );
+      errors.push("Enter a valid contact number.");
     }
   }
 
@@ -147,6 +149,10 @@ class UserModel {
     this.currentUser = userFound;
     this.setCurrentUserLocal();
     return;
+  }
+  loginAdmin(admin) {
+    this.currentUser = admin;
+    this.setCurrentUserLocal();
   }
   setCurrentUserLocal() {
     localStorage.setItem("currentUser", JSON.stringify(this.currentUser));

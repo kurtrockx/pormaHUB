@@ -1,6 +1,7 @@
 class AdminView {
   productListContainer;
   searchProductInput;
+  logoutButton;
 
   constructor() {
     this.productListContainer = document.querySelector(

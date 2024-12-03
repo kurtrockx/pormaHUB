@@ -6,6 +6,18 @@ import xIcon from "../../src/assets/svg/x.svg";
 import cartIcon from "../../src/assets/images/cart.png";
 import userIcon from "../../src/assets/images/user.png";
 
+const checkAdmin = () => {
+  if (!UserModel.currentUser) return;
+  const currentUser = UserModel.currentUser;
+  const adminCredentials = UserModel.adminCredentials;
+  if (
+    currentUser.username === adminCredentials.username &&
+    currentUser.password === adminCredentials.password
+  ) {
+    window.location.href = "adminProducts.html";
+  }
+};
+
 const burgerMenu = (
   navlinksBackground,
   navlinksContainer,
@@ -101,6 +113,7 @@ const insertNavbar = () => {
 
 const init = () => {
   insertNavbar();
+  checkAdmin();
 };
 
 init();

@@ -3,6 +3,21 @@ import houseIcon from "../../src/assets/svg/house.svg";
 import userIcon from "../../src/assets/svg/users.svg";
 import plusIcon from "../../src/assets/svg/plus.svg";
 import editIcon from "../../src/assets/svg/edit.svg";
+import logoutIcon from "../../src/assets/svg/logoutAdmin.svg";
+import UserModel from "../../src/js/model/userModel";
+
+const checkAdmin = () => {
+  if (!UserModel.currentUser) window.location.href = "index.html";
+
+  const currentUser = UserModel.currentUser;
+  const adminCredentials = UserModel.adminCredentials;
+  if (
+    currentUser.username !== adminCredentials.username ||
+    currentUser.password !== adminCredentials.password
+  ) {
+    window.location.href = "index.html";
+  }
+};
 
 const spawnSideNav = () => {
   const html = `
@@ -16,19 +31,28 @@ const spawnSideNav = () => {
       <a href="#add" class="nav-option user-list">
         <img src="${plusIcon}" class="side-nav-images" />
       </a>
-      <a href="#edit" class="nav-option edit-products">
+      <a href="adminProducts.html" class="nav-option edit-products">
         <img src="${editIcon}" class="side-nav-images" />
       </a>
-      <a href="#users" class="nav-option users-list">
+      <a href="adminUserList.html" class="nav-option users-list">
         <img src="${userIcon}" class="side-nav-images" />
       </a>
+      <div class="nav-option logout-admin">
+        <img src="${logoutIcon}" class="side-nav-images" />
+      </div>
     </nav>
     `;
 
   document.body.insertAdjacentHTML("afterbegin", html);
+
+  document.querySelector(".logout-admin").addEventListener("click", () => {
+    UserModel.logoutUser();
+    window.location.href = "index.html";
+  });
 };
 
 const init = () => {
+  checkAdmin();
   spawnSideNav();
 };
 

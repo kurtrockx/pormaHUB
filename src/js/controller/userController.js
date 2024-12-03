@@ -123,6 +123,16 @@ const loginUserController = () => {
   const loginInputEmail = UserView.loginInputEmail.value;
   const loginInputPassword = UserView.loginInputPassword.value;
 
+  if (
+    loginInputEmail === UserModel.adminCredentials.username &&
+    loginInputPassword === UserModel.adminCredentials.password
+  ) {
+    const adminInputs = { username: loginInputEmail, password: loginInputPassword };
+    UserModel.loginAdmin(adminInputs);
+    window.location.href = "adminProducts.html";
+    return;
+  }
+
   const userCred = [loginInputEmail, loginInputPassword];
 
   const empty = UserModel.emptyFields(userCred, errors);
