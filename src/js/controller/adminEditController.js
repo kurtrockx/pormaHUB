@@ -1,5 +1,5 @@
-import AdminView from "../view/adminView";
-import AdminModel from "../model/adminModel";
+import AdminView from "../view/adminEditView";
+import AdminModel from "../model/adminEditModel";
 import StoreModel from "../model/storeModel";
 import UserModel from "../model/userModel";
 
@@ -64,5 +64,6 @@ const init = () => {
   spawnProducts();
   AdminView.updateQuantity(updateQuantity);
   AdminView.searchProduct(searchProduct);
+  uploadProductPicture();
 };
 init();

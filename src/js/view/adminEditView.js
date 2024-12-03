@@ -28,11 +28,11 @@ class AdminView {
   }
 
   updateQuantity(updateQuantityFunction) {
-    this.productListContainer.addEventListener("click", updateQuantityFunction);
+    this.productListContainer?.addEventListener("click", updateQuantityFunction);
   }
 
   searchProduct(searchProductFunction) {
-    this.searchProductInput.addEventListener("input", searchProductFunction);
+    this.searchProductInput?.addEventListener("input", searchProductFunction);
   }
 }
 

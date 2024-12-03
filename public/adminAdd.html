@@ -9,8 +9,17 @@
     <link rel="stylesheet" href="../src/css/admin.css" />
     <script
       type="module"
-      src="../src/js/controller/adminController.js"
+      src="../src/js/controller/adminAddController.js"
     ></script>
   </head>
-  <body></body>
+  <body>
+    <h1>Upload an Image</h1>
+
+    <input type="file" id="imageInput" />
+    <button id="uploadButton">Upload Image</button>
+
+    <p id="status"></p>
+    <p><strong>Direct Image URL:</strong></p>
+    <input type="text" id="imageUrl" readonly />
+  </body>
 </html>
