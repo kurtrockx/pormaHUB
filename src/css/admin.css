@@ -91,12 +91,21 @@ body {
   justify-content: start;
 }
 .product-stock {
+  position: relative;
   display: flex;
   justify-content: center;
 }
 .product-stock-value {
   width: 50%;
   font-size: var(--product-stock-font-size);
+}
+.product-stock::before {
+  content: "STOCK";
+  font-size: var(--small-font-size);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50% -150%;
 }
 .delete-product {
   padding: 1rem 2rem;
