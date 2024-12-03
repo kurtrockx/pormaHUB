@@ -5,7 +5,7 @@
   },
   "scripts": {
     "start": "parcel ./public/index.html ./public/store.html ./public/register.html ./public/login.html ./public/cart.html ./public/profile.html ./public/adminProducts.html ./public/adminUserList.html",
-    "build": "parcel ./public/index.html ./public/store.html ./public/register.html ./public/login.html ./public/cart.html, ./public/profile.html ./public/adminProducts.html ./public/adminUserList.html"
+    "build": "parcel ./public/index.html ./public/store.html ./public/register.html ./public/login.html ./public/cart.html ./public/profile.html ./public/adminProducts.html ./public/adminUserList.html"
   },
   "dependencies": {
     "emailjs-com": "^3.2.0",
