@@ -8,6 +8,7 @@ class CartView {
   paymentContainer;
   paymentBackgroundContainer;
   paymentContainerMethods;
+  totalPriceValue;
 
   constructor() {
     this.cartItemContainer = document.querySelector(".cart-item-container");
@@ -24,6 +25,9 @@ class CartView {
     );
     this.paymentContainerMethods = document.querySelector(
       ".payment-container-methods"
+    );
+    this.totalPriceValue = document.querySelector(
+      ".checkout-send-total-price-value"
     );
   }
 

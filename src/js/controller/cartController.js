@@ -86,11 +86,13 @@ const paypalCheckout = async () => {
         .Buttons({
           createOrder: (data, actions) =>
             actions.order.create({
-              purchase_units: [{ amount: { value: "10.00" } }],
+              purchase_units: [
+                { amount: { value: +CartView.totalPriceValue.textContent } },
+              ],
             }),
           onApprove: async (data, actions) => {
             try {
-              const orderDetails = await actions.order.capture(); // Capture the order
+              const orderDetails = await actions.order.capture();
               resolve(orderDetails);
             } catch (err) {
               reject("Order capture failed: " + err.message);
@@ -110,12 +112,20 @@ const paypalCheckout = async () => {
 
 const checkOutItems = async () => {
   try {
+    const currentCart = await CartModel.setCurrentCart();
     const data = await paypalCheckout();
-    console.log(data);
+    if (data.status === "COMPLETED") {
+      const newTransaction = new CartModel.transactionItem(currentCart);
+      CartModel.addToPurchaseHistory(newTransaction);
+      CartModel.clearCart();
+      window.location.reload();
+    }
   } catch (err) {
+    console.log(data);
     console.error("Checkout failed:", err.message);
   }
 };
+
 const openCheckoutModal = () => {
   CartView.paymentContainer.classList.remove("gone");
 };
