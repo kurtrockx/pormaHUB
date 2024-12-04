@@ -5,7 +5,8 @@ require '../../vendor/autoload.php';
 
 $client = new MongoDB\Client;
 $db = $client->pormaHUB;
-$collection = $db->usersCollection;
+$collection = $db->usersCollection; // User collection
+$productsCollection = $db->productsCollection; // Product collection
 
 $inputData = file_get_contents("php://input");
 $data = json_decode($inputData, true);
@@ -16,7 +17,7 @@ if (!$data) {
 }
 
 if (isset($data['action'])) {
-    // Handle updating purchase history
+    // Handle updating purchase history and reducing stock
     if ($data['action'] == 'updatePurchaseHistory') {
         if (isset($data['userId']) && isset($data['purchaseItem'])) {
             $userId = $data['userId'];
@@ -50,7 +51,7 @@ if (isset($data['action'])) {
             echo json_encode(['error' => 'Missing userId or purchaseItem']);
         }
     }
-    // Handle clearing the cart
+    // Handle clearing the cart and reducing stock
     elseif ($data['action'] == 'clearCart') {
         if (isset($data['userId'])) {
             $userId = $data['userId'];
@@ -64,7 +65,36 @@ if (isset($data['action'])) {
                     exit;
                 }
 
-                // Clear the user's cart
+                // Loop through each item in the user's cart and reduce stock in the products collection
+                foreach ($user['cart'] as $cartItem) {
+                    $productName = $cartItem['name'];
+                    $quantityToReduce = $cartItem['quantity'];
+
+                    // Find the product in the products collection
+                    $product = $productsCollection->findOne(['name' => $productName]);
+
+                    if ($product) {
+                        // Reduce the stock by the quantity of the item being purchased
+                        $newStock = $product['stock'] - $quantityToReduce;
+
+                        // Ensure stock doesn't go negative
+                        if ($newStock < 0) {
+                            echo json_encode(['error' => 'Not enough stock for ' . $productName]);
+                            exit;
+                        }
+
+                        // Update the stock in the products collection
+                        $productsCollection->updateOne(
+                            ['name' => $productName],
+                            ['$set' => ['stock' => $newStock]]
+                        );
+                    } else {
+                        echo json_encode(['error' => 'Product ' . $productName . ' not found']);
+                        exit;
+                    }
+                }
+
+                // Now, clear the user's cart
                 $result = $collection->updateOne(
                     ['_id' => new MongoDB\BSON\ObjectId($userId)],
                     ['$set' => ['cart' => []]] // Set cart to an empty array
@@ -73,7 +103,7 @@ if (isset($data['action'])) {
                 // Respond with the result
                 echo json_encode([
                     'message' => $result->getModifiedCount() > 0
-                        ? 'Cart cleared successfully'
+                        ? 'Cart cleared successfully, and stock updated'
                         : 'No changes made',
                 ]);
             } catch (Exception $e) {
