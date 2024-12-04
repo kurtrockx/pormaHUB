@@ -129,7 +129,7 @@ const loginUserController = () => {
   ) {
     const adminInputs = { username: loginInputEmail, password: loginInputPassword };
     UserModel.loginAdmin(adminInputs);
-    window.location.href = "adminProducts.html";
+    window.location.href = "adminEditProducts.html";
     return;
   }
 

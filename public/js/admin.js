@@ -40,6 +40,7 @@ const spawnSideNav = () => {
       <div class="nav-option logout-admin">
         <img src="${logoutIcon}" class="side-nav-images" />
       </div>
+
     </nav>
     `;
 
