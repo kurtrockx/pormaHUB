@@ -1,6 +1,7 @@
 import CartModel from "../model/cartModel";
 import CartView from "../view/cartView";
 import UserModel from "../model/userModel";
+import { loadPaypal } from "../paypalSandboxAPI";
 
 const checkCurrentUser = () => {
   if (!UserModel.currentUser) window.location.href = "index.html";
@@ -74,11 +75,58 @@ const deleteItem = async (e) => {
   spawnCheckoutItems();
 };
 
+const paypalCheckout = async () => {
+  try {
+    const paypal = await loadPaypal(
+      "AfdEKqsv7BCcy6kJtBp4LzWp0g9ZXDL6PAI78xQ5yvwgpnPpsgbUtCmBXw-88y0nGPP-B_p4Xd1XSTYI"
+    );
+
+    return new Promise((resolve, reject) => {
+      paypal
+        .Buttons({
+          createOrder: (data, actions) =>
+            actions.order.create({
+              purchase_units: [{ amount: { value: "10.00" } }],
+            }),
+          onApprove: async (data, actions) => {
+            try {
+              const orderDetails = await actions.order.capture(); // Capture the order
+              resolve(orderDetails);
+            } catch (err) {
+              reject("Order capture failed: " + err.message);
+            }
+          },
+          onError: (err) => {
+            reject("PayPal error: " + err.message);
+          },
+        })
+        .render(".payment-container-methods");
+    });
+  } catch (error) {
+    console.error("Failed to load PayPal:", error);
+    throw error;
+  }
+};
+
+const checkOutItems = async () => {
+  try {
+    const data = await paypalCheckout();
+    console.log(data);
+  } catch (err) {
+    console.error("Checkout failed:", err.message);
+  }
+};
+const openCheckoutModal = () => {
+  CartView.paymentContainer.classList.remove("gone");
+};
+
 const init = async () => {
   checkCurrentUser();
   renderCartItems();
   CartView.changeQuantity(changeQuantity);
   spawnCheckoutItems();
   CartView.deleteItem(deleteItem);
+  CartView.openCheckoutModal(openCheckoutModal);
+  checkOutItems();
 };
 init();

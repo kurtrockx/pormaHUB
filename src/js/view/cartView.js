@@ -4,6 +4,10 @@ class CartView {
   cartItemContainer;
   checkOutItemContainer;
   checkoutTotalPrice;
+  checkoutSendButton;
+  paymentContainer;
+  paymentBackgroundContainer;
+  paymentContainerMethods;
 
   constructor() {
     this.cartItemContainer = document.querySelector(".cart-item-container");
@@ -12,6 +16,14 @@ class CartView {
     );
     this.checkoutTotalPrice = document.querySelector(
       ".checkout-send-total-price-value"
+    );
+    this.checkoutSendButton = document.querySelector(".checkout-send-button");
+    this.paymentContainer = document.querySelector(".payment-container");
+    this.paymentBackgroundContainer = document.querySelector(
+      ".payment-container-background"
+    );
+    this.paymentContainerMethods = document.querySelector(
+      ".payment-container-methods"
     );
   }
 
@@ -82,6 +94,13 @@ class CartView {
             ).toFixed(2)}</div>
           </div>
     `;
+  }
+
+  openCheckoutModal(openCheckoutModalFunction) {
+    this.checkoutSendButton.addEventListener(
+      "click",
+      openCheckoutModalFunction
+    );
   }
 }
 

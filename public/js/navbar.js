@@ -14,7 +14,7 @@ const checkAdmin = () => {
     currentUser.username === adminCredentials.username &&
     currentUser.password === adminCredentials.password
   ) {
-    window.location.href = "adminProducts.html";
+    window.location.href = "adminEditProducts.html";
   }
 };
 
