@@ -13,13 +13,74 @@
     ></script>
   </head>
   <body>
-    <h1>Upload an Image</h1>
+    <div class="blur-background gone">
+      <div class="notification-list"></div>
+    </div>
 
-    <input type="file" id="imageInput" />
-    <button id="uploadButton">Upload Image</button>
-
-    <p id="status"></p>
-    <p><strong>Direct Image URL:</strong></p>
-    <input type="text" id="imageUrl" readonly />
+    <div class="add-product-container">
+      <div class="add-header">ADD NEW PRODUCT</div>
+      <div class="add-main-container">
+        <div class="add-input-container">
+          <div class="add-container add-name">
+            <label class="add-label name-label">Product Name</label>
+            <input type="text" class="add-input name-input" />
+          </div>
+          <div class="add-container add-category">
+            <label class="add-label category-label">Product Category</label>
+            <div class="add-drop-container">
+              <img
+                src="../src/assets/svg/down.svg"
+                class="add-drop-down-icon"
+              />
+              <select class="add-input category-input">
+                <option class="add-drop-value" value="Men’s Top">
+                  Men’s Top
+                </option>
+                <option class="add-drop-value" value="Women’s Top">
+                  Women’s Top
+                </option>
+                <option class="add-drop-value" value="Men’s Bottom">
+                  Men’s Bottom
+                </option>
+                <option class="add-drop-value" value="Women’s Bottom">
+                  Women’s Bottom
+                </option>
+                <option class="add-drop-value" value="Women’s Dress">
+                  Women’s Dress
+                </option>
+                <option class="add-drop-value" value="Shoes">Shoes</option>
+                <option class="add-drop-value" value="Bags">Bags</option>
+                <option class="add-drop-value" value="Hats">Hats</option>
+                <option class="add-drop-value" value="Accessories">
+                  Accessories
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="add-container add-price">
+            <label class="add-label price-label">Product Price</label>
+            <input type="number" class="add-input price-input" value="99.99" />
+          </div>
+          <div class="add-container add-stock">
+            <label class="add-label stock-label">Product Stock</label>
+            <input
+              type="number"
+              class="add-input stock-input"
+              value="1"
+              min="1"
+            />
+          </div>
+          <button class="add-product-button">ADD NEW PRODUCT</button>
+        </div>
+        <div class="add-container add-image">
+          <img
+            src="../src/assets/svg/imagePlaceholder.svg"
+            class="add-image-value"
+          />
+          <input type="file" class="add-input imageInput" />
+          <label class="add-label picture-label">PRODUCT PICTURE</label>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

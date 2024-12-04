@@ -64,6 +64,5 @@ const init = () => {
   spawnProducts();
   AdminView.updateQuantity(updateQuantity);
   AdminView.searchProduct(searchProduct);
-  uploadProductPicture();
 };
 init();

@@ -6,7 +6,7 @@
 html {
   font-family: "century gothic";
   font-size: 16px;
-  font-size: 11.5px;
+  /* font-size: 11.5px; */
   background: var(--white);
   scroll-behavior: smooth;
 }
@@ -21,6 +21,7 @@ html {
   --lightest-grey: #f9f9f9;
   --lighter-grey: #eeeeee;
   --light-grey: #dddddd;
+  --grey: grey;
   --light-black: rgb(50, 50, 50);
   --black: black;
 
@@ -30,6 +31,7 @@ html {
   --small-font-size: clamp(0.5rem, 1.25vw, 0.75rem);
   --medium-small-font-size: clamp(0.65rem, 1.35vw, 0.8rem);
   --medium-font-size: clamp(1.25rem, 1.5vw, 2rem);
+  --medium-big-font-size: clamp(1.5rem, 2vw, 2.25rem);
   --big-font-size: clamp(2rem, 2.5vw, 3.5rem);
 }
 button {
