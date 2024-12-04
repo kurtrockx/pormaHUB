@@ -115,7 +115,7 @@ const checkOutItems = async () => {
     const currentCart = await CartModel.setCurrentCart();
     const data = await paypalCheckout();
     if (data.status === "COMPLETED") {
-      const newTransaction = new CartModel.transactionItem(currentCart);
+      const newTransaction = new CartModel.transactionItem(data.id, currentCart);
       CartModel.addToPurchaseHistory(newTransaction);
       CartModel.clearCart();
       window.location.reload();

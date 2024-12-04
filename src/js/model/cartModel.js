@@ -2,7 +2,8 @@ import UserModel from "../model/userModel";
 
 class CartModel {
   transactionItem = class {
-    constructor(items) {
+    constructor(id, items) {
+      this.id = id;
       this.date = new Date();
       this.items = items;
       this.status = "PENDING";

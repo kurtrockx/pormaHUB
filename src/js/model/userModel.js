@@ -28,7 +28,6 @@ class UserModel {
     this.getCurrentUserLocal();
   }
 
-  //Pulling users collection from db
   async pullUsersFromDB() {
     try {
       const res = await fetch(
@@ -46,6 +45,7 @@ class UserModel {
       console.log(err.message);
     }
   }
+
   existingUser(dataArray, errors) {
     const emailMatch = this.users.find((user) => user.email === dataArray[0]);
     if (emailMatch) errors.push("Email already in use");
