@@ -76,11 +76,16 @@ main {
   flex-direction: column;
   color: var(--white);
 }
-.profile-content,
 .profile-content-purchase {
   padding: 1.5rem;
 }
+.profile-content {
+  max-height: 65vh;
+  overflow: auto;
+
+}
 .details-container {
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: var(--detail-font-size);

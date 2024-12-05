@@ -16,6 +16,7 @@ class ProfileView {
   }
 
   purchaseHistoryItemHTML(purchaseItem) {
+    this.profileContentContainer.innerHTML = "";
     const date = new Date(purchaseItem.date);
     const formattedDate = new Intl.DateTimeFormat("en-US", {
       month: "long",
@@ -50,6 +51,32 @@ class ProfileView {
         </div>
       </div>
     `;
+  }
+  userInfoHTML(user) {
+    return `
+          <div class="details-container">
+            <div class="detail">
+              <div class="detail-bold">Name</div>
+              <div class="detail-value">${user.firstname}</div>
+            </div>
+            <div class="detail">
+              <div class="detail-bold">Username</div>
+              <div class="detail-value">${user.username}</div>
+            </div>
+            <div class="detail">
+              <div class="detail-bold">Email</div>
+              <div class="detail-value">${user.email}</div>
+            </div>
+            <div class="detail">
+              <div class="detail-bold">Address</div>
+              <div class="detail-value">${user.address}</div>
+            </div>
+            <div class="detail">
+              <div class="detail-bold">Contact No.</div>
+              <div class="detail-value">${user.contactNumber}</div>
+            </div>
+          </div>
+`;
   }
 }
 

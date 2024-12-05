@@ -21,7 +21,7 @@ const spawnPurchaseHistory = async () => {
       .map((item) => ProfileView.purchaseHistoryItemHTML(item))
       .join("");
     ProfileView.profileContentContainer.insertAdjacentHTML(
-      "beforebegin",
+      "beforeend",
       historyHTML
     );
     console.log(ProfileView.purchaseHistoryItemHTML());
