@@ -261,7 +261,6 @@ main {
 /* REVIEW CARDS */
 .reviews-section {
   color: var(--black);
-  margin-bottom: 4rem;
   width: 100%;
   background-color: var(--lighter-grey);
   padding: clamp(4rem, 6vw, 6rem) 2rem;
@@ -328,6 +327,7 @@ main {
 .frequently-asked-questions-container {
   width: 100%;
   padding: 2rem;
+  margin-block: 4rem;
 }
 .question-header {
   max-width: var(--content-width);

@@ -9,7 +9,7 @@ main {
   margin: auto;
   padding: 1rem;
   max-width: var(--content-width);
-  height: 100%;
+  min-height: 68vh;
   font-family: Poppins-Bold;
   display: flex;
   flex-direction: column;
