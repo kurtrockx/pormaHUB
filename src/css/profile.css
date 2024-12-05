@@ -9,7 +9,7 @@ main {
   margin: auto;
   padding: 1rem;
   max-width: var(--content-width);
-  height: 50vh;
+  height: 100%;
   font-family: Poppins-Bold;
   display: flex;
   flex-direction: column;
@@ -76,7 +76,8 @@ main {
   flex-direction: column;
   color: var(--white);
 }
-.profile-content {
+.profile-content,
+.profile-content-purchase {
   padding: 1.5rem;
 }
 .details-container {
@@ -93,5 +94,45 @@ main {
 .detail-value {
   grid-column: 2/-1;
   font-family: Poppins-Light;
-  max-width: 50%;
+}
+.purchase-history-item {
+  display: flex;
+  flex-direction: column;
+  font-family: Poppins-Light;
+}
+.date-of-purchase {
+  padding-block: var(--small-font-size);
+  text-align: right;
+  padding-inline: var(--small-font-size);
+}
+.item-container {
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+.item {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: var(--small-font-size);
+}
+.item > * {
+  text-align: center;
+}
+.item-name-picture {
+  grid-column: 1/4;
+  display: flex;
+  align-items: center;
+  gap: var(--small-font-size);
+  text-align: left;
+}
+.item-picture {
+  height: 4rem;
+}
+.item-picture-value {
+  object-fit: cover;
+  height: 100%;
+}
+.status {
+  font-weight: 600;
+  color: var(--primary-color);
 }

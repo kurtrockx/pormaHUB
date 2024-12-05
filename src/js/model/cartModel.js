@@ -14,7 +14,7 @@ class CartModel {
     const userId = UserModel.currentUser._id.$oid;
     try {
       const res = await fetch(
-        "http://localhost/pormaHUB/src/php/cartPull.php",
+        "http://localhost/pormaHUB/src/php/currentPull.php",
         {
           method: "POST",
           headers: {
