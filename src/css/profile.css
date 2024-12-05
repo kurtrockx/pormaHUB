@@ -20,6 +20,7 @@ main {
   height: 100%;
   border: 1px solid var(--black);
   border-radius: 1rem;
+  overflow: hidden;
 }
 .profile-tab-container {
   height: 4rem;

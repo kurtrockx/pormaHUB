@@ -8,12 +8,29 @@ const switchTab = (e) => {
     tab.classList.remove("active-tab");
   });
   tabClicked.classList.add("active-tab");
-
-  console.log(tabClicked);
+  const tabPicked = tabClicked?.dataset.tab;
+  console.log(tabPicked);
+  if (tabPicked === "purchases") spawnPurchaseHistory();
+  if (tabPicked === "user") spawnUserInfo();
 };
-
+const spawnUserInfo = () => {
+  try {
+    const currentUser = UserModel.currentUser;
+    console.log(currentUser);
+    ProfileView.profileContentContainer.innerHTML = "";
+    const userHTML = ProfileView.userInfoHTML(currentUser);
+    ProfileView.profileContentContainer.insertAdjacentHTML(
+      "beforeend",
+      userHTML
+    );
+  } catch (err) {
+    console.error(err.message);
+  }
+};
 const spawnPurchaseHistory = async () => {
   try {
+    ProfileView.profileContentContainer.innerHTML = "";
+
     const currentPurchaseHistory =
       await ProfileModel.setCurrentPurchaseHistory();
 
@@ -32,7 +49,7 @@ const spawnPurchaseHistory = async () => {
 
 const init = async () => {
   UserModel.pullUsersFromDB();
+  spawnUserInfo();
   ProfileView.switchTab(switchTab);
-  spawnPurchaseHistory();
 };
 init();
