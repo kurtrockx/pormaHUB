@@ -106,6 +106,13 @@ class CartView {
       openCheckoutModalFunction
     );
   }
+
+  renderNoItems() {
+    this.cartItemContainer.insertAdjacentHTML("beforeend", this.noItemsHTML());
+  }
+  noItemsHTML() {
+    return '<div class="no-items">No Items added to cart yet</div>';
+  }
 }
 
 export default new CartView();

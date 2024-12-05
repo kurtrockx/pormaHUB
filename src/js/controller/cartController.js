@@ -10,6 +10,7 @@ const checkCurrentUser = () => {
 const renderCartItems = async () => {
   const currentCart = await CartModel.setCurrentCart();
   CartView.renderCartItems(currentCart);
+  if (!currentCart.length) CartView.renderNoItems();
 };
 
 const spawnCheckoutItems = async () => {
@@ -73,6 +74,9 @@ const deleteItem = async (e) => {
     clickedX.closest(".cart-item")?.remove();
   }
   spawnCheckoutItems();
+
+  const checkCart = await CartModel.setCurrentCart();
+  if (!checkCart.length) CartView.renderNoItems();
 };
 
 const paypalCheckout = async () => {
@@ -115,7 +119,10 @@ const checkOutItems = async () => {
     const currentCart = await CartModel.setCurrentCart();
     const data = await paypalCheckout();
     if (data.status === "COMPLETED") {
-      const newTransaction = new CartModel.transactionItem(data.id, currentCart);
+      const newTransaction = new CartModel.transactionItem(
+        data.id,
+        currentCart
+      );
       CartModel.addToPurchaseHistory(newTransaction);
       CartModel.clearCart();
       window.location.reload();

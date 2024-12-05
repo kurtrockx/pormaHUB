@@ -9,14 +9,12 @@ const switchTab = (e) => {
   });
   tabClicked.classList.add("active-tab");
   const tabPicked = tabClicked?.dataset.tab;
-  console.log(tabPicked);
   if (tabPicked === "purchases") spawnPurchaseHistory();
   if (tabPicked === "user") spawnUserInfo();
 };
 const spawnUserInfo = () => {
   try {
     const currentUser = UserModel.currentUser;
-    console.log(currentUser);
     ProfileView.profileContentContainer.innerHTML = "";
     const userHTML = ProfileView.userInfoHTML(currentUser);
     ProfileView.profileContentContainer.insertAdjacentHTML(
@@ -33,6 +31,11 @@ const spawnPurchaseHistory = async () => {
 
     const currentPurchaseHistory =
       await ProfileModel.setCurrentPurchaseHistory();
+
+    if (!currentPurchaseHistory.length) {
+      ProfileView.renderNoItems();
+      return;
+    }
 
     const historyHTML = currentPurchaseHistory
       .map((item) => ProfileView.purchaseHistoryItemHTML(item))

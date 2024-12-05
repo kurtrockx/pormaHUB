@@ -240,7 +240,10 @@ main > * {
   padding: 2rem;
   overflow: auto;
 }
-
+.no-items {
+  padding-block: 10rem;
+  text-align: center;
+}
 @media screen and (max-width: 900px) {
   main {
     flex-direction: column;

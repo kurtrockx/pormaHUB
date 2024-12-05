@@ -77,6 +77,12 @@ class ProfileView {
           </div>
 `;
   }
+  renderNoItems() {
+    this.profileContentContainer.insertAdjacentHTML("beforeend", this.noItemsHTML());
+  }
+  noItemsHTML() {
+    return '<div class="no-items">No transactions in this account yet</div>';
+  }
 }
 
 export default new ProfileView();

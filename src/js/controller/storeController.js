@@ -1,9 +1,13 @@
 import UserModel from "../model/userModel";
 import StoreModel from "../model/storeModel";
 import StoreView from "../view/storeView";
+import { svg } from "leaflet";
 
 const initialRenderProducts = async () => {
   try {
+    StoreView.searchCategoryButton.forEach((category) =>
+      category.classList.remove("underline")
+    );
     const products = await StoreModel.productFetch();
     StoreView.renderProducts(products);
   } catch (err) {
@@ -13,6 +17,9 @@ const initialRenderProducts = async () => {
 
 const searchProduct = async () => {
   try {
+    StoreView.searchCategoryButton.forEach((category) =>
+      category.classList.remove("underline")
+    );
     const data = await StoreModel.productFetch();
     if (!data) throw new Error("No data found!");
     const searchTerm = data.filter((p) =>
@@ -34,7 +41,7 @@ const searchByCategory = async (e) => {
     const data = await StoreModel.productFetch();
     if (!data) throw new Error("No data fetched");
 
-    const category = e.target.dataset.category;
+    const category = e.target.dataset?.category;
     const allCategories = e.target
       .closest(".search-window")
       ?.querySelectorAll(".search-category-button");
@@ -134,8 +141,10 @@ const addToCart = async () => {
         inputQuantity,
         selectedSize
       );
-      StoreModel.addToCart(UserModel.currentUser, productToAdd);
-      StoreView.notifDisplay(["Successfully added item(s) to cart"], "green");
+      if (UserModel.currentUser) {
+        StoreModel.addToCart(UserModel.currentUser, productToAdd);
+        StoreView.notifDisplay(["Successfully added item(s) to cart"], "green");
+      }
     });
   } catch (err) {
     console.err(err);
