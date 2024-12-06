@@ -1,7 +1,7 @@
 import AdminView from "../view/adminEditView";
 import AdminModel from "../model/adminEditModel";
 import StoreModel from "../model/storeModel";
-import UserModel from "../model/userModel";
+import Swal from "sweetalert2";
 
 const renderProducts = (products) => {
   AdminView.productListContainer.innerHTML = "";
@@ -21,6 +21,30 @@ const spawnProducts = async () => {
   }
 };
 
+const showConfirmation = (productClicked) => {
+  Swal.fire({
+    title: "Are you sure?",
+    text: "Do you want to delete this product?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Yes, delete it!",
+    cancelButtonText: "No, cancel!",
+    reverseButtons: true,
+  }).then(async (result) => {
+    if (result.isConfirmed) {
+      await deleteProduct(productClicked);
+      Swal.fire("Deleted!", "Successfully deleted product.", "success");
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      Swal.fire("Cancelled", "Failed to delete product", "error");
+    }
+  });
+};
+
+const deleteProduct = async (productClicked) => {
+  await AdminModel.deleteProductDB(productClicked);
+  spawnProducts();
+};
+
 const updateQuantity = async (e) => {
   const productClicked =
     e.target.closest(".product-container")?.dataset.productName;
@@ -32,8 +56,7 @@ const updateQuantity = async (e) => {
   //DELETE PRODUCT
   const deleteButton = e.target.closest(".delete-product");
   if (deleteButton) {
-    await AdminModel.deleteProductDB(productClicked);
-    spawnProducts();
+    showConfirmation(productClicked);
   }
 };
 
