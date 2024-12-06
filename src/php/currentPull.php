@@ -3,10 +3,11 @@
 require_once "./includes/cors.php";
 require '../../vendor/autoload.php';
 
-use MongoDB\Client;
 use MongoDB\BSON\ObjectId;
 
-$client = new Client;
+$uri = 'mongodb+srv://kurtrockx:databasePassword@pormahub.t3dph.mongodb.net/?retryWrites=true&w=majority&appName=pormaHUB';
+
+$client = new MongoDB\Client($uri);
 $db = $client->pormaHUB;
 $collection = $db->usersCollection;
 

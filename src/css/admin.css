@@ -278,4 +278,7 @@ body {
   .nav-option {
     height: 1.25rem;
   }
+  .search-container {
+    top: 2.5rem;
+  }
 }

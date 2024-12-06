@@ -124,7 +124,7 @@ const checkOutItems = async () => {
         currentCart
       );
       CartModel.addToPurchaseHistory(newTransaction);
-      CartModel.clearCart();
+      await CartModel.clearCart();
       window.location.reload();
     }
   } catch (err) {

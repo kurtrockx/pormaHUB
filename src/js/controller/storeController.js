@@ -1,13 +1,22 @@
 import UserModel from "../model/userModel";
 import StoreModel from "../model/storeModel";
 import StoreView from "../view/storeView";
-import { svg } from "leaflet";
 
-const initialRenderProducts = async () => {
+const renderProducts = async () => {
   try {
     StoreView.searchCategoryButton.forEach((category) =>
       category.classList.remove("underline")
     );
+    const products = await StoreModel.productFetch();
+    StoreView.renderProducts(products);
+    console.log(products);
+  } catch (err) {
+    console.error("Could not render products");
+  }
+};
+
+const initialRenderProducts = async () => {
+  try {
     const products = await StoreModel.productFetch();
     StoreView.renderProducts(products);
   } catch (err) {
@@ -151,14 +160,23 @@ const addToCart = async () => {
   }
 };
 
+const refresh = () => {
+  const refreshBack = document
+    .querySelector(".refresh-back")
+    .addEventListener("click", () => {
+      renderProducts();
+    });
+};
+
 const init = async () => {
   initialRenderProducts();
   initCategory();
-  StoreView.clearCategory(initialRenderProducts);
+  StoreView.clearCategory(renderProducts);
   modalData();
   addToCart();
   StoreView.searchInput(searchProduct);
   StoreView.categorizeProducts(searchByCategory);
   StoreModel.assignCart();
+  refresh();
 };
 init();

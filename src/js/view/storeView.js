@@ -82,7 +82,7 @@ class ProductView {
           </div>
           <div class="product-modal-details">
             <img src="${xIcon}" class="exit-modal-button" />
-            <div class="product-modal-header">${product.name}</div>
+            <div class="product-modal-header">${product.name} - ${product.stock} unit(s) left!</div>
             <div class="product-size-radio-container">
               <input type="radio" style="display: none" id="XS" name="size" value="XS" />
               <label class="product-size-radio" for="XS">XS</label>

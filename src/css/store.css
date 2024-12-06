@@ -173,6 +173,22 @@ main {
   left: 0;
   width: 100%;
 }
+.clear-cart {
+  background: var(--primary-color);
+  text-decoration: none;
+}
+.clear-cart::after {
+  height: 1px;
+  background: var(--black);
+}
+.refresh-back {
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
 @media screen and (max-width: 420px) {
   main {
     padding: 2rem 0;

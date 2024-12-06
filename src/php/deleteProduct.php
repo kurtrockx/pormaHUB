@@ -2,7 +2,9 @@
 require_once "./includes/cors.php";  // Handle CORS headers
 require '../../vendor/autoload.php';  // MongoDB Client Autoload
 
-$client = new MongoDB\Client;
+$uri = 'mongodb+srv://kurtrockx:databasePassword@pormahub.t3dph.mongodb.net/?retryWrites=true&w=majority&appName=pormaHUB';
+
+$client = new MongoDB\Client($uri);
 $db = $client->pormaHUB;
 $collection = $db->productsCollection;
 
