@@ -328,7 +328,7 @@ input[type="radio"]:checked + .product-size-radio {
   text-indent: 1rem;
   text-align: justify;
   line-height: 1.5;
-  font-size: .75rem;
+  font-size: 0.75rem;
 }
 .exit-modal-button {
   position: absolute;

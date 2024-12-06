@@ -117,28 +117,34 @@ const scrollDown = () => {
 const frequentlyAskedQuestionToggler = () => {
   const frequentlyAskedQuestions = [
     {
-      question: "Bakit may question mark yung header na faqs?",
-      answer: "Aba ewan ko ante",
+      question: "What is Porma Hub?",
+      answer:
+        "Porma Hub is a fashion-forward clothing brand that blends contemporary styles with timeless designs. We offer a wide range of high-quality clothing for men and women, from casual wear to special occasion pieces, all crafted to help you express your unique style.",
     },
     {
-      question: "Kumain kana ba?",
-      answer: "Dipa po",
+      question: "How long does it take to receive my order?",
+      answer:
+        "Domestic orders typically arrive within 3-7 business days, while international orders may take 7-14 business days, depending on the destination. Delivery times are subject to change based on factors like location and shipping carrier.",
     },
     {
-      question: "Ano gusto mo kainin?",
-      answer: "Ikaw",
+      question: "What is your return and exchange policy?",
+      answer:
+        "We offer a 30-day return and exchange policy. If you're not completely satisfied with your purchase, you can return unworn, unwashed items with original tags for a refund or exchange. Please refer to our Return & Exchange Policy page for detailed instructions.",
     },
     {
-      question: "What if di ka mahal ng mahal mo?",
-      answer: "Iyaq",
+      question: "Do you have a physical store?",
+      answer:
+        "At the moment, Porma Hub operates exclusively online. However, we are working on opening physical locations in the near future. Stay tuned for announcements!",
     },
     {
-      question: "What if sinabi kong crush kita?",
-      answer: "Edi ang galing",
+      question: "Do you offer custom or personalized items?",
+      answer:
+        "Currently, we do not offer customization for our items. However, we are exploring this option for future collections. Keep an eye on our website for updates!",
     },
     {
-      question: "What is your name?",
-      answer: "Kurt De Belen",
+      question: "What payment methods do you accept?",
+      answer:
+        "Our sole payment method that is available at the moment is through Paypal Sandbox API",
     },
   ];
 
