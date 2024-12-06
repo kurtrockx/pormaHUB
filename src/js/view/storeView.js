@@ -101,7 +101,10 @@ class ProductView {
               <input type="number" class="input-quantity" value="1" min="1" max="${product.stock}"/>
               <button class="add-to-cart-button">ADD TO CART</button>
             </div>
-            <div class="size-chart"></div>
+            <div class="modal-product-description">
+              <div class="description-header">PRODUCT DESCRIPTION</div>
+              <div class="description-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio praesentium possimus quam cumque officiis, ipsa dolores doloremque ratione nesciunt laboriosam ad eligendi distinctio. Odit eos natus magnam quo, dignissimos asperiores!</div>
+            </div>
           </div>
         </div>
     `;

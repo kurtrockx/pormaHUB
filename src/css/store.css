@@ -313,10 +313,22 @@ input[type="radio"]:checked + .product-size-radio {
   cursor: pointer;
   transition: all 0.2s linear;
 }
-.size-chart {
-  border: 1px solid #000;
+.modal-product-description {
+  align-content: center;
   width: 100%;
   flex: 1;
+  padding: 0.25rem;
+}
+.description-header {
+  border-top: 1px solid var(--black);
+  font-weight: 600;
+  padding-block: 0.5rem;
+}
+.description-content {
+  text-indent: 1rem;
+  text-align: justify;
+  line-height: 1.5;
+  font-size: .75rem;
 }
 .exit-modal-button {
   position: absolute;
