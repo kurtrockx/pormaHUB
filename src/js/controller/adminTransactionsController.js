@@ -14,6 +14,7 @@ const renderPurchases = async () => {
   try {
     const allPurchases = await fetchAllPurchaseHistory();
     if (!allPurchases) throw new Error("No purchases found");
+    AdminTransactionsView.transactionsContainer.innerHTML = "";
     allPurchases.forEach((purchase) => {
       const html = AdminTransactionsView.purchaseHistoryItemHTML(purchase);
       AdminTransactionsView.transactionsContainer.insertAdjacentHTML(
@@ -24,6 +25,12 @@ const renderPurchases = async () => {
   } catch (err) {
     console.error(err.message);
   }
+};
+
+const autoRender = () => {
+  setInterval(async () => {
+    await renderPurchases();
+  }, 5000);
 };
 
 const changeStatus = async (e) => {

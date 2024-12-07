@@ -247,7 +247,15 @@ main {
 .add-product-button:active {
   scale: 0.98;
 }
-
+.transaction-header {
+  font-weight: 600;
+  text-align: center;
+  padding-block: var(--big-font-size);
+  font-size: var(--big-font-size);
+  
+  color: var(--light-black);
+  text-shadow: 2px 2px 0 var(--primary-color);
+}
 .transactions-container {
   width: 100%;
   padding: 1rem;
