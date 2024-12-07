@@ -6,7 +6,7 @@
 html {
   font-family: "century gothic";
   font-size: 16px;
-  font-size: 11.5px;
+  /* font-size: 11.5px; */
   background: var(--white);
   scroll-behavior: smooth;
 }

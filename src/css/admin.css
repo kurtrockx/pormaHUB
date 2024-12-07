@@ -10,7 +10,9 @@
 body {
   display: flex;
 }
-
+main {
+  width: 100vw;
+}
 .side-nav {
   position: sticky;
   top: 0;
@@ -210,7 +212,7 @@ body {
   all: unset;
   background: var(--lighter-grey);
 }
-.add-drop-down-icon {
+.drop-down-icon {
   position: absolute;
   top: 50%;
   right: 0;
@@ -245,6 +247,103 @@ body {
 .add-product-button:active {
   scale: 0.98;
 }
+
+.transactions-container {
+  width: 100%;
+  padding: 1rem;
+  font-size: var(--medium-small-font-size);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.transaction-card-container {
+  width: 100%;
+  padding: var(--small-font-size);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.25rem;
+  align-items: center;
+  background: var(--white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.transaction-card-container > * {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.transaction-id {
+  text-wrap: none;
+  justify-content: flex-start;
+}
+.transaction-id-value {
+  margin-left: 0.25rem;
+  font-weight: 600;
+}
+.transaction-items-container {
+  grid-column: 3/5;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--small-font-size);
+}
+.transaction-items-container > * {
+  padding: 0;
+}
+
+.transaction-status-container {
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+}
+.transaction-status {
+  all: unset;
+  font-weight: 600;
+  position: relative;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--light-black);
+}
+.transaction-status-value {
+  background: var(--lighter-grey);
+}
+.drop-down-icon-transactions {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  translate: 0 -50%;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* 
+.add-drop-value {
+  all: unset;
+  background: var(--lighter-grey);
+}
+.add-drop-down-icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  translate: 0 -50%;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+*/
+/* 
+<div class="transaction-card-container">
+  <div class="transaction-id">5S685403400788609</div>
+  <div class="transaction-date">2024-12-06</div>
+  <div class="transaction-items">Casual Tshirt(2) - M - P1599.99</div>
+  <select name="" class="transaction-status">
+    <option value="PENDING">PENDING</option>
+    <option value="APPROVED">APPROVED</option>
+    <option value="IN SHIPPING FACILITY">IN SHIPPING FACILITY</option>
+    <option value="ON DELIVERY">ON DELIVERY</option>
+    <option value="RECEIVED">RECEIVED</option>
+  </select>
+</div>
+*/
 
 @media screen and (max-width: 1100px) {
   body {

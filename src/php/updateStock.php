@@ -2,9 +2,7 @@
 require_once "./includes/cors.php";
 require '../../vendor/autoload.php';
 
-$uri = 'mongodb+srv://kurtrockx:databasePassword@pormahub.t3dph.mongodb.net/?retryWrites=true&w=majority&appName=pormaHUB';
-
-$client = new MongoDB\Client($uri);
+require_once './includes/atlas.php';
 $db = $client->pormaHUB;
 $collection = $db->productsCollection;
 
