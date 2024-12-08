@@ -257,12 +257,18 @@ main {
   text-shadow: 2px 2px 0 var(--primary-color);
 }
 .transactions-container {
-  width: 100%;
+  margin: auto;
+  width: 90%;
+  min-height: 30vh;
+  max-height: 70vh;
   padding: 1rem;
   font-size: var(--medium-small-font-size);
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--light-grey);
+  overflow: auto;
 }
 .transaction-card-container {
   width: 100%;

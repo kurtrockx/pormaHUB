@@ -18,7 +18,7 @@ const renderPurchases = async () => {
     allPurchases.forEach((purchase) => {
       const html = AdminTransactionsView.purchaseHistoryItemHTML(purchase);
       AdminTransactionsView.transactionsContainer.insertAdjacentHTML(
-        "beforeend",
+        "afterbegin",
         html
       );
     });

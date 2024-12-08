@@ -3,8 +3,8 @@
   z-index: 600;
   right: 1rem;
   bottom: 0;
-  width: 22rem;
-  height: 28rem;
+  width: 26rem;
+  height: 34rem;
   display: flex;
   flex-direction: column;
   border-top-left-radius: 1rem;
@@ -62,7 +62,7 @@
 }
 .chat-message {
   overflow-wrap: break-word;
-  font-size: 0.75rem;
+  font-size: 1rem;
   padding: 0.5rem 0.75rem;
   border-radius: 1rem;
   width: max-content;

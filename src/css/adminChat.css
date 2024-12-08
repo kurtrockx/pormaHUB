@@ -1,5 +1,5 @@
 :root {
-  --chat-message-font-size: clamp(.75rem, 2vw, 1.5rem)
+  --chat-message-font-size: clamp(0.75rem, 2vw, 1.5rem);
 }
 
 .admin-chat-container {
@@ -34,6 +34,7 @@
 .user-email {
   font-size: var(--small-font-size);
   color: var(--grey);
+  word-wrap: break-word;
 }
 .chat-container {
   width: 75%;
@@ -100,4 +101,23 @@
 }
 .active-chat {
   background: var(--light-grey);
+}
+.admin-chat-header{
+  height: 100%;
+  text-align: center;
+  align-content: center;
+  font-size: var(--big-font-size);
+  font-weight: 600;
+}
+@media screen and (max-width: 1100px) {
+  .admin-chat-container {
+    width: 100%;
+    height: calc(100vh - 4rem);
+  }
+  .user-container {
+    width: 35%;
+  }
+  .chat-container {
+    width: 65%;
+  }
 }

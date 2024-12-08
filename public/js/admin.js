@@ -34,7 +34,7 @@ const spawnSideNav = () => {
       <a href="adminEditProducts.html" class="nav-option edit-products">
         <img src="${editIcon}" class="side-nav-images" />
       </a>
-      <a href="adminUserList.html" class="nav-option users-list">
+      <a href="adminChat.html" class="nav-option users-list">
         <img src="${userIcon}" class="side-nav-images" />
       </a>
       <div class="nav-option logout-admin">

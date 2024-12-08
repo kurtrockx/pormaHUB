@@ -27,7 +27,7 @@ class AdminTransactionsView {
         ${purchaseItem.items
           .map((item) => {
             return `
-            <div class="transactions-container">
+            <div class="transaction-items-container">
               ${item.name}(${item.quantity}) - ${item.size} - P${
               item.quantity * item.price
             }
