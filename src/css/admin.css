@@ -87,7 +87,7 @@ main {
 }
 .product-list-container {
   flex: 1;
-  padding: 2rem 2rem;
+  padding: 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
   gap: 2rem;
@@ -252,7 +252,7 @@ main {
   text-align: center;
   padding-block: var(--big-font-size);
   font-size: var(--big-font-size);
-  
+
   color: var(--light-black);
   text-shadow: 2px 2px 0 var(--primary-color);
 }
@@ -324,35 +324,6 @@ main {
   height: 1.5rem;
 }
 
-/* 
-.add-drop-value {
-  all: unset;
-  background: var(--lighter-grey);
-}
-.add-drop-down-icon {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  translate: 0 -50%;
-  width: 1.5rem;
-  height: 1.5rem;
-}
-*/
-/* 
-<div class="transaction-card-container">
-  <div class="transaction-id">5S685403400788609</div>
-  <div class="transaction-date">2024-12-06</div>
-  <div class="transaction-items">Casual Tshirt(2) - M - P1599.99</div>
-  <select name="" class="transaction-status">
-    <option value="PENDING">PENDING</option>
-    <option value="APPROVED">APPROVED</option>
-    <option value="IN SHIPPING FACILITY">IN SHIPPING FACILITY</option>
-    <option value="ON DELIVERY">ON DELIVERY</option>
-    <option value="RECEIVED">RECEIVED</option>
-  </select>
-</div>
-*/
-
 @media screen and (max-width: 1100px) {
   body {
     flex-direction: column;
@@ -387,5 +358,8 @@ main {
   }
   .search-container {
     top: 2.5rem;
+  }
+  main {
+    width: 100%;
   }
 }
