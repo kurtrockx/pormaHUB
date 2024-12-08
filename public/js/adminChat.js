@@ -131,6 +131,11 @@ const handleUserSelection = () => {
     const selectedUserElement = e.target.closest(".user");
     if (!selectedUserElement) return;
 
+    document
+      .querySelectorAll(".user")
+      .forEach((user) => user.classList.remove("active-chat"));
+    e.target.closest(".user").classList.add("active-chat");
+
     selectedUserId = selectedUserElement.dataset.userId; // Store the selected user's ID
 
     const chat = await fetchUserChat(selectedUserId);

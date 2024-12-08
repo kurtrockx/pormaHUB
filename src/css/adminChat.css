@@ -1,20 +1,32 @@
+:root {
+  --chat-message-font-size: clamp(.75rem, 2vw, 1.5rem)
+}
+
 .admin-chat-container {
-  background-color: rgb(0, 0, 0, 0.2);
   position: relative;
   width: 80vw;
   height: 80vh;
   inset: 0;
   margin: auto;
   display: flex;
-  border: 1px solid #000;
+  box-shadow: 0 0 5px rgb(0, 0, 0, 0.5);
+  overflow: hidden;
 }
 .user-container {
-  flex: 1;
+  position: relative;
+  z-index: 1;
+  width: 25%;
   height: 100%;
-  background-color: rgb(255, 0, 0, 0.2);
+  background: var(--white);
+  box-shadow: 2px 0 4px rgb(0, 0, 0, 0.2);
 }
 .user {
-  background-color: rgb(0, 255, 255, 0.2);
+  padding: 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid var(--light-grey);
+}
+.user:hover {
+  background: var(--lighter-grey);
 }
 .user-name {
   font-size: var(--medium-font-size);
@@ -24,33 +36,48 @@
   color: var(--grey);
 }
 .chat-container {
-  background-color: rgb(0, 255, 0, 0.2);
-  flex: 4;
+  width: 75%;
+  background-color: var(--light-grey);
   display: flex;
   flex-direction: column;
 }
 .message-container {
-  flex: 20;
+  flex: 14;
 }
 .message-input {
-  background-color: rgb(0, 0, 255, 0.2);
   flex: 1;
   display: flex;
+  background: var(--white);
+  padding: 0.5rem;
+  gap: 1rem;
 }
 .message-input-value {
   all: unset;
-  font-size: 1rem;
-  padding: 0.5rem;
+  font-size: 1.25rem;
+  padding: 0 1rem;
   background: var(--white);
-  flex: 10;
+  flex: 6;
+  border: 1px solid var(--light-grey);
+  border-radius: 2rem;
 }
 .send-message-button {
   flex: 1;
-  background-color: rgb(255, 0, 255, 0.2);
+  text-align: center;
+  align-content: center;
+  font-size: var(--medium-font-size);
+  font-weight: 600;
+  border-radius: 1rem;
+  color: var(--white);
+  background: var(--light-black);
+  cursor: pointer;
+  user-select: none;
+}
+.send-message-button:hover {
+  background: var(--black);
 }
 .chat-message {
   overflow-wrap: break-word;
-  font-size: 0.75rem;
+  font-size: var(--chat-message-font-size);
   padding: 0.5rem 0.75rem;
   border-radius: 1rem;
   width: max-content;
@@ -68,26 +95,9 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: .25rem;
+  gap: 0.25rem;
   overflow-y: auto;
 }
-/* 
-<div class="admin-chat-container">
-    <div class="user-container">
-    <div class="user">
-        <div class="user-name"></div>
-        <div class="user-email"></div>
-    </div>
-    <div class="chat-container">
-        <div class="message-container">
-        <div class="chat-message chat-admin">${msg.message}</div>
-        <div class="chat-message chat-user">${msg.message}</div>
-        </div>
-        <div class="message-input">
-        <input type="text" class="message-input-value" />
-        <div class="send-message-button"></div>
-        </div>
-    </div>
-    </div>
-</div>
-*/
+.active-chat {
+  background: var(--light-grey);
+}
