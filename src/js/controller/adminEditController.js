@@ -33,7 +33,7 @@ const showConfirmation = (productClicked) => {
   }).then(async (result) => {
     if (result.isConfirmed) {
       await deleteProduct(productClicked);
-      Swal.fire("Deleted!", "Successfully deleted product.", "success");
+      Swal.fire("Deleted!", "Successfully deleted product", "success");
     } else if (result.dismiss === Swal.DismissReason.cancel) {
       Swal.fire("Cancelled", "Failed to delete product", "error");
     }

@@ -4,6 +4,8 @@ footer {
   background: var(--black);
 }
 .footer-content {
+  position: relative;
+  z-index: 500;
   margin: auto;
   max-width: var(--content-width);
   display: flex;

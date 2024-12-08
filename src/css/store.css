@@ -321,15 +321,16 @@ input[type="radio"]:checked + .product-size-radio {
   padding: 0.25rem;
 }
 .description-header {
+  font-size: var(--smaller-font-size);
   border-top: 1px solid var(--black);
   font-weight: 600;
   padding-block: 0.5rem;
 }
 .description-content {
+  font-size: 0.5rem;
   text-indent: 1rem;
   text-align: justify;
   line-height: 1.5;
-  font-size: 0.75rem;
 }
 .exit-modal-button {
   position: absolute;
