@@ -89,14 +89,14 @@ const insertChat = () => {
     }
   };
 
-  const renderChart = async () => {
+  const renderChat = async () => {
     chatMessage.innerHTML = "";
     const allMessages = await chatMessages();
     allMessages.forEach((msg) => {
       const html =
-        msg.sender === "user"
-          ? `<div class="chat-message chat-user">${msg.message}</div>`
-          : `<div class="chat-message chat-admin">${msg.message}</div>`;
+        msg.sender === "admin"
+          ? `<div class="chat-message chat-admin">${msg.message}</div>`
+          : `<div class="chat-message chat-user">${msg.message}</div>`;
 
       chatMessage.insertAdjacentHTML("beforeend", html);
     });
@@ -130,14 +130,14 @@ const insertChat = () => {
       const currentChatLength = JSON.parse(localStorage.getItem("chatLength"));
 
       if (currentChatLength !== previousChatLength) {
-        renderChart();
+        renderChat();
         previousChatLength = currentChatLength;
       }
     }, 500);
   };
 
   const init = async () => {
-    await renderChart();
+    await renderChat();
     checkInputFocus();
     sendMessageButtonClick();
     autoUpdateChat();

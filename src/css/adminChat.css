@@ -1,0 +1,93 @@
+.admin-chat-container {
+  background-color: rgb(0, 0, 0, 0.2);
+  position: relative;
+  width: 80vw;
+  height: 80vh;
+  inset: 0;
+  margin: auto;
+  display: flex;
+  border: 1px solid #000;
+}
+.user-container {
+  flex: 1;
+  height: 100%;
+  background-color: rgb(255, 0, 0, 0.2);
+}
+.user {
+  background-color: rgb(0, 255, 255, 0.2);
+}
+.user-name {
+  font-size: var(--medium-font-size);
+}
+.user-email {
+  font-size: var(--small-font-size);
+  color: var(--grey);
+}
+.chat-container {
+  background-color: rgb(0, 255, 0, 0.2);
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+}
+.message-container {
+  flex: 20;
+}
+.message-input {
+  background-color: rgb(0, 0, 255, 0.2);
+  flex: 1;
+  display: flex;
+}
+.message-input-value {
+  all: unset;
+  font-size: 1rem;
+  padding: 0.5rem;
+  background: var(--white);
+  flex: 10;
+}
+.send-message-button {
+  flex: 1;
+  background-color: rgb(255, 0, 255, 0.2);
+}
+.chat-message {
+  overflow-wrap: break-word;
+  font-size: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 1rem;
+  width: max-content;
+  max-width: 60%;
+  color: var(--white);
+  background: var(--primary-color);
+}
+.chat-admin {
+  align-self: flex-end;
+}
+.chat-user {
+  background: var(--grey);
+}
+.message-container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+  overflow-y: auto;
+}
+/* 
+<div class="admin-chat-container">
+    <div class="user-container">
+    <div class="user">
+        <div class="user-name"></div>
+        <div class="user-email"></div>
+    </div>
+    <div class="chat-container">
+        <div class="message-container">
+        <div class="chat-message chat-admin">${msg.message}</div>
+        <div class="chat-message chat-user">${msg.message}</div>
+        </div>
+        <div class="message-input">
+        <input type="text" class="message-input-value" />
+        <div class="send-message-button"></div>
+        </div>
+    </div>
+    </div>
+</div>
+*/
