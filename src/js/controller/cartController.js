@@ -4,7 +4,9 @@ import UserModel from "../model/userModel";
 import { loadPaypal } from "../paypalSandboxAPI";
 
 const checkCurrentUser = () => {
-  if (!UserModel.currentUser) window.location.href = "index.html";
+  if (!UserModel.currentUser) {
+    window.location.href = "index.html";
+  }
 };
 
 const renderCartItems = async () => {

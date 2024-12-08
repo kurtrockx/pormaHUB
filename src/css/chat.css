@@ -1,12 +1,3 @@
-/* 
-<div class="chat-container">
-<div class="chat-message-container"></div>
-<div class="chat-send-container">
-    <input type="text" class="message-input">
-    <div class="send-message-button"></div>
-</div>
-</div>
-*/
 .chat-container {
   position: fixed;
   z-index: 600;
@@ -17,6 +8,7 @@
   display: flex;
   flex-direction: column;
   background: var(--white);
+  borra``````````````````111111111111111111111111111111111111111111111111111111111111111111111111``1``111111111111111111111````````````````1
 }
 .chat-message-container {
   height: 85%;
@@ -52,6 +44,7 @@
   cursor: pointer;
 }
 .chat-message {
+  overflow-wrap: break-word;
   font-size: var(--small-font-size);
   padding: 0.25rem 0.5rem;
   border-radius: 1rem;
@@ -66,3 +59,26 @@
 .chat-admin {
   background: var(--grey);
 }
+.chat-head {
+  width: 100%;
+  height: var(--big-font-size);
+  padding: 0.25rem 0.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  background: var(--black);
+}
+/* 
+<div class="chat-container">
+  <div class="chat-head">
+    <div class="pormaName"></div>
+    <div class="exit-chat"></div>
+  </div>
+  <div class="chat-message-container"></div>
+  <div class="chat-send-container">
+    <input type="text" class="message-input" />
+    <div class="send-message-button"></div>
+  </div>
+</div>
+*/

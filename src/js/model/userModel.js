@@ -21,6 +21,7 @@ class UserModel {
       };
       this.cart = [];
       this.purchaseHistory = [];
+      this.chat = [];
     }
   };
 
