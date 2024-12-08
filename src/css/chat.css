@@ -1,13 +1,16 @@
 .chat-container {
   position: fixed;
   z-index: 600;
-  right: 0;
+  right: 1rem;
   bottom: 0;
-  width: 18rem;
-  height: 22rem;
+  width: 22rem;
+  height: 28rem;
   display: flex;
   flex-direction: column;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
   background: var(--white);
+  overflow: hidden;
 }
 .chat-message-container {
   height: 85%;
@@ -30,21 +33,35 @@
 .message-input {
   all: unset;
   height: 80%;
-  flex: 6;
+  flex: 4;
   border-radius: 20rem;
   padding: 0 0.75rem;
+  background: var(--lighter-grey);
   border: 1px solid rgb(0, 0, 0, 0.2);
 }
 .send-message-button {
-  background-color: rgb(0, 0, 0, 0.2);
+  align-content: center;
+  text-align: center;
+  font-size: var(--small-font-size);
+  font-weight: 600;
   height: 80%;
   flex: 1;
-  border-radius: 50%;
+  border-radius: 2rem;
   cursor: pointer;
+  color: var(--white);
+  background-color: var(--light-black);
+  transition: all 0.2s linear;
+  user-select: none;
+}
+.send-message-button:hover {
+  background: var(--black);
+}
+.send-message-button:active {
+  scale: 0.95;
 }
 .chat-message {
   overflow-wrap: break-word;
-  font-size: var(--small-font-size);
+  font-size: 0.75rem;
   padding: 0.25rem 0.5rem;
   border-radius: 1rem;
   width: max-content;
@@ -60,7 +77,7 @@
 }
 .chat-head {
   width: 100%;
-  height: var(--big-font-size);
+  height: 3.25rem;
   padding: 0.25rem 0.5rem;
   font-weight: 600;
   display: flex;
@@ -68,16 +85,48 @@
   color: var(--white);
   background: var(--black);
 }
-/* 
-<div class="chat-container">
-  <div class="chat-head">
-    <div class="pormaName"></div>
-    <div class="exit-chat"></div>
-  </div>
-  <div class="chat-message-container"></div>
-  <div class="chat-send-container">
-    <input type="text" class="message-input" />
-    <div class="send-message-button"></div>
-  </div>
-</div>
-*/
+.exit-chat {
+  height: 100%;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.exit-chat img {
+  object-fit: contain;
+  height: 70%;
+}
+.exit-chat:hover {
+  filter: invert() brightness(90%);
+}
+.open-chat {
+  position: fixed;
+  z-index: 600;
+  bottom: 2rem;
+  right: 2rem;
+  width: 4rem;
+  aspect-ratio: 1/1;
+}
+.open-chat-icon {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.open-chat:hover {
+  filter: brightness(90%);
+}
+.pormaLogo {
+  height: 80%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.pormaLogo img {
+  object-fit: contain;
+  width: 70%;
+  height: 70%;
+}
