@@ -39,6 +39,7 @@ const spawnPurchaseHistory = async () => {
 
     const historyHTML = currentPurchaseHistory
       .map((item) => ProfileView.purchaseHistoryItemHTML(item))
+      .reverse()
       .join("");
     ProfileView.profileContentContainer.insertAdjacentHTML(
       "beforeend",

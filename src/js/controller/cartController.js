@@ -11,7 +11,7 @@ const checkCurrentUser = () => {
 
 const renderCartItems = async () => {
   const currentCart = await CartModel.setCurrentCart();
-  CartView.renderCartItems(currentCart);
+  CartView.renderCartItems(currentCart.reverse());
   if (!currentCart.length) CartView.renderNoItems();
 };
 

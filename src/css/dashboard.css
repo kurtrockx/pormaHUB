@@ -337,6 +337,11 @@ main {
 .review-card:hover {
   translate: 0 -0.5rem;
 }
+.review-card:active {
+  position: relative;
+  z-index: 1000;
+  scale: 1.5;
+}
 
 .frequently-asked-questions-container {
   width: 100%;

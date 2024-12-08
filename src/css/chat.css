@@ -10,6 +10,7 @@
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   background: var(--white);
+  box-shadow: -2px -2px 4px rgb(0, 0, 0, 0.2);
   overflow: hidden;
 }
 .chat-message-container {
@@ -20,8 +21,8 @@
   flex-direction: column;
   gap: 0.25rem;
   overflow-y: auto;
-  background-color: rgb(0, 0, 0, 0.2);
-  border-bottom: 1px solid var(--grey);
+  background-color: rgb(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--light-grey);
 }
 .chat-send-container {
   height: 15%;
@@ -62,7 +63,7 @@
 .chat-message {
   overflow-wrap: break-word;
   font-size: 0.75rem;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 0.75rem;
   border-radius: 1rem;
   width: max-content;
   max-width: 60%;

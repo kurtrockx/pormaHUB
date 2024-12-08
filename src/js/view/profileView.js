@@ -17,6 +17,12 @@ class ProfileView {
 
   purchaseHistoryItemHTML(purchaseItem) {
     const date = new Date(purchaseItem.date);
+
+    if (isNaN(date)) {
+      console.error("Invalid date:", purchaseItem.date);
+      return "";
+    }
+
     const formattedDate = new Intl.DateTimeFormat("en-US", {
       month: "long",
       day: "2-digit",
@@ -78,7 +84,10 @@ class ProfileView {
 `;
   }
   renderNoItems() {
-    this.profileContentContainer.insertAdjacentHTML("beforeend", this.noItemsHTML());
+    this.profileContentContainer.insertAdjacentHTML(
+      "beforeend",
+      this.noItemsHTML()
+    );
   }
   noItemsHTML() {
     return '<div class="no-items">No transactions in this account yet</div>';

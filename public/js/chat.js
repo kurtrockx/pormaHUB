@@ -158,4 +158,5 @@ const insertChat = () => {
     }
   });
 };
-insertChat();
+
+if (UserModel.currentUser) insertChat();
