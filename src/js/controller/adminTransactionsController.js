@@ -18,19 +18,13 @@ const renderPurchases = async () => {
     allPurchases.forEach((purchase) => {
       const html = AdminTransactionsView.purchaseHistoryItemHTML(purchase);
       AdminTransactionsView.transactionsContainer.insertAdjacentHTML(
-        "afterbegin",
+        "beforeend",
         html
       );
     });
   } catch (err) {
     console.error(err.message);
   }
-};
-
-const autoRender = () => {
-  setInterval(async () => {
-    await renderPurchases();
-  }, 5000);
 };
 
 const changeStatus = async (e) => {
