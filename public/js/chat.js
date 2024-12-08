@@ -1,6 +1,5 @@
 import UserModel from "../../src/js/model/userModel";
 
-
 const chatMessage = document.querySelector(".chat-message-container");
 const sendMessageButton = document.querySelector(".send-message-button");
 const messageInput = document.querySelector(".message-input");
@@ -18,11 +17,12 @@ const chatMessages = async () => {
         body: JSON.stringify({ userId }),
       }
     );
-    if (!res.ok) throw new Error("Could not fetch user cart");
+    if (!res.ok) throw new Error("Could not fetch user chat messages");
     const currentUser = await res.json();
+    localStorage.setItem("chatLength", JSON.stringify(currentUser.chat.length));
     return currentUser.chat;
   } catch (err) {
-    console.error(err);
+    console.error("Error fetching chat messages:", err);
   }
 };
 
@@ -46,7 +46,7 @@ const sendMessageToDB = async (message) => {
     const result = await response.json();
 
     if (response.ok) {
-      console.log("Success:", result.message);
+      console.log("Message sent successfully");
     } else {
       console.error("Error:", result.error || "Failed to send message");
     }
@@ -68,33 +68,43 @@ const renderChart = async () => {
   });
 };
 
-const sendMessage = () => {
+const sendMessage = async () => {
+  const userMessage = messageInput.value;
+  sendMessageToDB({ sender: "user", message: userMessage });
+  messageInput.value = "";
+  await chatMessages();
+};
+
+const sendMessageButtonClick = () => {
   sendMessageButton.addEventListener("click", async () => {
-    const userMessage = messageInput.value;
-    sendMessageToDB({ sender: "user", message: userMessage });
-    messageInput.value = "";
-    await chatMessages();
-    renderChart();
+    await sendMessage();
+  });
+};
+const checkInputFocus = () => {
+  window.addEventListener("keydown", async (e) => {
+    if (e.key === "Enter" && messageInput === document.activeElement)
+      await sendMessage();
   });
 };
 
-let chatLength = 0;
-let previousChatLength = 0;
+let previousChatLength = JSON.parse(localStorage.getItem("chatLength")) || 0;
 
 const autoUpdateChat = () => {
   setInterval(async () => {
-    if (chatLength !== previousChatLength) {
-      await chatMessages();
-      renderChart();
+    await chatMessages();
+    const currentChatLength = JSON.parse(localStorage.getItem("chatLength"));
 
-      previousChatLength = chatLength;
+    if (currentChatLength !== previousChatLength) {
+      renderChart();
+      previousChatLength = currentChatLength;
     }
   }, 500);
 };
 
 const init = async () => {
   await renderChart();
-  sendMessage();
+  checkInputFocus();
+  sendMessageButtonClick();
   autoUpdateChat();
 };
 init();
