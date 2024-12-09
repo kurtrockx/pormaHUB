@@ -2,6 +2,7 @@ class ProfileView {
   profileTabsContainer;
   profileTabs;
   profileContentContainer;
+  userName;
 
   constructor() {
     this.profileTabsContainer = document.querySelector(
@@ -9,6 +10,7 @@ class ProfileView {
     );
     this.profileTabs = document.querySelectorAll(".profile-tab");
     this.profileContentContainer = document.querySelector(".profile-content");
+    this.userName = document.querySelector('.user-name-username')
   }
 
   switchTab(switchTabFunction) {
@@ -33,29 +35,42 @@ class ProfileView {
       <div class="purchase-history-item">
         <div class="date-of-purchase">${formattedDate}</div>
         <div class="item-container">
-          ${purchaseItem.items
-            .map((item) => {
-              return `
-              <div class="item">
-                <div class="item-name-picture">
-                  <div class="item-picture">
-                    <img src="${item.thumbnail}" class="item-picture-value"/>
-                  </div>
-                  <div class="item-name">${item.name}</div>
+        ${purchaseItem.items
+          .map((item) => {
+            return `
+            <div class="item">
+              <div class="item-name-picture">
+                <div class="item-picture">
+                  <img src="${item.thumbnail}" class="item-picture-value"/>
                 </div>
-                <div class="size">${item.size}</div>
-                <div class="quantity">${item.quantity}</div>
-                <div class="total-price">$${(
-                  item.quantity * item.price
-                ).toFixed(2)}</div>
-                <div class="status">${purchaseItem.status}</div>
+                <div class="item-name">${item.name}</div>
               </div>
-            `;
-            })
-            .join("")}
-        </div>
-      </div>
-    `;
+              <div class="size">${item.size}</div>
+              <div class="quantity">${item.quantity}</div>
+              <div class="total-price">$${(item.quantity * item.price).toFixed(
+                2
+              )}</div>
+              <div class="status ${
+                purchaseItem.status === "PENDING"
+                  ? "state1"
+                  : purchaseItem.status === "APPROVED"
+                  ? "state2"
+                  : purchaseItem.status === "IN SHIPPING FACILITY"
+                  ? "state3"
+                  : purchaseItem.status === "ON DELIVERY"
+                  ? "state4"
+                  : purchaseItem.status === "ORDER COMPLETE"
+                  ? "state5"
+                  : ""
+              }">
+                        ${purchaseItem.status}
+                      </div>
+                    </div>
+                    `;
+          })
+          .join("")}
+                </div>
+            </div>`;
   }
   userInfoHTML(user) {
     return `

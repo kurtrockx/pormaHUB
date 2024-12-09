@@ -2,6 +2,18 @@ import ProfileView from "../view/profileView";
 import UserModel from "../model/userModel";
 import ProfileModel from "../model/profileModel";
 
+const insertFullName = () => {
+  const firstName = `${UserModel.currentUser.firstName
+    .slice(0, 1)
+    .toUpperCase()}${UserModel.currentUser.firstName.slice(1)}`;
+  const lastName = `${UserModel.currentUser.lastName
+    .slice(0, 1)
+    .toUpperCase()}${UserModel.currentUser.lastName.slice(1)}`;
+
+  const fullName = `${firstName} ${lastName}`;
+  ProfileView.userName.textContent = fullName;
+};
+
 const switchTab = (e) => {
   const tabClicked = e.target.closest(".profile-tab");
   ProfileView.profileTabs.forEach((tab) => {
@@ -53,6 +65,7 @@ const spawnPurchaseHistory = async () => {
 
 const init = async () => {
   UserModel.pullUsersFromDB();
+  insertFullName();
   spawnUserInfo();
   ProfileView.switchTab(switchTab);
 };

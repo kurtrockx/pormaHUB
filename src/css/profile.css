@@ -139,10 +139,25 @@ main {
 }
 .status {
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--white);
 }
 .no-items {
   font-family: Poppins-Light;
   padding-block: 10rem;
   text-align: center;
+}
+.state1 {
+  background: #d3d3d3;
+}
+.state2 {
+  background: #add8e6;
+}
+.state3 {
+  background: #ffa500;
+}
+.state4 {
+  background: #ffd700;
+}
+.state5 {
+  background: #32cd32;
 }

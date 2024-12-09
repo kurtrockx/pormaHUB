@@ -312,6 +312,8 @@ main {
   border-radius: 100%;
   border: 1px solid var(--light-grey);
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 .review-card-image-value {
   object-fit: cover;
@@ -320,6 +322,7 @@ main {
 }
 
 .review-card-description {
+  text-indent: 1rem;
   margin-block: var(--smaller-font-size);
   text-align: justify;
   font-size: var(--review-card-description-font-size);

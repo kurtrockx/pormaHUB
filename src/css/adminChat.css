@@ -108,6 +108,8 @@
   align-content: center;
   font-size: var(--big-font-size);
   font-weight: 600;
+  font-style: italic;
+  text-shadow: 5px 0 5px orange;
 }
 @media screen and (max-width: 1100px) {
   .admin-chat-container {
