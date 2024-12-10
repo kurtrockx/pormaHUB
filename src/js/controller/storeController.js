@@ -255,6 +255,7 @@ const closePaypal = () => {
     .querySelector(".payment-container-background")
     .addEventListener("click", () => {
       document.querySelector(".payment-container").classList.add("gone");
+      StoreView.paymentContainerMethods.innerHTML = "";
     });
 };
 

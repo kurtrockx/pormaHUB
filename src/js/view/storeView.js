@@ -11,6 +11,7 @@ class ProductView {
   notifList;
   blurBackground;
   paymentContainer;
+  paymentContainerMethods;
 
   constructor() {
     this.productGridContainer = document.querySelector(
@@ -24,6 +25,9 @@ class ProductView {
       ".product-modal-background"
     );
     this.paymentContainer = document.querySelector(".payment-container");
+    this.paymentContainerMethods = document.querySelector(
+      ".payment-container-methods"
+    );
     this.clearCategoryButton = document.querySelector(".clear-category-button");
     this.notifList = document.querySelector(".notification-list");
     this.blurBackground = document.querySelector(".blur-background");
@@ -84,7 +88,9 @@ class ProductView {
           </div>
           <div class="product-modal-details">
             <img src="${xIcon}" class="exit-modal-button" />
-            <div class="product-modal-header">${product.name} - ${product.stock} unit(s) left!</div>
+            <div class="product-modal-header">
+            <div class="product-modal-stock">${product.stock} unit(s) left!</div>
+            ${product.name}</div>
             <div class="product-size-radio-container">
               <input type="radio" style="display: none" id="XS" name="size" value="XS" />
               <label class="product-size-radio" for="XS">XS</label>
@@ -103,11 +109,7 @@ class ProductView {
               <input type="number" class="input-quantity" value="1" min="1" max="${product.stock}"/>
               <button class="add-to-cart-button">ADD TO CART</button>
               </div>
-              <button class="buy-now-button">BUY NOW</button>
-            <div class="modal-product-description">
-              <div class="description-header">PRODUCT DESCRIPTION</div>
-              <div class="description-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio praesentium possimus quam cumque officiis, ipsa dolores doloremque ratione nesciunt laboriosam ad eligendi distinctio. Odit eos natus magnam quo, dignissimos asperiores!</div>
-            </div>
+              <button class="buy-now-button">BUY NOW <span class="">${(product.price)}</span></button>
           </div>
         </div>
     `;

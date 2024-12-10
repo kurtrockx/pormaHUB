@@ -3,6 +3,7 @@
   --category-font-size: clamp(1rem, 1.5vw, 2.5rem);
   --size-font-size: clamp(1rem, 1.5vw, 1.5rem);
   --add-font-size: clamp(0.45rem, 1vw, 0.55rem);
+  --buy-font-size: clamp(0.5rem, 1vw, 0.65rem);
 }
 body {
   background: var(--lighter-grey);
@@ -256,6 +257,13 @@ main {
   text-wrap: wrap;
   font-family: Quicksand-SemiBold;
 }
+.product-modal-stock {
+  width: 100%;
+  text-align: center;
+  text-wrap: wrap;
+  color: var(--primary-color);
+  font-family: Quicksand-SemiBold;
+}
 .product-size-radio-container {
   width: 100%;
   height: 25%;
@@ -317,26 +325,9 @@ input[type="radio"]:checked + .product-size-radio {
 }
 .buy-now-button {
   width: 100%;
+  font-size: var(--buy-font-size);
   padding-block: 0.5rem;
   background: var(--light-black);
-}
-.modal-product-description {
-  align-content: center;
-  width: 100%;
-  flex: 1;
-  padding: 0.25rem;
-}
-.description-header {
-  font-size: var(--smaller-font-size);
-  border-top: 1px solid var(--black);
-  font-weight: 600;
-  padding-block: 0.5rem;
-}
-.description-content {
-  font-size: 0.5rem;
-  text-indent: 1rem;
-  text-align: justify;
-  line-height: 1.5;
 }
 .exit-modal-button {
   position: absolute;
