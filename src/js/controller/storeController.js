@@ -1,6 +1,7 @@
 import UserModel from "../model/userModel";
 import StoreModel from "../model/storeModel";
 import StoreView from "../view/storeView";
+import CartModel from "../model/cartModel";
 import { loadPaypal } from "../paypalSandboxAPI";
 
 const renderProducts = async () => {
@@ -119,7 +120,7 @@ const checkoutItem = async () => {
     const products = await StoreModel.productFetch();
     if (!products) throw new Error("No products fetched");
 
-    StoreView.checkout((e) => {
+    StoreView.checkout(async (e) => {
       const closeModal = e.target.closest(".buy-now-button");
       if (!closeModal) return;
 
@@ -152,11 +153,18 @@ const checkoutItem = async () => {
         selectedSize
       );
 
-      console.log(productToAdd);
-
       StoreView.paymentContainer.classList.remove("gone");
-      console.log(inputQuantity * productMatch.price);
-      paypalCheckout(inputQuantity * productMatch.price);
+      const paypalResponse = await paypalCheckout(
+        inputQuantity * productMatch.price
+      );
+
+      if (paypalResponse.status === "COMPLETED") {
+        const newTransaction = new CartModel.transactionItem(
+          paypalResponse.id,
+          [productToAdd]
+        );
+        CartModel.addToPurchaseHistory(newTransaction);
+      }
     });
   } catch (err) {
     console.err(err);
