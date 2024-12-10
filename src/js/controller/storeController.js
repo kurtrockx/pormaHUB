@@ -164,6 +164,8 @@ const checkoutItem = async () => {
           [productToAdd]
         );
         CartModel.addToPurchaseHistory(newTransaction);
+        localStorage.setItem("profileTab", "purchases");
+        window.location.href = "profile.html";
       }
     });
   } catch (err) {

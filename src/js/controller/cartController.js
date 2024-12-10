@@ -127,7 +127,8 @@ const checkOutItems = async () => {
       );
       CartModel.addToPurchaseHistory(newTransaction);
       await CartModel.clearCart();
-      window.location.reload();
+      localStorage.setItem("profileTab", "purchases");
+      window.location.href = "profile.html";
     }
   } catch (err) {
     console.log(data);

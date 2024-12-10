@@ -127,7 +127,10 @@ const loginUserController = () => {
     loginInputEmail === UserModel.adminCredentials.username &&
     loginInputPassword === UserModel.adminCredentials.password
   ) {
-    const adminInputs = { username: loginInputEmail, password: loginInputPassword };
+    const adminInputs = {
+      username: loginInputEmail,
+      password: loginInputPassword,
+    };
     UserModel.loginAdmin(adminInputs);
     window.location.href = "adminEditProducts.html";
     return;
@@ -147,6 +150,7 @@ const loginUserController = () => {
     return;
   }
   UserModel.loginUser(loginInputEmail);
+  localStorage.removeItem("profileTab");
   window.location.href = "index.html";
 };
 

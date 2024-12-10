@@ -16,14 +16,23 @@ const insertFullName = () => {
 
 const switchTab = (e) => {
   const tabClicked = e.target.closest(".profile-tab");
+
   ProfileView.profileTabs.forEach((tab) => {
     tab.classList.remove("active-tab");
   });
+
+  if (tabClicked?.dataset.tab === "purchases") {
+    localStorage.setItem("profileTab", "purchases");
+    spawnPurchaseHistory();
+  }
+  if (tabClicked?.dataset.tab === "user") {
+    localStorage.setItem("profileTab", "users");
+    spawnUserInfo();
+  }
+
   tabClicked.classList.add("active-tab");
-  const tabPicked = tabClicked?.dataset.tab;
-  if (tabPicked === "purchases") spawnPurchaseHistory();
-  if (tabPicked === "user") spawnUserInfo();
 };
+
 const spawnUserInfo = () => {
   try {
     const currentUser = UserModel.currentUser;
@@ -33,6 +42,7 @@ const spawnUserInfo = () => {
       "beforeend",
       userHTML
     );
+    ProfileView.profileTabs[0].classList.add("active-tab");
   } catch (err) {
     console.error(err.message);
   }
@@ -57,16 +67,42 @@ const spawnPurchaseHistory = async () => {
       "beforeend",
       historyHTML
     );
-    console.log(ProfileView.purchaseHistoryItemHTML());
+    ProfileView.profileTabs[1].classList.add("active-tab");
   } catch (err) {
     console.error(err.message);
   }
 };
 
+const checkCurrentTab = () => {
+  const currentTab = localStorage.getItem("profileTab");
+
+  ProfileView.profileTabs.forEach((tab) => {
+    tab.classList.remove("active-tab");
+  });
+
+  if (currentTab === "purchases") {
+    spawnPurchaseHistory();
+    ProfileView.profileTabs[1].classList.add("active-tab");
+  } else if (currentTab === "users") {
+    spawnUserInfo();
+    ProfileView.profileTabs[0].classList.add("active-tab");
+  }
+};
+
+const initialSet = () => {
+  const currentTab = localStorage.getItem("profileTab");
+  if (!currentTab) localStorage.setItem("profileTab", "users");
+};
+
 const init = async () => {
+  ProfileView.profileTabs.forEach((tab) => {
+    tab.classList.remove("active-tab");
+  });
+
+  initialSet();
   UserModel.pullUsersFromDB();
   insertFullName();
-  spawnUserInfo();
+  checkCurrentTab();
   ProfileView.switchTab(switchTab);
 };
 init();
