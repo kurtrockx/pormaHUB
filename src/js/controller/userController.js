@@ -110,7 +110,7 @@ const registerUser = () => {
 
   UserModel.pendingUserOTP(validatedInput);
 
-  sendEmail(UserModel.userPending);
+  // sendEmail(UserModel.userPending);
 
   UserView.changeToOtpPage();
   UserView.notifDisplay(["Check your email"], "green");

@@ -1,6 +1,7 @@
 import UserModel from "../model/userModel";
 import StoreModel from "../model/storeModel";
 import StoreView from "../view/storeView";
+import { loadPaypal } from "../paypalSandboxAPI";
 
 const renderProducts = async () => {
   try {
@@ -113,6 +114,55 @@ const closeModal = () => {
   });
 };
 
+const checkoutItem = async () => {
+  try {
+    const products = await StoreModel.productFetch();
+    if (!products) throw new Error("No products fetched");
+
+    StoreView.checkout((e) => {
+      const closeModal = e.target.closest(".buy-now-button");
+      if (!closeModal) return;
+
+      const productModalContainer = closeModal.closest(
+        ".product-modal-container"
+      );
+
+      const productClicked = productModalContainer?.dataset.productId;
+
+      const productMatch = products.find(
+        (prod) => prod._id.$oid === productClicked
+      );
+
+      if (!UserModel.currentUser) window.location.href = "login.html";
+
+      const inputQuantity =
+        +productModalContainer.querySelector(".input-quantity").value;
+
+      const sizeRadio =
+        productModalContainer.querySelectorAll('input[name="size"]');
+
+      let selectedSize = "M";
+      sizeRadio.forEach((r) => {
+        if (r.checked) selectedSize = r.value;
+      });
+
+      const productToAdd = new StoreModel.Product(
+        productMatch,
+        inputQuantity,
+        selectedSize
+      );
+
+      console.log(productToAdd);
+
+      StoreView.paymentContainer.classList.remove("gone");
+      console.log(inputQuantity * productMatch.price);
+      paypalCheckout(inputQuantity * productMatch.price);
+    });
+  } catch (err) {
+    console.err(err);
+  }
+};
+
 const addToCart = async () => {
   try {
     const products = await StoreModel.productFetch();
@@ -121,7 +171,6 @@ const addToCart = async () => {
     StoreView.addToCart((e) => {
       const addToCartButton = e.target.closest(".add-to-cart-button");
       if (!addToCartButton) return;
-
       if (!UserModel.currentUser) window.location.href = "login.html";
 
       const productModalContainer = addToCartButton.closest(
@@ -160,6 +209,47 @@ const addToCart = async () => {
   }
 };
 
+const paypalCheckout = async (totalPrice) => {
+  try {
+    const paypal = await loadPaypal(
+      "AfdEKqsv7BCcy6kJtBp4LzWp0g9ZXDL6PAI78xQ5yvwgpnPpsgbUtCmBXw-88y0nGPP-B_p4Xd1XSTYI"
+    );
+
+    return new Promise((resolve, reject) => {
+      paypal
+        .Buttons({
+          createOrder: (data, actions) =>
+            actions.order.create({
+              purchase_units: [{ amount: { value: totalPrice } }],
+            }),
+          onApprove: async (data, actions) => {
+            try {
+              const orderDetails = await actions.order.capture();
+              resolve(orderDetails);
+            } catch (err) {
+              reject("Order capture failed: " + err.message);
+            }
+          },
+          onError: (err) => {
+            reject("PayPal error: " + err.message);
+          },
+        })
+        .render(".payment-container-methods");
+    });
+  } catch (error) {
+    console.error("Failed to load PayPal:", error);
+    throw error;
+  }
+};
+
+const closePaypal = () => {
+  document
+    .querySelector(".payment-container-background")
+    .addEventListener("click", () => {
+      document.querySelector(".payment-container").classList.add("gone");
+    });
+};
+
 const refresh = () => {
   const refreshBack = document
     .querySelector(".refresh-back")
@@ -177,6 +267,8 @@ const init = async () => {
   StoreView.searchInput(searchProduct);
   StoreView.categorizeProducts(searchByCategory);
   StoreModel.assignCart();
+  checkoutItem();
+  closePaypal();
   refresh();
 };
 init();

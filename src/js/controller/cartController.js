@@ -139,6 +139,14 @@ const openCheckoutModal = () => {
   CartView.paymentContainer.classList.remove("gone");
 };
 
+const closePaypal = () => {
+  document
+    .querySelector(".payment-container-background")
+    .addEventListener("click", () => {
+      document.querySelector(".payment-container").classList.add("gone");
+    });
+};
+
 const init = async () => {
   checkCurrentUser();
   renderCartItems();
@@ -146,6 +154,7 @@ const init = async () => {
   spawnCheckoutItems();
   CartView.deleteItem(deleteItem);
   CartView.openCheckoutModal(openCheckoutModal);
+  closePaypal();
   checkOutItems();
 };
 init();

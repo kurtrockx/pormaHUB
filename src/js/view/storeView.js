@@ -10,6 +10,7 @@ class ProductView {
   clearCategoryButton;
   notifList;
   blurBackground;
+  paymentContainer;
 
   constructor() {
     this.productGridContainer = document.querySelector(
@@ -22,6 +23,7 @@ class ProductView {
     this.productModalBackground = document.querySelector(
       ".product-modal-background"
     );
+    this.paymentContainer = document.querySelector(".payment-container");
     this.clearCategoryButton = document.querySelector(".clear-category-button");
     this.notifList = document.querySelector(".notification-list");
     this.blurBackground = document.querySelector(".blur-background");
@@ -100,7 +102,8 @@ class ProductView {
             <div class="product-modal-bottom-section">
               <input type="number" class="input-quantity" value="1" min="1" max="${product.stock}"/>
               <button class="add-to-cart-button">ADD TO CART</button>
-            </div>
+              </div>
+              <button class="buy-now-button">BUY NOW</button>
             <div class="modal-product-description">
               <div class="description-header">PRODUCT DESCRIPTION</div>
               <div class="description-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio praesentium possimus quam cumque officiis, ipsa dolores doloremque ratione nesciunt laboriosam ad eligendi distinctio. Odit eos natus magnam quo, dignissimos asperiores!</div>
@@ -137,6 +140,9 @@ class ProductView {
 
   addToCart(addToCartFunction) {
     this.productModalBackground.addEventListener("click", addToCartFunction);
+  }
+  checkout(checkoutFunction) {
+    this.productModalBackground.addEventListener("click", checkoutFunction);
   }
 
   async notifDisplay(notif, type = "red") {
