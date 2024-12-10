@@ -1,5 +1,6 @@
 :root {
   --detail-font-size: clamp(1rem, 2vw, 1.25rem);
+  --modal-header: clamp(1rem, 1.5vw, 1.5rem);
 }
 body {
   min-height: 100vh;
@@ -161,3 +162,79 @@ main {
 .state5 {
   background: #32cd32;
 }
+.user-credentials-modal {
+  position: fixed;
+  z-index: 1100;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.user-credentials-background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+}
+.user-credentials-form {
+  position: absolute;
+  width: 24rem;
+  height: 24rem;
+  padding: 1rem;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.4);;
+}
+.modal-header {
+  font-size: var(--modal-header);
+}
+.modal-input {
+  all: unset;
+  flex: 1;
+  border: 1px solid var(--light-grey);
+  padding: 0.25rem 0.25rem;
+}
+.full-name {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  gap: 0.25rem;
+}
+.full-name > * {
+  width: 100%;
+}
+.change-credentials-button {
+  width: 100%;
+  text-align: center;
+  padding-block: 0.25rem;
+  color: var(--white);
+  background: var(--primary-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.change-credentials-button:hover {
+  translate: 0 -2px;
+}
+.change-credentials-button:active {
+  scale: 0.99;
+}
+/* 
+      <div class="user-credentials-modal">
+        <div class="user-credentials-background"></div>
+        <div class="user-credentials-form">
+          <h1 class="modal-header">CHANGE USER CREDENTIALS</h1>
+          <input type="text" class="modal-firstName" placeholder="firstName" />
+          <input type="text" class="modal-lastName" placeholder="lastName" />
+          <input type="text" class="modal-username" placeholder="username" />
+          <input type="text" class="modal-email" placeholder="email" />
+          <input type="text" class="modal-address" placeholder="address" />
+          <input type="text" class="modal-contact" placeholder="contact" />
+          <div class="change-credentials-button"></div>
+        </div>
+      </div>
+ */

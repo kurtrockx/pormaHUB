@@ -28,9 +28,9 @@ class AdminTransactionsView {
           .map((item) => {
             return `
             <div class="transaction-items-container">
-              ${item.name}(${item.quantity}) - ${item.size} - P${
+              ${item.name}(${item.quantity}) - ${item.size} - P${(
               item.quantity * item.price
-            }
+            ).toFixed(2)}
             </div>`;
           })
           .join("")}

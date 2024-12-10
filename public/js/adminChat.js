@@ -17,7 +17,7 @@ const renderUsers = async () => {
           <div class="user-name">${user.username}</div>
           <div class="user-email">${user.email}</div>
         </div>`;
-    userContainer.insertAdjacentHTML("beforeend", html);
+    userContainer.insertAdjacentHTML("afterbegin", html);
   });
 };
 

@@ -21,7 +21,13 @@ class UserModel {
       };
       this.cart = [];
       this.purchaseHistory = [];
-      this.chat = [];
+      this.chat = [
+        {
+          sender: "admin",
+          message:
+            "Welcome to Porma Hub!<br><br>We're thrilled to have you with us. Our team is here to provide you with the best possible service and support. Whether you have questions, need assistance, or just want to learn more about how we can help, feel free to reach out to us anytime.<br><br>How can we assist you today?",
+        },
+      ];
     }
   };
 
