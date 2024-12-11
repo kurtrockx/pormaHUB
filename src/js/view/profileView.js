@@ -3,6 +3,16 @@ class ProfileView {
   profileTabs;
   profileContentContainer;
   userName;
+  modalUserId;
+  modalFirstName;
+  modalLastName;
+  modalUsername;
+  modalEmail;
+  modalAddress;
+  modalContact;
+  changeCredentialsButton;
+  modalBackground;
+  userCredentialsModal;
 
   constructor() {
     this.profileTabsContainer = document.querySelector(
@@ -10,7 +20,22 @@ class ProfileView {
     );
     this.profileTabs = document.querySelectorAll(".profile-tab");
     this.profileContentContainer = document.querySelector(".profile-content");
-    this.userName = document.querySelector('.user-name-username')
+    this.userName = document.querySelector(".user-name-username");
+    this.modalFirstName = document.querySelector(".modal-firstName");
+    this.modalLastName = document.querySelector(".modal-lastName");
+    this.modalUsername = document.querySelector(".modal-username");
+    this.modalEmail = document.querySelector(".modal-email");
+    this.modalAddress = document.querySelector(".modal-address");
+    this.modalContact = document.querySelector(".modal-contact");
+    this.changeCredentialsButton = document.querySelector(
+      ".change-credentials-button"
+    );
+    this.modalBackground = document.querySelector(
+      ".user-credentials-background"
+    );
+    this.userCredentialsModal = document.querySelector(
+      ".user-credentials-modal"
+    );
   }
 
   switchTab(switchTabFunction) {
@@ -95,6 +120,7 @@ class ProfileView {
               <div class="detail-bold">Contact No.</div>
               <div class="detail-value">${user.contactNumber}</div>
             </div>
+            <button class="open-modal-button">CHANGE USER CREDENTIALS</button>
           </div>
 `;
   }
@@ -104,8 +130,22 @@ class ProfileView {
       this.noItemsHTML()
     );
   }
+
+  openModal(openModalFunction) {
+    this.profileContentContainer.addEventListener("click", openModalFunction);
+  }
   noItemsHTML() {
     return '<div class="no-items">No transactions in this account yet</div>';
+  }
+  changeCredentials(changeCredentialsFunction) {
+    this.changeCredentialsButton.addEventListener(
+      "click",
+      changeCredentialsFunction
+    );
+  }
+
+  closeModal(closeModalFunction) {
+    this.modalBackground.addEventListener("click", closeModalFunction);
   }
 }
 

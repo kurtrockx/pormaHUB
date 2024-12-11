@@ -1,6 +1,7 @@
 :root {
   --detail-font-size: clamp(1rem, 2vw, 1.25rem);
-  --modal-header: clamp(1rem, 1.5vw, 1.5rem);
+  --modal-header: clamp(1.25rem, 2vw, 2rem);
+  --modal-description: clamp(1rem, 1.5vw, 1.5rem);
 }
 body {
   min-height: 100vh;
@@ -178,8 +179,8 @@ main {
 }
 .user-credentials-form {
   position: absolute;
-  width: 24rem;
-  height: 24rem;
+  width: 36rem;
+  height: 32rem;
   padding: 1rem;
   top: 50%;
   left: 50%;
@@ -188,7 +189,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  box-shadow: 0 0 10px rgb(0, 0, 0, 0.4);;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.4);
 }
 .modal-header {
   font-size: var(--modal-header);
@@ -196,8 +197,9 @@ main {
 .modal-input {
   all: unset;
   flex: 1;
+  font-size: var(--modal-description);
   border: 1px solid var(--light-grey);
-  padding: 0.25rem 0.25rem;
+  padding: 0.25rem 0.75rem;
 }
 .full-name {
   flex: 1;
@@ -211,7 +213,7 @@ main {
 .change-credentials-button {
   width: 100%;
   text-align: center;
-  padding-block: 0.25rem;
+  padding-block: 1rem;
   color: var(--white);
   background: var(--primary-color);
   cursor: pointer;
@@ -221,6 +223,23 @@ main {
   translate: 0 -2px;
 }
 .change-credentials-button:active {
+  scale: 0.99;
+}
+.open-modal-button {
+  width: max-content;
+  margin-left: auto;
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+  border-radius: 0.25rem;
+  color: var(--white);
+  background: var(--primary-color);
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+.open-modal-button:hover {
+  translate: 0 -2px;
+}
+.open-modal-button:active {
   scale: 0.99;
 }
 /* 

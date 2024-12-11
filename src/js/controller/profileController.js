@@ -2,6 +2,12 @@ import ProfileView from "../view/profileView";
 import UserModel from "../model/userModel";
 import ProfileModel from "../model/profileModel";
 
+const checkCurrentUser = () => {
+  if (!UserModel.currentUser) {
+    window.location.href = "index.html";
+  }
+};
+
 const insertFullName = () => {
   const firstName = `${UserModel.currentUser.firstName
     .slice(0, 1)
@@ -94,15 +100,51 @@ const initialSet = () => {
   if (!currentTab) localStorage.setItem("profileTab", "users");
 };
 
+const modalData = () => {
+  return {
+    userId: UserModel.currentUser._id.$oid,
+    firstName: ProfileView.modalFirstName.value,
+    lastName: ProfileView.modalLastName.value,
+    username: ProfileView.modalUsername.value,
+    email: ProfileView.modalEmail.value,
+    address: ProfileView.modalAddress.value,
+    contactNumber: ProfileView.modalContact.value,
+  };
+};
+
+const changeUserCredentials = async () => {
+  const data = modalData();
+  await ProfileModel.changeUserCredentials(data);
+  await ProfileModel.setCurrentUser();
+
+  window.location.reload();
+};
+
+const openModalFunction = (e) => {
+  const openModalButton = e.target.closest(".open-modal-button");
+  if (!openModalButton) return;
+
+  ProfileView.userCredentialsModal.classList.remove("gone");
+};
+
+const closeModalFunction = () => {
+  ProfileView.userCredentialsModal.classList.add("gone");
+};
+
 const init = async () => {
+  checkCurrentUser();
+
   ProfileView.profileTabs.forEach((tab) => {
     tab.classList.remove("active-tab");
   });
 
-  initialSet();
   UserModel.pullUsersFromDB();
+  initialSet();
   insertFullName();
   checkCurrentTab();
   ProfileView.switchTab(switchTab);
+  ProfileView.changeCredentials(changeUserCredentials);
+  ProfileView.openModal(openModalFunction);
+  ProfileView.closeModal(closeModalFunction);
 };
 init();

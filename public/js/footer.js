@@ -16,9 +16,9 @@ const footerHTML = `
             <div class="quick-links-header">QUICK LINKS</div>
             <div class="quick-links-container">
               <a class="quick-links-links" href="profile.html">User Profile</a>
+              <a class="quick-links-links" href="cart.html">View Cart</a>
               <a class="quick-links-links" href="store.html">Store</a>
               <a class="quick-links-links" href="about.html">About Us</a>
-              <a class="quick-links-links" href="contact.html">Contact Us</a>
             </div>
           </div>
         </div>
