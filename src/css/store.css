@@ -195,6 +195,16 @@ main {
   main {
     padding: 2rem 0;
   }
+  .product-initial-name,
+  .product-initial-price {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 405px) {
+  .product-initial-name,
+  .product-initial-price {
+    font-size: 1.2rem;
+  }
 }
 @media screen and (max-width: 854px) {
   .search-window {
